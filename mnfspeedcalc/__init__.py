@@ -1,14 +1,15 @@
 from speedlist import SpeedList
 from trafficreader import TrafficReader
 import impute
-import xml.etree.ElementTree as ET
+import xml.etree.cElementTree as ET
 
 metro_config = 'test/metro_config.xml'
 
 # load tree from metro_config.xml
 tree = ET.parse(metro_config)
+root = tree.getroot()
 
-# throw out everything that is not a 'corridor'
+corridors = root.findall('corridor')
 
 # for each corridor
 
