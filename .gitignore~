@@ -21,5 +21,3 @@ dist
 *.tmp*
 .DS_Store
 test/
-
-mnfspeedcalc/trafficreader
