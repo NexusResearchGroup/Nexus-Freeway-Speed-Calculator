@@ -27,7 +27,9 @@ def gap_list(inputlist, gap_value=-1):
 				continue
 	
 	if in_gap:
-		yield gap_start, gap_enddef impute1(inputlist, gap_value=-1):
+		yield gap_start, gap_end
+
+def impute1(inputlist, gap_value=-1):
 	'''
 	Fills in single missing values by averaging adjacent values
 	'''
@@ -42,3 +44,30 @@ def gap_list(inputlist, gap_value=-1):
 	
 	return outputlist
 
+
+def impute3(inputlist):
+	outputlist = inputlist
+	
+	for gap_start, gap_end in gap_list(inputlist):
+		gap_length = gap_end - gap_start + 1
+		
+		if gap_length <=3:
+			pass
+		
+		else:
+			pass
+	
+	return outputlist
+
+def linear_regression
+
+if __name__ == "__main__":
+
+	testlist = [0,-1, 1,-1,-1,-1, 2,-1, 3, 4,-1,-1,-1, 5,-1]
+	
+	print "Test gap_list"
+	for index in gap_list(testlist):
+		print index
+		
+ 	print "Test impute1"
+	print impute1(testlist)
