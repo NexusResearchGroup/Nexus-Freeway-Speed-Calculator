@@ -14,12 +14,11 @@ def gap_list(inputlist, gap_value=-1):
 			if not in_gap:
 				in_gap = True
 				gap_start = i
-				gap_end  = i
 			else:
-				gap_end = i
 				continue
 		else:
 			if in_gap:
+				gap_end = i
 				yield gap_start, gap_end
 				in_gap = False
 				continue
