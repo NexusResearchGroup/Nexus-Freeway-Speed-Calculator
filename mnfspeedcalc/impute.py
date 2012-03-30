@@ -1,5 +1,20 @@
 from __future__ import division
 
+def remove_values(inputlist, targetvalue):
+	'''
+	Returns a copy of inputlist with all elements with value targetvalue removed
+	'''
+	outputlist = inputlist
+	
+	while True:
+		try:
+			i = outputlist.index(targetvalue)
+			del outputlist[i]
+		except ValueError:
+			break
+	
+	return outputlist
+
 def gap_list(inputlist, gap_value=-1):
 	'''
 	Returns a list of indices into inputlist that indicate the first in a sequence of elements with value gap_value
