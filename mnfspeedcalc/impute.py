@@ -48,9 +48,18 @@ def linear_regression(y):
 	'''
 	Returns a function that can generate new values based on parameters estimated using linear regression on the input values
 	'''
+	x = range(len(y))
+	
+	# first, remove any invalid (-1) data in y as well as the corresponding x values
+	while True:
+		try:
+			i = y.index(-1)
+			del y[i]
+			del x[i]
+		except ValueError:
+			break
 	
 	n = len(y)
-	x = range(n)
 	
 	numerator = (n * sum(xi * yi for xi, yi in zip(x, y))) - (sum(x) * sum(y))
 	denominator = (n * sum(xi**2 for xi in x)) - (sum(x)**2)
