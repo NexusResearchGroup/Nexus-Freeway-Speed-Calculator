@@ -27,7 +27,9 @@ def gap_list(inputlist, gap_value=-1):
 				continue
 	
 	if in_gap:
-		yield gap_start, gap_enddef impute1(inputlist, gap_value=-1):
+		yield gap_start, gap_end
+
+def impute1(inputlist, gap_value=-1):
 	'''
 	Fills in single missing values by averaging adjacent values
 	'''
