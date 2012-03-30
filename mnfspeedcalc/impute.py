@@ -172,6 +172,22 @@ def linear_regression(y, min_valid=1):
 		
 	return f
 
+def average_list(inputlist, block_size, max_invalid=1):
+	'''
+	Averages the input list into blocks of block_size. If more than max_invalid of the input elements in each block are invalid (-1), the resulting average block is invalid.
+	'''
+
+	outputlist = []
+	
+	for i in range(0, len(inputlist), block_size):
+		if inputlist.count(-1) > max_invalid:
+			outputlist.append(-1)
+		else:
+			block = remove_values(inputlist[i:i+block_size],-1)
+			outputlist.append(sum(block) / len(block))
+	
+	return outputlist
+	
 if __name__ == "__main__":
 
 	testlist = [0,-1, 1,-1,-1,-1, 2,-1, 3, 4,-1,-1,-1, 5,-1]
