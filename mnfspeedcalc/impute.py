@@ -27,4 +27,18 @@ def gap_list(inputlist, gap_value=-1):
 				continue
 	
 	if in_gap:
-		yield gap_start, gap_end
+		yield gap_start, gap_enddef impute1(inputlist, gap_value=-1):
+	'''
+	Fills in single missing values by averaging adjacent values
+	'''
+	outputlist = inputlist
+	
+	for i in range(1, len(inputlist) - 1):
+		if inputlist[i] == gap_value:
+			prev = inputlist[i-1]
+			next = inputlist[i+1]
+			if prev != gap_value and next != gap_value:
+				outputlist[i] = (prev + next) / 2
+	
+	return outputlist
+
