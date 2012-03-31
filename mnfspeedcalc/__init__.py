@@ -47,9 +47,10 @@ class TMS_Config:
 	def corridors(self):
 		return self.corridor_list
 	
-	def load_speeds(traffic_file):
-		for corridor in self.corridors:
-			corridor.load_speeds(traffic_file)
+	def load_speeds(self, traffic_file):
+		traffic_reader = TrafficReader(traffic_file)
+		for corridor in self.corridors():
+			corridor.load_speeds(traffic_reader)
 
 class Corridor:
 	
