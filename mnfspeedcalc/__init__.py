@@ -93,6 +93,10 @@ class Corridor:
 	def stations(self):
 		return self.station_list
 		
+	def load_speeds(self, traffic_reader):
+		for station in self.stations():
+			station.load_speeds(traffic_reader)
+			
 class Station:
 	
 	def __init__(self, station_node=None, verbose=False):
@@ -148,6 +152,20 @@ class Station:
 		
 	def speed_limit(self):
 		return self._speed_limit
+		
+	def load_speeds(self, traffic_reader):
+		# if there are no detectors for this station, give it a speed list of all invalid speeds
+		if len(self.detector_list) == 0:
+			self.speed_list = [-1] * 288
+		# otherwise, load the speeds from the detectors
+		else:
+			for detector in self.detectors():
+				detector.load_speeds(traffic_reader)
+				
+			speeds = impute.average_multilist(list(detector.speeds() for detector in self.detector_list))
+			speeds = impute.impute_range(speeds, impute_length=3, input_length=3)
+			speeds = impute.average_list(speeds, 5)
+			self.speed_list = impute.impute1(speeds)
 
 class Detector:
 	
@@ -183,6 +201,14 @@ class Detector:
 			
 	def speeds(self):
 		return self.speed_list
+		
+	def load_speeds(self, traffic_reader):
+		if self._verbose:
+			print str(self) + " loading speeds for detector " + str(self._id)
+		self.speed_list = traffic_reader.onemin_speeds_for_detector(detectorID=self._id, speed_limit=self._speed_limit)
+		if self._verbose:
+			print str(self) + " loaded one-minute speeds: " + str(self.speed_list)
+		
 
 if __name__ == "__main__":
 	testfile = "test/metro_config_short.xml"
