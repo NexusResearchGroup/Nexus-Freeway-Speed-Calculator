@@ -162,7 +162,7 @@ class Station:
 		if self._verbose:
 			print str(self) + " loading detectors"
 		for detector_node in self._node.findall("detector"):
-			self.add_detector(Detector(detector_node, speed_limit=0, verbose=self._verbose))
+			self.add_detector(Detector(detector_node, speed_limit=self._speed_limit, verbose=self._verbose))
 	
 	def add_detector(self, detector):
 		self.detector_list.append(detector)
