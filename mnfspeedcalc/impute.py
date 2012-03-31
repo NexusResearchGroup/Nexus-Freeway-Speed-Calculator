@@ -184,7 +184,29 @@ def average_list(inputlist, block_size, max_invalid=1):
 			outputlist.append(sum(block) / len(block))
 	
 	return outputlist
+
+def average_multilist(inputlists, max_invalid=1):
+	'''
+	Averages the corresponding elements of the input lists. If more than max_invalid of the input elements in each slot are invalid (-1), the resulting average is invalid.
+	'''
+
+	inputlist = zip(*inputlists)
+	outputlist = []
+
+	for i in range(len(inputlist)):
+		group = inputlist[i]
+		num_invalid = group.count(-1)
+		if len(group) <= 2 and num_invalid != 0:
+			outputlist.append(-1)
+		elif num_invalid > max_invalid:
+			outputlist.append(-1)
+		else:
+			clean_group = remove_values(list(group), -1)
+			outputlist.append(sum(clean_group) / len(clean_group))
+			
+	return outputlist
 	
+
 if __name__ == "__main__":
 
 	testlist = [0,-1, 1,-1,-1,-1, 2,-1, 3, 4,-1,-1,-1, 5,-1]
