@@ -167,6 +167,9 @@ class Station:
 	def add_detector(self, detector):
 		self.detector_list.append(detector)
 	
+	def detectors(self):
+		return self.detector_list
+	
 	def speeds(self):
 		return self.speed_list
 		
