@@ -1,4 +1,20 @@
 from __future__ import division
+from datetime import datetime
+
+class TMS_Config:
+	
+	def __init__(self, metro_config_file=""):
+		self._datetime = None
+		self._corridor_list = []
+		
+	def init_from_metro_config_file(self, metro_config_file):
+		pass
+
+	def add_corridor(self, corridor):
+		self._corridor_list.append(corridor)
+	
+	def corridors(self):
+		return self._corridor_list
 
 class Corridor:
 	
