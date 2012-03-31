@@ -234,5 +234,16 @@ class Detector:
 		
 
 if __name__ == "__main__":
-	testfile = "test/metro_config_short.xml"
-	test_config = TMS_Config(testfile, verbose=True)
+	testfile = "test/metro_config.xml"
+
+	def testing():
+		test_config = TMS_Config(testfile, verbose=False)
+		test_config.load_speeds('trafficreader/test/20100725.traffic')
+		for corridor in test_config.corridor_list:
+			corridor.spatial_impute()
+	
+	prof = cProfile.run('testing()', 'test_profile')
+	
+	p = pstats.Stats('test_profile')
+	p.sort_stats('cumulative').print_stats(10)
+	
