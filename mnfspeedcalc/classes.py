@@ -2,8 +2,9 @@ from __future__ import division
 
 class Corridor:
 	
-	def __init__(self, name=""):
-		self._name = name
+	def __init__(self, route="", dir=""):
+		self._route = route
+		self._dir = dir
 		self._station_list = []
 		
 	def add_station(self, station):
