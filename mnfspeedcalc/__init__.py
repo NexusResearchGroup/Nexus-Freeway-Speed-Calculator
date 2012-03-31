@@ -1,29 +1,184 @@
-from trafficreader import TrafficReader
-import impute
+from __future__ import division
+from datetime import datetime
 import xml.etree.cElementTree as ET
 
-metro_config = 'test/metro_config.xml'
-year = 2010
-
-# load tree from metro_config.xml
-tree = ET.parse(metro_config)
-root = tree.getroot()
-
-corridors = {}
-
-# Find all the defined corridors
-for corridor_node in root.findall('corridor'):
-	corridor_key = (corridor_node.get('route'), corridor_node.get('dir'))
-	print "Found corridor: " + str(corridor_key)
-	stations = {}
+class TMS_Config:
 	
-	# In this corridor, find all the r_nodes of type station that have an ID
-	for station_node in corridor_node.findall("r_node[@n_type='Station'][@station_id]"):
-		station_key = station_node.get('station_id')
-		print "    Found station: " + station_key
+	def __init__(self, metro_config_file=None, verbose=False):
+		self._verbose = verbose
+		if self._verbose:
+			print "Creating tms_config node " + str(self)
 		
-		# In this station, find all the detectors
-		for detector_node in station_node.findall("detector"): #filter on detector type=''?
-			detector_key = detector_node.get('name')
-			print "        Found detector: " + detector_key
+		if metro_config_file != None:
+			self.init_from_metro_config_file(metro_config_file)
+		else:
+			if self._verbose:
+				print str(self) + " set blank values"
+			self._timestamp = None
+			self._corridor_list = None
+			self._node = None
+		
+	def init_from_metro_config_file(self, metro_config_file):
+		if self._verbose:
+			print str(self) + " loading from file: " + metro_config_file
+		tree = ET.parse(metro_config_file)
+		self._node = tree.getroot()
+		
+		# get the date from the config file
+		time_string = self._node.get("time_stamp")
+		self._timestamp = datetime.strptime(time_string, "%a %b %d %H:%M:%S %Z %Y")
+		if self._verbose:
+			print str(self) + " set timestamp = " + str(self._timestamp)
+		
+		# find all the defined corridors in the config file
+		self._corridor_list = []
+		if self._verbose:
+			print str(self) + " loading corridors"
+		for corridor_node in self._node.findall('corridor'):
+			self.add_corridor(Corridor(corridor_node, verbose=self._verbose))
 
+	def add_corridor(self, corridor):
+		self._corridor_list.append(corridor)
+	
+	def corridors(self):
+		return self._corridor_list
+	
+	def load_speeds(traffic_file):
+		for corridor in self.corridors:
+			corridor.load_speeds(traffic_file)
+
+class Corridor:
+	
+	def __init__(self, corridor_node=None, verbose=False):
+		self._verbose = verbose
+		if self._verbose:
+			print "Creating corridor node " + str(self)
+			
+		if corridor_node != None:
+			self.init_from_corridor_node(corridor_node)
+		else:
+			if self._verbose:
+				print str(self) + " set blank values"
+			self._route = ""
+			self._dir = ""
+			self._station_list = []
+			self._node = None
+			
+	def init_from_corridor_node(self, corridor_node):
+		if self._verbose:
+			print str(self) + " loading from node: " + str(corridor_node)
+		self._node = corridor_node
+		
+		# get the corridor identifiers
+		self._route = self._node.get("route")
+		self._dir = self._node.get("dir")
+		if self._verbose:
+			print str(self) + " set route, dir = " + self._route + ", " + self._dir
+		
+		# get all the stations in this corridor
+		self._station_list = []
+		if self._verbose:
+			print str(self) + " loading stations"
+		for station_node in self._node.findall("r_node[@n_type='Station'][@station_id]"):
+			self.add_station(Station(station_node, self._verbose))
+		
+	def add_station(self, station):
+		self._station_list.append(station)
+		
+	def stations(self):
+		return self._station_list
+		
+class Station:
+	
+	def __init__(self, station_node=None, verbose=False):
+		self._verbose = verbose
+		if self._verbose:
+			print "Creating station node " + str(self)
+			
+		if station_node != None:
+			self.init_from_station_node(station_node)
+		else:
+			if self._verbose:
+				print str(self) + " set blank values"
+			self._id = ""
+			self._detector_list = []
+			self._speed_list = []
+			self._speed_limit = 0
+			self._latlon = (0,0)
+			
+	def init_from_station_node(self, station_node):
+		if self._verbose:
+			print str(self) + " loading from node: " + str(station_node)
+		self._node = station_node
+		
+		# get the id of this station
+		self._id = self._node.get("station_id")
+		if self._verbose:
+			print str(self) + " set id = " + self._id
+		
+		# get the speed limit of this station	
+		self._speed_limit = float(self._node.get("s_limit"))
+		if self._verbose:
+			print str(self) + " set speed_limit = " + str(self._speed_limit)
+		
+		# get the location of this station
+		lat = float(self._node.get("lat"))
+		lon = float(self._node.get("lon"))
+		self._latlon = (lat, lon)
+		if self._verbose:
+			print str(self) + " set latlon = " + str(self._latlon)
+			
+		# get all the detectors in this station
+		self._detector_list = []
+		if self._verbose:
+			print str(self) + " loading detectors"
+		for detector_node in self._node.findall("detector"):
+			self.add_detector(Detector(detector_node, speed_limit=0, verbose=self._verbose))
+	
+	def add_detector(self, detector):
+		self._detector_list.append(detector)
+	
+	def speeds(self):
+		return self._speed_list
+		
+	def speed_limit(self):
+		return self._speed_limit
+
+class Detector:
+	
+	def __init__(self, detector_node=None, speed_limit=0, verbose=False):
+		self._verbose = verbose
+		self._speed_limit = speed_limit
+		if self._verbose:
+			print "Creating detector node " + str(self)
+		
+		if detector_node != None:
+			self.init_from_detector_node(detector_node)
+		else:
+			if self._verbose:
+				print str(self) + " set blank values"
+			self._id = ""
+			self._speed_list = []
+			self._field_length = 0
+	
+	def init_from_detector_node(self, detector_node):
+		if self._verbose:
+			print str(self) + " loading from node: " + str(detector_node)
+		self._node = detector_node
+		
+		# get the id for this detector
+		self._id = self._node.get("name")
+		if self._verbose:
+			print str(self) + " set id = " + self._id
+		
+		# get the field length for this detector
+		self._field_length = float(self._node.get("field"))
+		if self._verbose:
+			print str(self) + " set field length = " + str(self._field_length)
+			
+	def speeds(self):
+		return self._speed_list
+
+if __name__ == "__main__":
+	testfile = "test/metro_config_short.xml"
+	test_config = TMS_Config(testfile, verbose=True)
