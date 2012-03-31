@@ -1,19 +1,11 @@
 from __future__ import division
+import itertools as IT
 
 def remove_values(inputlist, targetvalue):
 	'''
 	Returns a copy of inputlist with all elements with value targetvalue removed
 	'''
-	outputlist = inputlist
-	
-	while True:
-		try:
-			i = outputlist.index(targetvalue)
-			del outputlist[i]
-		except ValueError:
-			break
-	
-	return outputlist
+	return [x for x in inputlist if x != targetvalue]
 
 def gap_list(inputlist, gap_value=-1):
 	'''
