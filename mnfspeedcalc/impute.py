@@ -175,10 +175,12 @@ def average_list(inputlist, block_size, max_invalid=1):
 	outputlist = []
 	
 	for i in range(0, len(inputlist), block_size):
-		if inputlist.count(-1) > max_invalid:
+		block = inputlist[i:i+block_size]
+		
+		if block.count(-1) > max_invalid:
 			outputlist.append(-1)
 		else:
-			block = remove_values(inputlist[i:i+block_size],-1)
+			block = remove_values(block,-1)
 			outputlist.append(sum(block) / len(block))
 	
 	return outputlist
