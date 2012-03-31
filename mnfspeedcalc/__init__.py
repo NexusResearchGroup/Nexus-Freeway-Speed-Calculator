@@ -49,8 +49,17 @@ class TMS_Config:
 	
 	def load_speeds(self, traffic_file):
 		traffic_reader = TrafficReader(traffic_file)
-		for corridor in self.corridors():
+		for corridor in self.corridor_list:
 			corridor.load_speeds(traffic_reader)
+			
+	def print_speeds(self):
+		for corridor in self.corridor_list:
+			corridor.print_speeds()
+			
+	def spatial_impute(self):
+		for corridor in self.corridor_list:
+			corridor.spatial_impute()
+			
 
 class Corridor:
 	
@@ -94,8 +103,12 @@ class Corridor:
 		return self.station_list
 		
 	def load_speeds(self, traffic_reader):
-		for station in self.stations():
+		for station in self.station_list:
 			station.load_speeds(traffic_reader)
+			
+	def print_speeds(self):
+		for station in self.station_list:
+			station.print_speeds()
 			
 	def spatial_impute(self):
 		if len(self.station_list) == 0:
@@ -178,17 +191,21 @@ class Station:
 		
 	def load_speeds(self, traffic_reader):
 		# if there are no detectors for this station, give it a speed list of all invalid speeds
-		if len(self.detector_list) == 0:
+		if self.detector_list == []:
 			self.speed_list = [-1] * 288
 		# otherwise, load the speeds from the detectors
 		else:
 			for detector in self.detectors():
 				detector.load_speeds(traffic_reader)
 				
-			speeds = impute.average_multilist(list(detector.speeds() for detector in self.detector_list))
+			speeds = impute.average_multilist([detector.speeds() for detector in self.detector_list])
 			speeds = impute.impute_range(speeds, impute_length=3, input_length=3)
 			speeds = impute.average_list(speeds, 5)
 			self.speed_list = impute.impute1(speeds)
+			
+	def print_speeds(self):
+		print "Speeds for detector " + self._id
+		print str(self.speed_list)
 
 class Detector:
 	
@@ -234,16 +251,16 @@ class Detector:
 		
 
 if __name__ == "__main__":
-	testfile = "test/metro_config.xml"
+	testfile = "test/metro_config_short.xml"
 
 	def testing():
 		test_config = TMS_Config(testfile, verbose=False)
 		test_config.load_speeds('trafficreader/test/20100725.traffic')
-		for corridor in test_config.corridor_list:
-			corridor.spatial_impute()
+		test_config.spatial_impute()
+		#test_config.print_speeds()
 	
-	prof = cProfile.run('testing()', 'test_profile')
+	#prof = cProfile.run('testing()', 'test_profile')
+	#p = pstats.Stats('test_profile')
+	#p.sort_stats('cumulative').print_stats(10)
 	
-	p = pstats.Stats('test_profile')
-	p.sort_stats('cumulative').print_stats(10)
-	
+	testing()
