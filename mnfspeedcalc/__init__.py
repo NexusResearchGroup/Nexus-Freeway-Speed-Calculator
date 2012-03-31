@@ -19,7 +19,7 @@ class TMS_Config:
 			if self._verbose:
 				print str(self) + " set blank values"
 			self._timestamp = None
-			self._corridor_list = None
+			self.corridor_list = None
 			self._node = None
 		
 	def init_from_metro_config_file(self, metro_config_file):
@@ -35,17 +35,17 @@ class TMS_Config:
 			print str(self) + " set timestamp = " + str(self._timestamp)
 		
 		# find all the defined corridors in the config file
-		self._corridor_list = []
+		self.corridor_list = []
 		if self._verbose:
 			print str(self) + " loading corridors"
 		for corridor_node in self._node.findall('corridor'):
 			self.add_corridor(Corridor(corridor_node, verbose=self._verbose))
 
 	def add_corridor(self, corridor):
-		self._corridor_list.append(corridor)
+		self.corridor_list.append(corridor)
 	
 	def corridors(self):
-		return self._corridor_list
+		return self.corridor_list
 	
 	def load_speeds(traffic_file):
 		for corridor in self.corridors:
@@ -65,7 +65,7 @@ class Corridor:
 				print str(self) + " set blank values"
 			self._route = ""
 			self._dir = ""
-			self._station_list = []
+			self.station_list = []
 			self._node = None
 			
 	def init_from_corridor_node(self, corridor_node):
@@ -80,17 +80,17 @@ class Corridor:
 			print str(self) + " set route, dir = " + self._route + ", " + self._dir
 		
 		# get all the stations in this corridor
-		self._station_list = []
+		self.station_list = []
 		if self._verbose:
 			print str(self) + " loading stations"
 		for station_node in self._node.findall("r_node[@n_type='Station'][@station_id]"):
 			self.add_station(Station(station_node, self._verbose))
 		
 	def add_station(self, station):
-		self._station_list.append(station)
+		self.station_list.append(station)
 		
 	def stations(self):
-		return self._station_list
+		return self.station_list
 		
 class Station:
 	
@@ -105,8 +105,8 @@ class Station:
 			if self._verbose:
 				print str(self) + " set blank values"
 			self._id = ""
-			self._detector_list = []
-			self._speed_list = []
+			self.detector_list = []
+			self.speed_list = []
 			self._speed_limit = 0
 			self._latlon = (0,0)
 			
@@ -133,17 +133,17 @@ class Station:
 			print str(self) + " set latlon = " + str(self._latlon)
 			
 		# get all the detectors in this station
-		self._detector_list = []
+		self.detector_list = []
 		if self._verbose:
 			print str(self) + " loading detectors"
 		for detector_node in self._node.findall("detector"):
 			self.add_detector(Detector(detector_node, speed_limit=0, verbose=self._verbose))
 	
 	def add_detector(self, detector):
-		self._detector_list.append(detector)
+		self.detector_list.append(detector)
 	
 	def speeds(self):
-		return self._speed_list
+		return self.speed_list
 		
 	def speed_limit(self):
 		return self._speed_limit
@@ -162,7 +162,7 @@ class Detector:
 			if self._verbose:
 				print str(self) + " set blank values"
 			self._id = ""
-			self._speed_list = []
+			self.speed_list = []
 			self._field_length = 0
 	
 	def init_from_detector_node(self, detector_node):
@@ -181,7 +181,7 @@ class Detector:
 			print str(self) + " set field length = " + str(self._field_length)
 			
 	def speeds(self):
-		return self._speed_list
+		return self.speed_list
 
 if __name__ == "__main__":
 	testfile = "test/metro_config_short.xml"
