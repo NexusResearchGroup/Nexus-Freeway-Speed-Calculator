@@ -97,6 +97,26 @@ class Corridor:
 		for station in self.stations():
 			station.load_speeds(traffic_reader)
 			
+	def spatial_impute(self):
+		if len(self.station_list) == 0:
+			return
+
+		time_slots = range(len(self.station_list[0].speed_list))
+		for time_slot in time_slots:
+			station_speed_list = []
+			
+			# build the spatial list of speeds for this time slot
+			for station_sequence in range(len(self.station_list)):
+				station = self.station_list[station_sequence]
+				station_speed_list.append(station.speed_list[time_slot])
+			
+			# impute missing values
+			station_speed_list = impute.impute_range(station_speed_list, impute_length=4, input_length=1)
+
+			# give the imputed values back to the stations for this time slot
+			for station_sequence in range(len(self.station_list)):
+				self.station_list[station_sequence].speed_list[time_slot] = station_speed_list[station_sequence]
+			
 class Station:
 	
 	def __init__(self, station_node=None, verbose=False):
