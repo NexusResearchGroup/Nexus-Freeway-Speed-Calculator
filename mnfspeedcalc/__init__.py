@@ -1,6 +1,4 @@
-from speedlist import SpeedList
 from trafficreader import TrafficReader
-from datetime import date, timedelta
 import impute
 import xml.etree.cElementTree as ET
 

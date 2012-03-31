@@ -20,6 +20,5 @@ dist
 *.pyo
 *.tmp*
 .DS_Store
-test/
 *~
 mnfspeedcalc/trafficreader
