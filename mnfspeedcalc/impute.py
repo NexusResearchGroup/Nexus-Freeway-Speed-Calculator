@@ -201,4 +201,4 @@ if __name__ == "__main__":
 	print f(-1)
 	
 	print "Test impute_range"
-	print impute_range(testlist,3)	
+	print impute_range(testlist,3,3)	
