@@ -193,7 +193,7 @@ class Station:
 	def load_speeds(self, traffic_reader):
 		# if there are no detectors for this station, give it a speed list of all invalid speeds
 		if self.detector_list == []:
-			self.speed_list = [-1] * 288
+			self.speed_list = [None] * 288
 		# otherwise, load the speeds from the detectors
 		else:
 			for detector in self.detectors():

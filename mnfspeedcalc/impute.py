@@ -7,7 +7,7 @@ def remove_values(inputlist, targetvalue):
 	'''
 	return [x for x in inputlist if x != targetvalue]
 
-def gap_list(inputlist, gap_value=-1):
+def gap_list(inputlist, gap_value=None):
 	'''
 	Returns a list of indices into inputlist that indicate the first in a sequence of elements with value gap_value
 	'''
@@ -35,7 +35,7 @@ def gap_list(inputlist, gap_value=-1):
 	if in_gap:
 		yield gap_start, gap_end
 
-def impute1(inputlist, gap_value=-1):
+def impute1(inputlist, gap_value=None):
 	'''
 	Fills in single missing values by averaging adjacent values
 	'''
@@ -98,7 +98,7 @@ def impute_range(inputlist, impute_length, input_length):
 					left_list.append(regression_function(i - left))
 			except ValueError:
 				# if there aren't enough valid values nearby for regression, leave invalid values for this side of the gap
-				left_list = [-1] * impute_length
+				left_list = [None] * impute_length
 	
 			# now the right end
 			left = gap_end - input_length
@@ -114,7 +114,7 @@ def impute_range(inputlist, impute_length, input_length):
 					right_list.append(regression_function(i - left))
 			except ValueError:
 				# if there aren't enough valid values nearby for regression, leave invalid values for this side of the gap
-				right_list = [-1] * impute_length
+				right_list = [None] * impute_length
 			
 			# put the imputed values into the output
 			outputlist[gap_start:gap_start + impute_length] = left_list
@@ -128,9 +128,9 @@ def impute_range(inputlist, impute_length, input_length):
 				for i in overlaps:
 					left_value = left_list[i - gap_start]
 					right_value = right_list[impute_length - (gap_end - i)]
-					if left_value == -1:
+					if left_value == None:
 						outputlist[i] = right_value
-					if right_value == -1:
+					elif right_value == None:
 						outputlist[i] = left_value
 					else:
 						outputlist[i] = (left_value + right_value) / 2
@@ -143,10 +143,10 @@ def linear_regression(y, min_valid=1):
 	'''
 	x = range(len(y))
 	
-	# first, remove any invalid (-1) data in y as well as the corresponding x values
+	# first, remove any invalid (None) data in y as well as the corresponding x values
 	while True:
 		try:
-			i = y.index(-1)
+			i = y.index(None)
 			del y[i]
 			del x[i]
 		except ValueError:
@@ -169,7 +169,7 @@ def linear_regression(y, min_valid=1):
 
 def average_list(inputlist, block_size, max_invalid=1):
 	'''
-	Averages the input list into blocks of block_size. If more than max_invalid of the input elements in each block are invalid (-1), the resulting average block is invalid.
+	Averages the input list into blocks of block_size. If more than max_invalid of the input elements in each block are invalid (None), the resulting average block is invalid.
 	'''
 
 	outputlist = []
@@ -177,17 +177,17 @@ def average_list(inputlist, block_size, max_invalid=1):
 	for i in range(0, len(inputlist), block_size):
 		block = inputlist[i:i+block_size]
 		
-		if block.count(-1) > max_invalid:
-			outputlist.append(-1)
+		if block.count(None) > max_invalid:
+			outputlist.append(None)
 		else:
-			block = remove_values(block,-1)
+			block = remove_values(block,None)
 			outputlist.append(sum(block) / len(block))
 	
 	return outputlist
 
 def average_multilist(inputlists, max_invalid=1):
 	'''
-	Averages the corresponding elements of the input lists. If more than max_invalid of the input elements in each slot are invalid (-1), the resulting average is invalid.
+	Averages the corresponding elements of the input lists. If more than max_invalid of the input elements in each slot are invalid (None), the resulting average is invalid.
 	'''
 
 	inputlist = zip(*inputlists)
@@ -195,13 +195,13 @@ def average_multilist(inputlists, max_invalid=1):
 
 	for i in range(len(inputlist)):
 		group = inputlist[i]
-		num_invalid = group.count(-1)
+		num_invalid = group.count(None)
 		if len(group) <= 2 and num_invalid != 0:
-			outputlist.append(-1)
+			outputlist.append(None)
 		elif num_invalid > max_invalid:
-			outputlist.append(-1)
+			outputlist.append(None)
 		else:
-			clean_group = remove_values(list(group), -1)
+			clean_group = remove_values(list(group), None)
 			outputlist.append(sum(clean_group) / len(clean_group))
 			
 	return outputlist
@@ -209,7 +209,7 @@ def average_multilist(inputlists, max_invalid=1):
 
 if __name__ == "__main__":
 
-	testlist = [0,-1, 1,-1,-1,-1, 2,-1, 3, 4,-1,-1,-1, 5,-1]
+	testlist = [0,None, 1,None,None,None, 2,None, 3, 4,None,None,None, 5,None]
 	
 	print "Test gap_list"
 	for index in gap_list(testlist):
@@ -220,7 +220,7 @@ if __name__ == "__main__":
 	
 	print "Test linear_regression"
 	f = linear_regression((0,3,4,4,8,10))
-	print f(-1)
+	print f(None)
 	
 	print "Test impute_range"
 	print impute_range(testlist,3,3)	
