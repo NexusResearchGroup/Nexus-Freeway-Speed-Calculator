@@ -29,10 +29,11 @@ class TMS_Config:
 		self._node = tree.getroot()
 		
 		# get the date from the config file
-		time_string = self._node.get("time_stamp")
-		self._timestamp = datetime.strptime(time_string, "%a %b %d %H:%M:%S %Z %Y")
-		if self._verbose:
-			print str(self) + " set timestamp = " + str(self._timestamp)
+		# disabled due to platform variations
+		#time_string = self._node.get("time_stamp")
+		#self._timestamp = datetime.strptime(time_string, "%a %b %d %H:%M:%S %Z %Y")
+		#if self._verbose:
+		#	print str(self) + " set timestamp = " + str(self._timestamp)
 		
 		# find all the defined corridors in the config file
 		self.corridor_list = []
