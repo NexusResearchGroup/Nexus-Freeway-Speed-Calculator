@@ -2,6 +2,7 @@ from __future__ import division
 from datetime import date, timedelta
 from trafficreader import TrafficReader
 from os import path
+from collections import deque
 import cProfile
 import pstats
 import impute
@@ -113,6 +114,7 @@ class Corridor:
 			station.load_speeds(traffic_reader)
 
 	def load_speeds_for_year(self, year, directory):
+		self._year = year
 		for station in self.station_list:
 			station.load_speeds_for_year(year, directory)
 
@@ -124,21 +126,43 @@ class Corridor:
 		if len(self.station_list) == 0:
 			return
 
-		time_slots = range(len(self.station_list[0].speed_list))
-		for time_slot in time_slots:
-			station_speed_list = []
+		current_day = date(self._year, 1, 1)
+		last_day = date(self._year, 12, 31)
+		one_day = timedelta(days=1)
+		time_slots = range(len(self.station_list[0].speeds[current_day]))
 
-			# build the spatial list of speeds for this time slot
-			for station_sequence in range(len(self.station_list)):
-				station = self.station_list[station_sequence]
-				station_speed_list.append(station.speed_list[time_slot])
+		while current_day <= last_day:
+			for time_slot in time_slots:
+				station_speed_list = deque()
 
-			# impute missing values
-			station_speed_list = impute.impute_range(station_speed_list, impute_length=4, input_length=1)
+				# build the spatial list of speeds for this time slot for this day
+				for station_sequence in range(len(self.station_list)):
+					station = self.station_list[station_sequence]
+					station_speed_list.append(station.speeds[current_day][time_slot])
 
-			# give the imputed values back to the stations for this time slot
-			for station_sequence in range(len(self.station_list)):
-				self.station_list[station_sequence].speed_list[time_slot] = station_speed_list[station_sequence]
+				# impute missing values
+				station_speed_list = impute.impute_range(list(station_speed_list), impute_length=4, input_length=1)
+
+				# give the imputed values for this time slot on this day bask to the stations
+				for station_sequence in range(len(self.station_list)):
+					self.station_list[station_sequence].speeds[current_day][time_slot] = station_speed_list[station_sequence]
+
+			current_day = current_day + one_day
+
+		#for time_slot in time_slots:
+		#	station_speed_list = []
+		#
+		#	# build the spatial list of speeds for this time slot
+		#	for station_sequence in range(len(self.station_list)):
+		#		station = self.station_list[station_sequence]
+		#		station_speed_list.append(station.speed_list[time_slot])
+		#
+		#	# impute missing values
+		#	station_speed_list = impute.impute_range(station_speed_list, impute_length=4, input_length=1)
+		#
+		#	# give the imputed values back to the stations for this time slot
+		#	for station_sequence in range(len(self.station_list)):
+		#		self.station_list[station_sequence].speed_list[time_slot] = station_speed_list[station_sequence]
 
 class Station:
 
@@ -288,13 +312,13 @@ class Detector:
 		return speeds
 
 if __name__ == "__main__":
-	testfile = "test/metro_config_short.xml"
+	testfile = "test/metro_config.xml"
 	test_traffic_dir = "trafficreader/test"
 
 	def testing():
 		test_config = TMS_Config(testfile, verbose=False)
 		test_config.load_speeds_for_year(2010, test_traffic_dir)
-		#test_config.spatial_impute()
+		test_config.spatial_impute()
 		#test_config.print_speeds()
 
 	#prof = cProfile.run('testing()', 'test_profile')
