@@ -3,6 +3,7 @@ from datetime import date, timedelta, time
 from trafficreader import TrafficReader
 from os import path
 from collections import deque
+from numpy import *
 import cProfile
 import pstats
 import impute
