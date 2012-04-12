@@ -75,6 +75,10 @@ class TMS_Config:
 		for corridor in self.corridor_list:
 			corridor.spatial_impute()
 
+	def weekly_impute(self):
+		for corridor in self.corridor_list:
+			corridor.weekly_impute()
+
 
 class Corridor:
 
@@ -131,13 +135,18 @@ class Corridor:
 			station.print_speeds()
 
 	def spatial_impute(self):
+		# if there are no stations in this corridor, don't do anything
 		if len(self.station_list) == 0:
 			return
 
-		current_day = date(self._year, 1, 1)
-		last_day = date(self._year, 12, 31)
-		one_day = timedelta(days=1)
-		time_slots = range(len(self.station_list[0].speeds[current_day]))
+		# dimension 1 of speeds array is day
+		for day in range(self.speeds.shape[1]):
+			# dimension 2 of speeds array is timeslot
+			for timeslot in range(self.speeds.shape[2]):
+				# impute values along the spatial axis (dimension 0)
+				self.speeds[:, day, timeslot] = impute.impute_range(list(self.speeds[:, day, timeslot]),
+																	impute_length=4,
+																	input_length=1)
 
 		while current_day <= last_day:
 			for time_slot in time_slots:
@@ -162,22 +171,8 @@ class Corridor:
 		start_time_index = timeslot_from_time(start_time)
 		end_time_index = timeslot_from_time(end_time)
 
-		
 
-		#for time_slot in time_slots:
-		#	station_speed_list = []
-		#
-		#	# build the spatial list of speeds for this time slot
-		#	for station_sequence in range(len(self.station_list)):
-		#		station = self.station_list[station_sequence]
-		#		station_speed_list.append(station.speed_list[time_slot])
-		#
-		#	# impute missing values
-		#	station_speed_list = impute.impute_range(station_speed_list, impute_length=4, input_length=1)
-		#
-		#	# give the imputed values back to the stations for this time slot
-		#	for station_sequence in range(len(self.station_list)):
-		#		self.station_list[station_sequence].speed_list[time_slot] = station_speed_list[station_sequence]
+
 
 class Station:
 
@@ -240,13 +235,20 @@ class Station:
 		current_day = date(year, 1, 1)
 		last_day = date(year, 12, 31)
 		one_day = timedelta(days=1)
+		n_days = (last_day - current_day).days
 
-		while current_day <= last_day:
+		# initialize empty 2D array to hold speeds
+		# dimensions: date (n_days), timeslot (288 5-min slots)
+		self.speeds = empty((n_days, 288), dtype=object)
+
+		for day in range(n_days):
 			if self._verbose:
 				print "    Loading speeds for ", current_day
+
 			# If there are no detectors, there are no valid speeds
 			if self.detector_list == []:
 				day_speeds = [None] * 288
+			# Otherwise, load speeds from each detector
 			else:
 				try:
 					traffic_file = self.traffic_filename_from_date(current_day)
@@ -258,7 +260,7 @@ class Station:
 					# If there is no file for the given day, add a list of invalid speeds
 					day_speeds = [None] * 288
 
-			self.speeds[current_day] = day_speeds
+			self.speeds[day,:] = day_speeds
 			current_day = current_day + one_day
 
 	def load_speeds(self, traffic_reader):
