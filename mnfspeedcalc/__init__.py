@@ -216,9 +216,9 @@ class Station:
 		self.speeds = {}
 
 		# get the id of this station
-		self._id = self._node.get("station_id")
+		self.id = self._node.get("station_id")
 		if self._verbose:
-			print str(self) + " set id = " + self._id
+			print str(self) + " set id = " + self.id
 
 		# get the speed limit of this station
 		self._speed_limit = float(self._node.get("s_limit"))
@@ -253,7 +253,7 @@ class Station:
 
 	def load_speeds_for_year(self, year, directory):
 		if self._verbose:
-			print "Loading speeds for station ", self._id
+			print "Loading speeds for station ", self.id
 		current_day = date(year, 1, 1)
 		last_day = date(year, 12, 31)
 		one_day = timedelta(days=1)
@@ -300,7 +300,7 @@ class Station:
 			self.speed_list = impute.impute1(speeds)
 
 	def print_speeds(self):
-		print "Speeds for station " + self._id
+		print "Speeds for station " + self.id
 		dates = self.speeds.keys()
 		dates.sort()
 		for date in dates:
@@ -309,6 +309,7 @@ class Station:
 
 	def traffic_filename_from_date(self, date):
 		return date.strftime("%Y%m%d") + ".traffic"
+
 
 class Detector:
 
@@ -323,7 +324,7 @@ class Detector:
 		else:
 			if self._verbose:
 				print str(self) + " set blank values"
-			self._id = ""
+			self.id = ""
 			self.speed_list = []
 			self._field_length = 0
 
@@ -333,9 +334,9 @@ class Detector:
 		self._node = detector_node
 
 		# get the id for this detector
-		self._id = self._node.get("name")
+		self.id = self._node.get("name")
 		if self._verbose:
-			print str(self) + " set id = " + self._id
+			print str(self) + " set id = " + self.id
 
 		# get the field length for this detector
 		self._field_length = float(self._node.get("field"))
@@ -344,8 +345,8 @@ class Detector:
 
 	def load_speeds(self, traffic_reader):
 		if self._verbose:
-			print str(self) + " loading speeds for detector " + str(self._id)
-		speeds = traffic_reader.onemin_speeds_for_detector(detectorID=self._id, speed_limit=self._speed_limit)
+			print str(self) + " loading speeds for detector " + str(self.id)
+		speeds = traffic_reader.onemin_speeds_for_detector(detectorID=self.id, speed_limit=self._speed_limit)
 		if self._verbose:
 			print "loaded speeds: ", str(speeds)
 		return speeds
@@ -358,6 +359,7 @@ if __name__ == "__main__":
 		test_config = TMS_Config(testfile, verbose=False)
 		test_config.load_speeds_for_year(2010, test_traffic_dir)
 		test_config.spatial_impute()
+		test_config.weekly_impute()
 		#test_config.print_speeds()
 
 	#prof = cProfile.run('testing()', 'test_profile')
