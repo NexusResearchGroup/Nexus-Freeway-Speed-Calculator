@@ -8,6 +8,14 @@ import pstats
 import impute
 import xml.etree.cElementTree as ET
 
+def avg_list(input):
+	return sum(input) / len(input)
+
+def timeslot_from_time(input_time):
+	hour = input_time.hour
+	minute = (input_time.minute // 5)
+	return (hour * 12) + minute
+
 class TMS_Config:
 
 	def __init__(self, metro_config_file=None, verbose=False):
