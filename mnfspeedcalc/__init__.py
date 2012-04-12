@@ -1,5 +1,5 @@
 from __future__ import division
-from datetime import date, timedelta
+from datetime import date, timedelta, time
 from trafficreader import TrafficReader
 from os import path
 from collections import deque
@@ -139,15 +139,22 @@ class Corridor:
 				for station_sequence in range(len(self.station_list)):
 					station = self.station_list[station_sequence]
 					station_speed_list.append(station.speeds[current_day][time_slot])
+	def average_weekday_speeds_for_station(station_id, start_time=None, end_time=None):
+		# if no times were passed, average for the whole day
+		if start_time == None:
+			start_time = time(0, 0, 0)
+		if end_time == None:
+			end_time = time(23, 59, 59)
 
-				# impute missing values
-				station_speed_list = impute.impute_range(list(station_speed_list), impute_length=4, input_length=1)
+		# make sure times are valid
+		if start_time > end_time:
+			raise ValueError("Start time must be before end time")
 
-				# give the imputed values for this time slot on this day bask to the stations
-				for station_sequence in range(len(self.station_list)):
-					self.station_list[station_sequence].speeds[current_day][time_slot] = station_speed_list[station_sequence]
+		# convert times to timeslot indices
+		start_time_index = timeslot_from_time(start_time)
+		end_time_index = timeslot_from_time(end_time)
 
-			current_day = current_day + one_day
+		
 
 		#for time_slot in time_slots:
 		#	station_speed_list = []
