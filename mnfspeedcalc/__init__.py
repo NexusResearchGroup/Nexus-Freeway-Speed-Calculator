@@ -116,6 +116,11 @@ class Corridor:
 		for station_node in self._node.findall("r_node[@n_type='Station'][@station_id]"):
 			self.add_station(Station(station_node, self._verbose))
 
+		# build dictionary for mapping station index > id
+		self.station_index = {}
+		for i in range(len(self.station_list)):
+			self.station_index[i] = self.station_list[i].id
+
 	def add_station(self, station):
 		self.station_list.append(station)
 
@@ -128,8 +133,16 @@ class Corridor:
 
 	def load_speeds_for_year(self, year, directory):
 		self._year = year
-		for station in self.station_list:
-			station.load_speeds_for_year(year, directory)
+		current_day = date(year, 1,1)
+		last_day = date(year, 12, 31)
+		n_days = (last_day - current_day).days
+
+		# create 3D array to hold speeds
+		# dimensions: station (in spatial order), date, timeslot (288 5-min slots)
+		self.speeds = empty((len(self.station_list), n_days, 288), dtype=object)
+
+		for i in range(len(self.station_list)):
+			self.speeds[i,:,:] = self.station_list[i].load_speeds_for_year(year, directory)
 
 	def print_speeds(self):
 		for station in self.station_list:
@@ -149,14 +162,22 @@ class Corridor:
 																	impute_length=4,
 																	input_length=1)
 
-		while current_day <= last_day:
-			for time_slot in time_slots:
-				station_speed_list = deque()
+	def weekly_impute(self):
+		# if there are no station in this corridor, don't do anytihng
+		if len(self.station_list) == 0:
+			return
 
-				# build the spatial list of speeds for this time slot for this day
-				for station_sequence in range(len(self.station_list)):
-					station = self.station_list[station_sequence]
-					station_speed_list.append(station.speeds[current_day][time_slot])
+		# dimension 1 is day
+		# using the first 7 days as starting points, impute over station and time slot for every seventh day
+		for start_day in range(7):
+			# dimension 0 is station
+			for station in range(self.speeds.shape[0]):
+				# dimension 2 is timeslot
+				for timeslot in range(self.speeds.shape[2]):
+					self.speeds[station, start_day::7, timeslot] = impute.impute_range(list(self.speeds[station, start_day::7, timeslot]),
+																					   impute_length=3,
+																					   input_length=2)
+
 	def average_weekday_speeds_for_station(station_id, start_time=None, end_time=None):
 		# if no times were passed, average for the whole day
 		if start_time == None:
