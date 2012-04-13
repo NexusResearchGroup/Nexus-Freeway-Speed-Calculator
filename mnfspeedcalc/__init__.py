@@ -240,11 +240,35 @@ class Corridor:
 		if start_time > end_time:
 			raise ValueError("Start time must be before end time")
 
+		speed_dict = {}
+		for station_index in range(self.speeds.shape[0]):
+			id = self.station_indices[station_index]
+			speed_dict[id] = self.average_weekday_speed_for_station(station_index, start_time, end_time)
+
+		return speed_dict
+
+	def average_weekday_speed_for_station(self, station_index, start_time=None, end_time=None):
+		'''
+		For the specified station in this corridor, returns a single speed that represents the average of all valid speeds on weekdays between start_time and end_time.
+		'''
 		# convert times to timeslot indices
 		start_time_index = timeslot_from_time(start_time)
 		end_time_index = timeslot_from_time(end_time)
 
+		# get the index of the first monday in the current year
+		first_monday = index_of_first_monday_in_year(self.year)
 
+		# build a list of all weekday speeds during the specified time interval
+		selected_speeds = deque()
+		speeds = self.speeds
+		for offset in range(5):
+			day_index = first_monday + offset
+			# slice out the speeds for all stations, current day of week, specified time period
+			s = speeds[station_index, day_index::7, start_time_index:end_time_index].flatten()
+			selected_speeds.extend(list(s))
+
+		selected_speeds = impute.remove_values(selected_speeds, None)
+		return avg_list(list(selected_speeds))
 
 
 class Station:
