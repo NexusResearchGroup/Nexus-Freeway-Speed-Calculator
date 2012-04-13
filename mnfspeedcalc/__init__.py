@@ -173,8 +173,13 @@ class Corridor:
 			self.speeds[i,:,:] = self.station_list[i].load_speeds_for_year(year, directory)
 
 	def print_speeds(self):
-		for station in self.station_list:
-			station.print_speeds()
+		print "Speeds for corridor ", self._route, self._dir
+		for station_index in range(self.speeds.shape[0]):
+			station_id = self.station_indices[station_index]
+			print "  Speeds for station ", station_id
+			for day_index in range(self.speeds.shape[1]):
+				print "    Speeds for day ", day_index
+				print self.speeds[station_index, day_index, :]
 
 	def spatial_impute(self):
 		# if there are no stations in this corridor, don't do anything
