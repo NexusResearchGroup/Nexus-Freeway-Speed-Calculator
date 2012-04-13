@@ -14,6 +14,9 @@ def avg_list(input):
 	return sum(input) / len(input)
 
 def timeslot_from_time(input_time):
+	'''
+	Determines the 5-minute slot index of the given time of day, where 00:00:00 is index 0, 00:05:00 is index 1, and 23:55:00 is index 287
+	'''
 	hour = input_time.hour
 	minute = (input_time.minute // 5)
 	return (hour * 12) + minute
