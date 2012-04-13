@@ -99,6 +99,15 @@ class TMS_Config:
 		for corridor in self.corridor_list:
 			corridor.long_temporal_impute()
 
+	def average_weekday_speeds(self, start_time=None, end_time=None):
+		'''
+		Returns a dictionary mapping station ids to the average weekday speed for that station during the specified time interval
+		'''
+		average_speeds = {}
+		for corridor in self.corridor_list:
+			average_speeds.update(corridor.average_weekday_speeds(start_time, end_time))
+
+		return average_speeds
 
 class Corridor:
 
