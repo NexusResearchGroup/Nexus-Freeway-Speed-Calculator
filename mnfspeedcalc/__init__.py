@@ -122,9 +122,9 @@ class Corridor:
 			self.add_station(Station(station_node, self._verbose))
 
 		# build dictionary for mapping station index > id
-		self.station_index = {}
+		self.station_indices = {}
 		for i in range(len(self.station_list)):
-			self.station_index[i] = self.station_list[i].id
+			self.station_indices[i] = self.station_list[i].id
 
 	def add_station(self, station):
 		self.station_list.append(station)
