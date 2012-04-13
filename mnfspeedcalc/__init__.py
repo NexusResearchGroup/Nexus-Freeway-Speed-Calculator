@@ -276,9 +276,17 @@ class Station:
 				try:
 					traffic_file = self.traffic_filename_from_date(current_day)
 					tr = TrafficReader(path.join(directory, traffic_file))
+
+					# average 1min speeds across detectors
 					day_speeds = impute.average_multilist([detector.load_speeds(tr) for detector in self.detector_list])
+					# "short duration temporal linear regression" = impute gaps up to 3 slots long use adjacent values
 					day_speeds = impute.impute_range(day_speeds, impute_length=3, input_length=3)
+					# average 1min speeds to 5min speeds
 					day_speeds = impute.average_list(day_speeds, 5)
+					# "short duration temporal linear regression" again
+					day_speeds = impute.impute_range(day_speeds, impute_length=3, input_length=3)
+					# remove any single missing values by averaging adjacent values
+					day_speeds = impute.impute1(day_speeds)
 				except IOError:
 					# If there is no file for the given day, add a list of invalid speeds
 					day_speeds = [None] * 288
