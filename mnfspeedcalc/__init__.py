@@ -368,6 +368,8 @@ class Station:
 			self.speeds[day,:] = day_speeds
 			current_day = current_day + one_day
 
+		return self.speeds
+
 	def load_speeds(self, traffic_reader):
 		# if there are no detectors for this station, give it a speed list of all invalid speeds
 		if self.detector_list == []:
