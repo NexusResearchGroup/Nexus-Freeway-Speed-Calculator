@@ -18,6 +18,17 @@ def timeslot_from_time(input_time):
 	minute = (input_time.minute // 5)
 	return (hour * 12) + minute
 
+def index_of_first_monday_in_year(year):
+	'''
+	Determines the index of the first Monday in the given year, where January 1 is index 0.
+	'''
+	test_date = date(year, 1, 1)
+	one_day = timedelta(days=1)
+	for index in range(7):
+		# monday is weekday 0
+		if (test_date + (one_day * index)).weekday() == 0:
+			return index
+
 class TMS_Config:
 
 	def __init__(self, metro_config_file=None, verbose=False):
