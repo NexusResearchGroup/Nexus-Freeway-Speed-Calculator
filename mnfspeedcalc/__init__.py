@@ -187,11 +187,12 @@ class Corridor:
 			return
 
 		# dimension 1 of speeds array is day
-		for day in range(self.speeds.shape[1]):
+		speeds = self.speeds
+		for day in range(speeds.shape[1]):
 			# dimension 2 of speeds array is timeslot
-			for timeslot in range(self.speeds.shape[2]):
+			for timeslot in range(speeds.shape[2]):
 				# impute values along the spatial axis (dimension 0)
-				self.speeds[:, day, timeslot] = impute.impute_range(list(self.speeds[:, day, timeslot]),
+				speeds[:, day, timeslot] = impute.impute_range(list(speeds[:, day, timeslot]),
 																	impute_length=4,
 																	input_length=1)
 
@@ -202,12 +203,13 @@ class Corridor:
 
 		# dimension 1 is day
 		# using the first 7 days as starting points, impute over station and time slot for every seventh day
+		speeds = self.speeds
 		for start_day in range(7):
 			# dimension 0 is station
-			for station in range(self.speeds.shape[0]):
+			for station in range(speeds.shape[0]):
 				# dimension 2 is timeslot
-				for timeslot in range(self.speeds.shape[2]):
-					self.speeds[station, start_day::7, timeslot] = impute.impute_range(list(self.speeds[station, start_day::7, timeslot]),
+				for timeslot in range(speeds.shape[2]):
+					speeds[station, start_day::7, timeslot] = impute.impute_range(list(speeds[station, start_day::7, timeslot]),
 																					   impute_length=3,
 																					   input_length=2)
 
