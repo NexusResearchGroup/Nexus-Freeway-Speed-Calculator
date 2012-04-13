@@ -81,6 +81,10 @@ class TMS_Config:
 		for corridor in self.corridor_list:
 			corridor.weekly_impute()
 
+	def long_temporal_impute(self):
+		for corridor in self.corridor_list:
+			corridor.long_temporal_impute()
+
 
 class Corridor:
 
@@ -179,7 +183,23 @@ class Corridor:
 																					   impute_length=3,
 																					   input_length=2)
 
-	def average_weekday_speeds_for_station(station_id, start_time=None, end_time=None):
+	def long_temporal_impute(self):
+		# if there are no staions in this corridor don't do anything
+		if len(self.station_list) == 0:
+			return
+
+		# speed array dimensions: station, day, time
+		speeds = self.speeds
+		for station in range(speeds.shape[0]):
+			for day in range(speeds.shape[1]):
+				speeds[station, day, :] = impute.impute_range(list(speeds[station, day, :]),
+																   impute_length=6,
+																   input_length=6)
+
+	def average_weekday_speeds(self, start_time=None, end_time=None):
+		'''
+		Returns a dictionary mapping station ids to the average weekday speed for that station during the specified time interval
+		'''
 		# if no times were passed, average for the whole day
 		if start_time == None:
 			start_time = time(0, 0, 0)
