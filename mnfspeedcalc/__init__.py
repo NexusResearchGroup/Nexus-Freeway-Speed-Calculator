@@ -160,7 +160,7 @@ class Corridor:
 			station.load_speeds(traffic_reader)
 
 	def load_speeds_for_year(self, year, directory):
-		self._year = year
+		self.year = year
 		current_day = date(year, 1,1)
 		last_day = date(year, 12, 31)
 		n_days = (last_day - current_day).days
