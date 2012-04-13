@@ -436,8 +436,9 @@ class Detector:
 			print "loaded speeds: ", str(speeds)
 		return speeds
 
+
 if __name__ == "__main__":
-	testfile = "test/metro_config.xml"
+	testfile = "test/metro_config_short.xml"
 	test_traffic_dir = "trafficreader/test"
 
 	def testing():
@@ -445,6 +446,7 @@ if __name__ == "__main__":
 		test_config.load_speeds_for_year(2010, test_traffic_dir)
 		test_config.spatial_impute()
 		test_config.weekly_impute()
+		test_config.long_temporal_impute()
 		#pprint(test_config.average_weekday_speeds(start_time=time(hour=10), end_time=time(hour=12)), width=1)
 		#test_config.print_speeds()
 
