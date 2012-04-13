@@ -61,309 +61,951 @@
 <!ATTLIST dms lat CDATA #IMPLIED>
 ]>
 <tms_config time_stamp='Fri Mar 30 20:00:02 CDT 2012'>
-<corridor route='I-35' dir='NB'>
-  <r_node name='rnd_95210' station_id='S1585' label='210th St' lon='-93.29594' lat='44.64501' lanes='2' shift='3' s_limit='70'>
-    <detector name='6741' label='35/210StN1' lane='1' controller='35-81.84'/>
-    <detector name='6742' label='35/210StN2' lane='2' controller='35-81.84'/>
-  </r_node>
-  <r_node name='rnd_95021' n_type='Entrance' transition='Leg' label='210th St' lon='-93.29569' lat='44.64659' lanes='1' shift='3' s_limit='70'>
-    <detector name='6744' label='35/210StNM' category='M' controller='35-81.84'/>
-  </r_node>
-  <r_node name='rnd_95039' station_id='S1586' label='205th St' lon='-93.29447' lat='44.6534' lanes='2' shift='3' s_limit='70'>
-    <detector name='6745' label='35/205StN1' lane='1' field='35.0' controller='35-82.38'/>
-    <detector name='6747' label='35/205StN2' lane='2' field='29.0' controller='35-82.38'/>
-  </r_node>
-  <r_node name='rnd_95023' station_id='S1587' label='205th St' lon='-93.29442' lat='44.65369' lanes='2' shift='3' s_limit='70'>
-    <detector name='6746' label='35/205StNV1' category='V' lane='1' field='35.0' controller='35-82.38'/>
-    <detector name='6748' label='35/205StNV2' category='V' lane='2' field='29.0' controller='35-82.38'/>
-  </r_node>
-  <r_node name='rnd_95027' station_id='S1588' label='195th St' lon='-93.29389' lat='44.66636' lanes='2' shift='3' s_limit='70'>
-    <detector name='6749' label='35/195StN1' lane='1' field='35.0' controller='35-83.36'/>
-    <detector name='6750' label='35/195StN2' lane='2' field='27.0' controller='35-83.36'/>
-  </r_node>
-  <r_node name='rnd_95025' n_type='Exit' transition='Leg' label='Co Rd 60' lon='-93.29353' lat='44.67717' lanes='1' shift='3' s_limit='70'>
-    <detector name='6751' label='35/CR60NX' category='X' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_95037' n_type='Entrance' transition='Loop' label='Co Rd 60 EB' lon='-93.2933' lat='44.68052' lanes='1' shift='3' s_limit='70'>
-    <detector name='6752' label='35/EBCR60NM' category='M' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_95033' station_id='S1589' label='Co Rd 60' lon='-93.29318' lat='44.68251' lanes='2' shift='3' s_limit='70'>
-    <detector name='6753' label='35/CR60N1' lane='1' field='32.0' controller='ctl_60984'/>
-    <detector name='6754' label='35/CR60N2' lane='2' field='27.0' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_88687' station_id='S1094' label='Co Rd 60' lon='-93.29315' lat='44.68278' lanes='2' attach_side='left' shift='1' s_limit='70'>
-    <detector name='4450' label='35/CR60NV1' category='V' lane='1' field='34.5' controller='ctl_60984'/>
-    <detector name='4451' label='35/CR60NV2' category='V' lane='2' field='27.0' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_88689' n_type='Entrance' transition='Leg' label='Co Rd 60' lon='-93.29308' lat='44.6842' lanes='1' shift='3' s_limit='70'>
-    <detector name='4452' label='35/CR60NM' category='M' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_185' lon='-93.29229' lat='44.68987' lanes='2' shift='3' s_limit='70'/>
-  <r_node name='rnd_88691' n_type='Exit' transition='Leg' label='Co Rd 50' lon='-93.28982' lat='44.69472' lanes='1' shift='3' s_limit='70'>
-    <detector name='4449' label='35/CR50NX' category='X'/>
-  </r_node>
-  <r_node name='rnd_88693' station_id='S1095' label='Co Rd 50' lon='-93.28778' lat='44.69835' lanes='2' shift='3' s_limit='70'>
-    <detector name='4453' label='35/CR50N1' lane='1' field='27.0' controller='ctl_60985'/>
-    <detector name='4454' label='35/CR50N2' lane='2' field='30.0' controller='ctl_60985'/>
-  </r_node>
-  <r_node name='rnd_88695' n_type='Entrance' transition='Leg' label='Co Rd 50' lon='-93.287' lat='44.69973' lanes='1' shift='3' s_limit='70'>
-    <detector name='4455' label='35/CR50NM' category='M' controller='ctl_60985'/>
-  </r_node>
-  <r_node name='rnd_88697' label='S of Co Rd 46' lon='-93.28474' lat='44.70744' lanes='3' attach_side='left' s_limit='70'/>
-  <r_node name='rnd_88699' n_type='Exit' transition='Loop' label='Co Rd 46' lon='-93.28319' lat='44.71498' lanes='1' shift='3' s_limit='70'>
-    <detector name='4456' label='35/CR46NX' category='X' controller='ctl_60983'/>
-  </r_node>
-  <r_node name='rnd_88705' station_id='S1096' label='Co Rd 46' lon='-93.28269' lat='44.71644' lanes='3' shift='3' s_limit='70'>
-    <detector name='4457' label='35/CR46N1' lane='1' field='30.2' controller='ctl_60983'/>
-    <detector name='4458' label='35/CR46N2' lane='2' field='33.0' controller='ctl_60983'/>
-    <detector name='4459' label='35/CR46N3' lane='3' field='27.5' controller='ctl_60983'/>
-  </r_node>
-  <r_node name='rnd_88701' n_type='Entrance' transition='Leg' label='Co Rd 46' lon='-93.28207' lat='44.7184' lanes='1' shift='3' s_limit='70'>
-    <detector name='4460' label='35/CR46NP' category='P' controller='ctl_60983'/>
-    <detector name='4461' label='35/CR46NB' category='B' controller='ctl_60983'/>
-  </r_node>
-  <r_node name='rnd_1326' lon='-93.28147' lat='44.72043' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_1327' lon='-93.28141' lat='44.72229' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_88707' n_type='Exit' transition='Leg' label='Crystal Lake Rd' lon='-93.2823' lat='44.72695' lanes='1' shift='3' s_limit='70'>
-    <detector name='3870' label='35/CrystlNX' category='X' controller='ctl_60997'/>
-  </r_node>
-  <r_node name='rnd_88709' station_id='S910' label='Crystal Lake Rd' lon='-93.28285' lat='44.72996' lanes='3' shift='3' s_limit='70'>
-    <detector name='3871' label='35/CrystlN1' lane='1' field='27.7' controller='ctl_60997'/>
-    <detector name='3872' label='35/CrystlN2' lane='2' field='34.0' controller='ctl_60997'/>
-    <detector name='3873' label='35/CrystlN3' lane='3' field='28.8' controller='ctl_60997'/>
-  </r_node>
-  <r_node name='rnd_284' lon='-93.28329' lat='44.73259' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_89591' n_type='Exit' label='I-35E NB' lon='-93.28318' lat='44.73688' lanes='2' shift='2' s_limit='70' forks='rnd_91017'/>
-  <r_node name='rnd_91013' n_type='Exit' transition='Common' label='I-35W NB' lon='-93.28318' lat='44.73689' lanes='2' attach_side='left' s_limit='70' forks='rnd_91015'/>
-  <r_node name='rnd_94559' n_type='Entrance' transition='Common' label='I-35E NB' lon='-93.02769' lat='45.22228' lanes='2' shift='4' s_limit='70'/>
-  <r_node name='rnd_94557' n_type='Entrance' label='I-35W NB' lon='-93.02782' lat='45.22271' lanes='2' attach_side='left' s_limit='70'/>
-  <r_node name='rnd_95429' station_id='S1591' label='N of I-35W' lon='-93.02812' lat='45.2317' lanes='3' shift='4' s_limit='70'>
-    <detector name='6621' label='35/N35WN1' lane='1' field='32.0' controller='ctl_0005'/>
-    <detector name='6623' label='35/N35WN2' lane='2' field='34.6' controller='ctl_0005'/>
-    <detector name='6625' label='35/N35WN3' lane='3' field='31.7' controller='ctl_0005'/>
-  </r_node>
-  <r_node name='rnd_94537' station_id='S1505' label='N of I-35W' lon='-93.02809' lat='45.23404' lanes='3' shift='4' s_limit='70'>
-    <detector name='6622' label='35/N35WNV1' category='V' lane='1' controller='ctl_0005'/>
-    <detector name='6624' label='35/N35WNV2' category='V' lane='2' controller='ctl_0005'/>
-    <detector name='6626' label='35/N35WNV3' category='V' lane='3' field='31.7' controller='ctl_0005'/>
-  </r_node>
-  <r_node name='rnd_94525' station_id='S1506' label='S of Co Rd 23' lon='-93.02798' lat='45.24119' lanes='3' shift='4' s_limit='70'>
-    <detector name='6627' label='35/SCR23N1' lane='1' field='34.7' controller='ctl_0006'/>
-    <detector name='6628' label='35/SCR23N2' lane='2' field='33.4' controller='ctl_0006'/>
-    <detector name='6629' label='35/SCR23N3' lane='3' field='29.5' controller='ctl_0006'/>
-  </r_node>
-  <r_node name='rnd_94551' n_type='Exit' transition='Leg' label='Co Rd 23' lon='-93.0251' lat='45.24913' lanes='1' shift='4' s_limit='70'>
-    <detector name='6630' label='35/CR23NX' category='X' field='20.0' controller='ctl_0007'/>
-  </r_node>
-  <r_node name='rnd_94549' station_id='S1507' label='Co Rd 23' lon='-93.02447' lat='45.25034' lanes='3' shift='4' s_limit='70'>
-    <detector name='6631' label='35/CR23N1' lane='1' field='35.0' controller='ctl_0007'/>
-    <detector name='6632' label='35/CR23N2' lane='2' field='34.4' controller='ctl_0007'/>
-    <detector name='6633' label='35/CR23N3' lane='3' field='33.4' controller='ctl_0007'/>
-  </r_node>
-  <r_node name='rnd_94535' n_type='Entrance' transition='Leg' label='Co Rd 23' lon='-93.02317' lat='45.25275' lanes='1' shift='4' s_limit='70'>
-    <detector name='6634' label='35/CR23NM' category='M' controller='ctl_0007'/>
-  </r_node>
-  <r_node name='rnd_1301' lon='-93.02164' lat='45.25565' lanes='3' shift='4' s_limit='70'/>
-  <r_node name='rnd_1300' lon='-93.01969' lat='45.25759' lanes='3' shift='4' s_limit='70'/>
-  <r_node name='rnd_1299' lon='-93.01742' lat='45.2589' lanes='3' shift='4' s_limit='70'/>
-  <r_node name='rnd_94545' station_id='S1508' label='N of Co Rd 23' lon='-93.01421' lat='45.2605' lanes='3' shift='4' s_limit='70'>
-    <detector name='6635' label='35/NCR23N1' lane='1' field='32.5' controller='ctl_0008'/>
-    <detector name='6636' label='35/NCR23N2' lane='2' field='33.4' controller='ctl_0008'/>
-    <detector name='6637' label='35/NCR23N3' lane='3' field='30.5' controller='ctl_0008'/>
-  </r_node>
-  <r_node name='rnd_1298' lon='-93.01249' lat='45.26171' lanes='3' shift='4' s_limit='70'/>
-  <r_node name='rnd_94531' station_id='S1509' label='S of Co Rd 2' lon='-93.00872' lat='45.26852' lanes='3' shift='4' s_limit='70'>
-    <detector name='6638' label='35/SCR2N1' lane='1' field='31.0' controller='ctl_0009'/>
-    <detector name='6639' label='35/SCR2N2' lane='2' field='30.0' controller='ctl_0009'/>
-    <detector name='6640' label='35/SCR2N3' lane='3' field='27.8' controller='ctl_0009'/>
-  </r_node>
-  <r_node name='rnd_94547' n_type='Exit' transition='Leg' label='Co Rd 2' lon='-93.00356' lat='45.27841' lanes='1' shift='4' s_limit='70'>
-    <detector name='6641' label='35/CR2NX' category='X' controller='ctl_0010'/>
-  </r_node>
-  <r_node name='rnd_94529' station_id='S1510' label='Co Rd 2' lon='-93.0032' lat='45.2796' lanes='3' shift='4' s_limit='70'>
-    <detector name='6642' label='35/CR2N1' lane='1' field='33.0' controller='ctl_0010'/>
-    <detector name='6643' label='35/CR2N2' lane='2' field='35.5' controller='ctl_0010'/>
-    <detector name='6644' label='35/CR2N3' lane='3' field='30.5' controller='ctl_0010'/>
-  </r_node>
-  <r_node name='rnd_94539' n_type='Entrance' transition='Leg' label='Co Rd 2' lon='-93.00315' lat='45.28121' lanes='1' shift='4' s_limit='70'>
-    <detector name='6645' label='35/CR2NM' category='M' controller='ctl_0010'/>
-  </r_node>
-  <r_node name='rnd_94541' n_type='Exit' label='U.S.8' lon='-93.00291' lat='45.28676' lanes='1' shift='3' s_limit='70'>
-    <detector name='6646' label='35/US8NX' category='X' controller='ctl_0011'/>
-  </r_node>
-  <r_node name='rnd_94543' station_id='S1511' label='U.S.8' lon='-93.00283' lat='45.28773' lanes='2' shift='3' s_limit='70'>
-    <detector name='6647' label='35/US8N1' lane='1' field='33.0' controller='ctl_0011'/>
-    <detector name='6648' label='35/US8N2' lane='2' field='38.0' controller='ctl_0011'/>
-  </r_node>
-  <r_node name='rnd_94527' station_id='S1512' label='N of U.S.8' lon='-93.00265' lat='45.30405' lanes='2' shift='3' s_limit='70'>
-    <detector name='6649' label='35/NUS8N1' lane='1' field='33.0' controller='ctl_0012'/>
-    <detector name='6650' label='35/NUS8N2' lane='2' field='33.0' controller='ctl_0012'/>
-  </r_node>
-  <r_node name='rnd_94523' station_id='S1513' label='S of Co Rd 22' lon='-93.00323' lat='45.32488' lanes='2' shift='3' s_limit='70'>
-    <detector name='6651' label='35/SCR22N1' lane='1' field='30.0' controller='ctl_0013'/>
-    <detector name='6652' label='35/SCR22N2' lane='2' field='25.3' controller='ctl_0013'/>
-  </r_node>
-  <r_node name='rnd_94533' n_type='Exit' transition='Leg' label='Co Rd 22' lon='-93.00443' lat='45.33447' lanes='1' shift='3' s_limit='70'>
-    <detector name='6653' label='35/CR22NX' category='X' controller='ctl_0014'/>
-  </r_node>
-  <r_node name='rnd_94555' station_id='S1514' label='Co Rd 22' lon='-93.00444' lat='45.33666' lanes='2' shift='3' s_limit='70'>
-    <detector name='6654' label='35/CR22N1' lane='1' field='30.0' controller='ctl_0014'/>
-    <detector name='6655' label='35/CR22N2' lane='2' field='25.4' controller='ctl_0014'/>
-  </r_node>
-  <r_node name='rnd_94553' n_type='Entrance' transition='Leg' label='Co Rd 22' lon='-93.00443' lat='45.33831' lanes='1' shift='3' s_limit='70'>
-    <detector name='6656' label='35/CR22NM' category='M' controller='ctl_0014'/>
-  </r_node>
-</corridor>
-<corridor route='I-35' dir='SB'>
-  <r_node name='rnd_94603' label='N of Co Rd 22' lon='-93.0047' lat='45.33975' lanes='2' shift='2' s_limit='70'/>
-  <r_node name='rnd_94569' n_type='Exit' label='Co Rd 22' lon='-93.00482' lat='45.3385' lanes='1' shift='2' s_limit='70'>
-    <detector name='6659' label='35/CR22SX' category='X' controller='ctl_0014'/>
-  </r_node>
-  <r_node name='rnd_94573' station_id='S1520' label='Co Rd 22' lon='-93.00482' lat='45.33666' lanes='2' shift='2' s_limit='70'>
-    <detector name='6660' label='35/CR22S1' lane='1' field='30.4' controller='ctl_0014'/>
-    <detector name='6661' label='35/CR22S2' lane='2' field='24.5' controller='ctl_0014'/>
-  </r_node>
-  <r_node name='rnd_94597' n_type='Entrance' transition='Leg' label='Co Rd 22' lon='-93.00482' lat='45.33417' lanes='1' shift='2' s_limit='70'>
-    <detector name='6662' label='35/CR22SM' category='M' controller='ctl_0014'/>
-  </r_node>
-  <r_node name='rnd_94583' station_id='S1521' label='S of Co Rd 22' lon='-93.00357' lat='45.32399' lanes='2' shift='2' s_limit='70'>
-    <detector name='6663' label='35/SCR22S1' lane='1' field='30.5' controller='ctl_0013'/>
-    <detector name='6664' label='35/SCR22S2' lane='2' field='25.5' controller='ctl_0013'/>
-  </r_node>
-  <r_node name='rnd_94593' station_id='S1522' label='N of U.S.8' lon='-93.00296' lat='45.30381' lanes='2' shift='2' s_limit='70'>
-    <detector name='6665' label='35/NUS8S1' lane='1' field='31.9' controller='ctl_0012'/>
-    <detector name='6666' label='35/NUS8S2' lane='2' field='26.5' controller='ctl_0012'/>
-  </r_node>
-  <r_node name='rnd_94587' station_id='S1523' label='U.S.8' lon='-93.00319' lat='45.28854' lanes='2' shift='2' s_limit='70'>
-    <detector name='6668' label='35/US8S1' lane='1' field='32.5' controller='ctl_0011'/>
-    <detector name='6669' label='35/US8S2' lane='2' field='30.5' controller='ctl_0011'/>
-  </r_node>
-  <r_node name='rnd_94579' n_type='Entrance' transition='Flyover' label='U.S.8' lon='-93.00328' lat='45.28551' lanes='1' shift='3' s_limit='70'>
-    <detector name='6667' label='35/US8SM' category='M' field='26.5' controller='ctl_0011'/>
-  </r_node>
-  <r_node name='rnd_94571' n_type='Exit' transition='Leg' label='Co Rd 2' lon='-93.00347' lat='45.28104' lanes='1' shift='3' s_limit='70'>
-    <detector name='6670' label='35/CR2SX' category='X' controller='ctl_0010'/>
-  </r_node>
-  <r_node name='rnd_94577' station_id='S1524' label='Co Rd 2' lon='-93.00363' lat='45.27951' lanes='3' shift='3' s_limit='70'>
-    <detector name='6671' label='35/CR2S1' lane='1' field='34.5' controller='ctl_0010'/>
-    <detector name='6672' label='35/CR2S2' lane='2' field='32.5' controller='ctl_0010'/>
-    <detector name='6673' label='35/CR2S3' lane='3' field='27.8' controller='ctl_0010'/>
-  </r_node>
-  <r_node name='rnd_94585' n_type='Entrance' transition='Leg' label='Co Rd 2' lon='-93.00427' lat='45.27771' lanes='1' shift='3' s_limit='70'>
-    <detector name='6674' label='35/CR2SM' category='M' controller='ctl_0010'/>
-  </r_node>
-  <r_node name='rnd_94589' station_id='S1525' label='S of Co Rd 2' lon='-93.00913' lat='45.26859' lanes='3' shift='3' s_limit='70'>
-    <detector name='6675' label='35/SCR2S1' lane='1' field='30.8' controller='ctl_0009'/>
-    <detector name='6676' label='35/SCR2S2' lane='2' field='29.5' controller='ctl_0009'/>
-    <detector name='6677' label='35/SCR2S3' lane='3' field='28.0' controller='ctl_0009'/>
-  </r_node>
-  <r_node name='rnd_94575' station_id='S1526' label='N of Co Rd 23' lon='-93.01328' lat='45.26145' lanes='3' shift='3' s_limit='70'>
-    <detector name='6678' label='35/NCR23S1' lane='1' field='28.0' controller='ctl_0008'/>
-    <detector name='6679' label='35/NCR23S2' lane='2' field='34.4' controller='ctl_0008'/>
-    <detector name='6680' label='35/NCR23S3' lane='3' field='31.4' controller='ctl_0008'/>
-  </r_node>
-  <r_node name='rnd_1297' lon='-93.01433' lat='45.2608' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_1296' lon='-93.01773' lat='45.25911' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_1295' lon='-93.01998' lat='45.25779' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_1294' lon='-93.02198' lat='45.25578' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_94565' n_type='Exit' transition='Leg' label='Co Rd 23' lon='-93.02323' lat='45.25348' lanes='1' shift='3' s_limit='70'>
-    <detector name='6681' label='35/CR23SX' category='X' controller='ctl_0007'/>
-  </r_node>
-  <r_node name='rnd_94581' station_id='S1527' label='Co Rd 23' lon='-93.02505' lat='45.24992' lanes='3' shift='3' s_limit='70'>
-    <detector name='6682' label='35/CR23S1' lane='1' field='34.0' controller='ctl_0007'/>
-    <detector name='6683' label='35/CR23S2' lane='2' field='34.0' controller='ctl_0007'/>
-    <detector name='6684' label='35/CR23S3' lane='3' field='28.7' controller='ctl_0007'/>
-  </r_node>
-  <r_node name='rnd_94591' n_type='Entrance' transition='Leg' label='Co Rd 23' lon='-93.02591' lat='45.24825' lanes='1' shift='3' s_limit='70'>
-    <detector name='6685' label='35/CR23SM1' category='M' lane='1' controller='ctl_0007'/>
-  </r_node>
-  <r_node name='rnd_1293' lon='-93.02737' lat='45.24525' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_94595' station_id='S1528' label='S of Co Rd 23' lon='-93.02849' lat='45.24047' lanes='3' shift='3' s_limit='70'>
-    <detector name='6686' label='35/SCR23S1' lane='1' field='35.6' controller='ctl_0006'/>
-    <detector name='6687' label='35/SCR23S2' lane='2' field='32.0' controller='ctl_0006'/>
-    <detector name='6688' label='35/SCR23S3' lane='3' field='29.0' controller='ctl_0006'/>
-  </r_node>
-  <r_node name='rnd_94567' station_id='S1529' label='N of I-35W' lon='-93.02885' lat='45.23051' lanes='3' shift='3' s_limit='70'>
-    <detector name='6689' label='35/N35WS1' lane='1' field='31.0' controller='ctl_0005'/>
-    <detector name='6691' label='35/N35WS2' lane='2' field='36.0' controller='ctl_0005'/>
-    <detector name='6693' label='35/N35WS3' lane='3' field='30.9' controller='ctl_0005'/>
-  </r_node>
-  <r_node name='rnd_95427' station_id='S1590' label='N of I-35W' lon='-93.02885' lat='45.23037' lanes='3' shift='3' s_limit='70'>
-    <detector name='6690' label='35/N35WSV1' category='V' lane='1' controller='ctl_0005'/>
-    <detector name='6692' label='35/N35WSV2' category='V' lane='2' field='36.0' controller='ctl_0005'/>
-    <detector name='6694' label='35/N35WSV3' category='V' lane='3' controller='ctl_0005'/>
-  </r_node>
-  <r_node name='rnd_94599' n_type='Exit' label='I-35W SB' lon='-93.02912' lat='45.22241' lanes='2' shift='2' s_limit='70' forks='rnd_318'/>
-  <r_node name='rnd_94601' n_type='Exit' transition='Common' label='I-35E SB' lon='-93.02912' lat='45.22223' lanes='2' attach_side='left' s_limit='70' forks='rnd_286'/>
-  <r_node name='rnd_88711' n_type='Entrance' transition='Common' label='I-35W SB' lon='-93.28348' lat='44.73259' lanes='2' attach_side='left' s_limit='70'/>
-  <r_node name='rnd_89593' n_type='Entrance' transition='Leg' label='I-35E SB' lon='-93.28344' lat='44.73237' lanes='2' shift='3' s_limit='70'/>
-  <r_node name='rnd_88713' station_id='S916' label='Crystal Lake Rd' lon='-93.28301' lat='44.72992' lanes='3' shift='3' s_limit='70'>
-    <detector name='3882' label='35/CrystlS1' lane='1' field='26.7' controller='ctl_60997'/>
-    <detector name='3883' label='35/CrystlS2' lane='2' field='34.0' controller='ctl_60997'/>
-    <detector name='3884' label='35/CrystlS3' lane='3' field='26.0' controller='ctl_60997'/>
-  </r_node>
-  <r_node name='rnd_88715' n_type='Entrance' transition='Leg' label='Crystal Lake Rd' lon='-93.28245' lat='44.72686' lanes='1' shift='3' s_limit='70'>
-    <detector name='3885' label='35/CrystlSM' category='M' controller='ctl_60997'/>
-  </r_node>
-  <r_node name='rnd_1329' lon='-93.2818' lat='44.72226' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_1328' lon='-93.28186' lat='44.72046' lanes='3' shift='3' s_limit='70'/>
-  <r_node name='rnd_88717' n_type='Exit' transition='Leg' label='Co Rd 46' lon='-93.28246' lat='44.71828' lanes='1' shift='3' s_limit='70'>
-    <detector name='4470' label='35/CR46SX' category='X' controller='ctl_60983'/>
-  </r_node>
-  <r_node name='rnd_88719' station_id='S1097' label='Co Rd 46' lon='-93.28306' lat='44.71652' lanes='3' shift='3' s_limit='70'>
-    <detector name='4471' label='35/CR46SA1' category='A' lane='1' controller='ctl_60983'/>
-    <detector name='4472' label='35/CR46S2' lane='2' field='36.8' controller='ctl_60983'/>
-    <detector name='4473' label='35/CR46S3' lane='3' field='28.6' controller='ctl_60983'/>
-  </r_node>
-  <r_node name='rnd_88721' n_type='Entrance' transition='Leg' label='Co Rd 46' lon='-93.28353' lat='44.71512' lanes='1' shift='3' s_limit='70'>
-    <detector name='4474' label='35/CR46SM' category='M' controller='ctl_60983'/>
-  </r_node>
-  <r_node name='rnd_88723' n_type='Exit' transition='Leg' label='Co Rd 50' lon='-93.28732' lat='44.69975' lanes='1' shift='2' s_limit='70'>
-    <detector name='4475' label='35/CR50SX' category='X' controller='ctl_60985'/>
-  </r_node>
-  <r_node name='rnd_95228' station_id='S1578' label='Co Rd 50' lon='-93.28814' lat='44.69838' lanes='2' shift='2' s_limit='70'>
-    <detector name='4476' label='35/CR50S1' lane='1'/>
-    <detector name='4477' label='35/CR50S2' lane='2'/>
-  </r_node>
-  <r_node name='rnd_95218' n_type='Entrance' label='Co Rd 50' lon='-93.28908' lat='44.69679' lanes='1' shift='2'>
-    <detector name='4478' label='35/CR50SM' category='M'/>
-  </r_node>
-  <r_node name='rnd_184' lon='-93.29258' lat='44.6899' lanes='2' shift='2' s_limit='70'/>
-  <r_node name='rnd_95047' n_type='Exit' transition='Leg' label='Co Rd 60' lon='-93.29343' lat='44.68382' lanes='1' shift='2' s_limit='70'>
-    <detector name='6725' label='35/CR60SX' category='X' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_95045' station_id='S1579' label='Co Rd 60' lon='-93.29355' lat='44.68192' lanes='2' shift='2' s_limit='70'>
-    <detector name='6726' label='35/CR60S1' lane='1' field='35.0' controller='ctl_60984'/>
-    <detector name='6728' label='35/CR60S2' lane='2' field='28.0' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_95041' station_id='S1580' label='Co Rd 60' lon='-93.29358' lat='44.68164' lanes='2' shift='2'>
-    <detector name='6727' label='35/CR60SV1' category='V' lane='1' field='35.0' controller='ctl_60984'/>
-    <detector name='6729' label='35/CR60SV2' category='V' lane='2' field='28.0' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_95043' n_type='Entrance' transition='Leg' label='Co Rd 60' lon='-93.29373' lat='44.67948' lanes='1' shift='2' s_limit='70'>
-    <detector name='6730' label='35/CR60SM' category='M' controller='ctl_60984'/>
-  </r_node>
-  <r_node name='rnd_95029' station_id='S1581' label='195th St' lon='-93.2943' lat='44.66625' lanes='2' shift='2' s_limit='70'>
-    <detector name='6731' label='35/195StS1' lane='1' field='38.0' controller='35-83.36'/>
-    <detector name='6732' label='35/195StS2' lane='2' controller='35-83.36'/>
-  </r_node>
-  <r_node name='rnd_95035' station_id='S1582' label='205th St' lon='-93.29473' lat='44.65392' lanes='2' shift='2' s_limit='70'>
-    <detector name='6733' label='35/205StS1' lane='1' field='38.0' controller='35-82.38'/>
-    <detector name='6735' label='35/205StS2' lane='2' field='29.5' controller='35-82.38'/>
-  </r_node>
-  <r_node name='rnd_95019' station_id='S1583' label='205th St' lon='-93.29477' lat='44.65368' lanes='2' shift='2' s_limit='70'>
-    <detector name='6734' label='35/205StSV1' category='V' lane='1' field='38.0' controller='35-82.38'/>
-    <detector name='6736' label='35/205StSV2' category='V' lane='2' field='29.5' controller='35-82.38'/>
-  </r_node>
-  <r_node name='rnd_95031' n_type='Exit' transition='Leg' label='210th St' lon='-93.29601' lat='44.6467' lanes='1' shift='2' s_limit='70'>
-    <detector name='7033' label='35/210StSX' category='X' controller='35-81.84'/>
-  </r_node>
-  <r_node name='rnd_95214' station_id='S1584' label='210th St' lon='-93.29629' lat='44.64498' lanes='2' shift='2' s_limit='70'>
-    <detector name='7034' label='35/210StS1' lane='1' controller='35-81.84'/>
-    <detector name='7035' label='35/210StS2' lane='2' controller='35-81.84'/>
-  </r_node>
-  <r_node name='rnd_95766' n_type='Entrance' label='210th St' lon='-93.2966' lat='44.64329' lanes='1' shift='2'>
-    <detector name='6740' label='35/210StSM' category='M'/>
-  </r_node>
+<corridor route='I-94' dir='WB'>
+  <r_node name='rnd_88849' lon='-92.76532' lat='44.96266' lanes='3' shift='5' s_limit='65'/>
+  <r_node name='rnd_90769' n_type='Exit' transition='Leg' label='T.H.95' lon='-92.76994' lat='44.96253' lanes='1' shift='5'/>
+  <r_node name='rnd_90271' station_id='S1359' label='T.H.95' lon='-92.7721' lat='44.96221' lanes='3' shift='5' s_limit='65'>
+    <detector name='6000' label='94/TH95W1' lane='1' controller='ctl_68580'/>
+    <detector name='6001' label='94/TH95W2' lane='2' controller='ctl_68580'/>
+    <detector name='6002' label='94/TH95W3' lane='3' controller='ctl_68580'/>
+  </r_node>
+  <r_node name='rnd_90767' n_type='Entrance' transition='Leg' label='T.H.95' lon='-92.77706' lat='44.96112' lanes='1' shift='5'/>
+  <r_node name='rnd_90269' station_id='S1360' label='Co Rd 21' lon='-92.7996' lat='44.95411' lanes='3' shift='5' s_limit='65'>
+    <detector name='6003' label='94/CR21W1' lane='1' controller='ctl_68579'/>
+    <detector name='6004' label='94/CR21W2' lane='2' controller='ctl_68579'/>
+    <detector name='6005' label='94/CR21W3' lane='3' controller='ctl_68579'/>
+  </r_node>
+  <r_node name='rnd_89' lon='-92.81813' lat='44.94957' lanes='3' shift='5' s_limit='65'/>
+  <r_node name='rnd_90267' station_id='S1361' label='Co Rd 71' lon='-92.8414' lat='44.94879' lanes='3' shift='5' s_limit='65'>
+    <detector name='6006' label='94/CR71W1' lane='1' controller='ctl_68578'/>
+    <detector name='6007' label='94/CR71W2' lane='2' controller='ctl_68578'/>
+    <detector name='6008' label='94/CR71W3' lane='3' controller='ctl_68578'/>
+  </r_node>
+  <r_node name='rnd_88851' n_type='Exit' transition='Leg' label='Manning Ave' lon='-92.85762' lat='44.94886' lanes='1' shift='5'>
+    <detector name='5100' label='94/ManngWX' category='X' controller='ctl_60812'/>
+  </r_node>
+  <r_node name='rnd_88853' station_id='S1058' label='Manning Ave' lon='-92.86587' lat='44.94888' lanes='3' shift='5' s_limit='65'>
+    <detector name='5101' label='94/ManngW1' lane='1' field='23.0' controller='ctl_60812'/>
+    <detector name='5102' label='94/ManngW2' lane='2' field='28.0' controller='ctl_60812'/>
+    <detector name='5103' label='94/ManngW3' lane='3' field='25.0' controller='ctl_60812'/>
+  </r_node>
+  <r_node name='rnd_88855' n_type='Entrance' transition='Leg' label='Manning Ave' lon='-92.86786' lat='44.94886' lanes='1' shift='5'>
+    <detector name='5104' label='94/ManngWM' category='M' controller='ctl_60812'/>
+  </r_node>
+  <r_node name='rnd_88857' station_id='S1059' label='Co Rd 17B' lon='-92.88364' lat='44.94883' lanes='3' shift='5' s_limit='65'>
+    <detector name='5105' label='94/CR17BW1' lane='1' field='30.0' controller='ctl_60811'/>
+    <detector name='5106' label='94/CR17BW2' lane='2' field='32.3' controller='ctl_60811'/>
+    <detector name='5107' label='94/CR17BW3' lane='3' field='23.6' controller='ctl_60811'/>
+  </r_node>
+  <r_node name='rnd_88859' n_type='Exit' transition='Leg' label='Co Rd 19' lon='-92.89653' lat='44.949' lanes='1' shift='5'>
+    <detector name='5108' label='94/CR19WX' category='X' controller='ctl_60810'/>
+  </r_node>
+  <r_node name='rnd_88861' station_id='S1060' label='Co Rd 19' lon='-92.90236' lat='44.94902' lanes='3' shift='5' s_limit='65'>
+    <detector name='5109' label='94/CR19W1' lane='1' field='42.0' controller='ctl_60810'/>
+    <detector name='5110' label='94/CR19W2' lane='2' field='32.0' controller='ctl_60810'/>
+    <detector name='5111' label='94/CR19W3' lane='3' field='24.0' controller='ctl_60810'/>
+  </r_node>
+  <r_node name='rnd_88863' n_type='Entrance' transition='Leg' label='Co Rd 19' lon='-92.90749' lat='44.9488' lanes='1' shift='5'>
+    <detector name='5112' label='94/CR19WM' category='M' controller='ctl_60810'/>
+  </r_node>
+  <r_node name='rnd_88865' n_type='Exit' transition='Leg' label='Co Rd 13' lon='-92.9276' lat='44.94893' lanes='1' shift='5'>
+    <detector name='5118' label='94/CR13WX' category='X' controller='ctl_60809'/>
+  </r_node>
+  <r_node name='rnd_88867' station_id='S1061' label='Co Rd 13' lon='-92.92945' lat='44.94893' lanes='3' shift='5' s_limit='65'>
+    <detector name='5114' label='94/CR13W1' lane='1' field='38.2' controller='ctl_60809'/>
+    <detector name='5115' label='94/CR13W2' lane='2' field='30.0' controller='ctl_60809'/>
+    <detector name='5116' label='94/CR13W3' lane='3' field='24.7' controller='ctl_60809'/>
+  </r_node>
+  <r_node name='rnd_731' lon='-92.93328' lat='44.94891' lanes='4' shift='6'/>
+  <r_node name='rnd_90835' n_type='Entrance' transition='Loop' label='Co Rd 13' lon='-92.93349' lat='44.94892' lanes='1' shift='7'>
+    <detector name='5119' label='94/CR13WM' category='M' controller='ctl_60809'/>
+  </r_node>
+  <r_node name='rnd_716' label='W of Co Rd 13' lon='-92.9397' lat='44.94867' lanes='5' shift='7'/>
+  <r_node name='rnd_90829' n_type='Exit' transition='CD' label='I-94 CD WB' lon='-92.95037' lat='44.94876' lanes='2' shift='5' forks='rnd_90831'/>
+  <r_node name='rnd_95185' station_id='S1062' label='E Jct I-494' lon='-92.95829' lat='44.94877' lanes='3' shift='5'>
+    <detector name='5134' label='94/Ej494W1' lane='1'/>
+    <detector name='5135' label='94/Ej494W2' lane='2'/>
+    <detector name='7038' label='94/Ej494W3' lane='3'/>
+  </r_node>
+  <r_node name='rnd_88869' n_type='Entrance' transition='CD' label='I-94 CD WB' lon='-92.9684' lat='44.94875' lanes='1' shift='6'/>
+  <r_node name='rnd_88873' station_id='S1063' label='W of I-494 E Jct' lon='-92.97177' lat='44.94867' lanes='4' shift='6'>
+    <detector name='5136' label='94/W494EJWA1' category='A' lane='1' controller='ctl_2027'/>
+    <detector name='5137' label='94/W494EJW2' lane='2' field='25.3' controller='ctl_2027'/>
+    <detector name='5138' label='94/W494EJW3' lane='3' field='29.0' controller='ctl_2027'/>
+    <detector name='5139' label='94/W494EJWA4' category='A' lane='4' controller='ctl_2027'/>
+  </r_node>
+  <r_node name='rnd_88835' n_type='Exit' transition='Leg' label='T.H.120' lon='-92.9833' lat='44.94854' lanes='1' shift='5'>
+    <detector name='5140' label='94/TH120WX' category='X' controller='ctl_2028'/>
+  </r_node>
+  <r_node name='rnd_88875' station_id='S1064' label='T.H.120' lon='-92.98462' lat='44.94855' lanes='3' shift='5'>
+    <detector name='5141' label='94/TH120W1' lane='1' field='25.5' controller='ctl_2028'/>
+    <detector name='5142' label='94/TH120W2' lane='2' field='26.1' controller='ctl_2028'/>
+    <detector name='5153' label='94/TH120W3' lane='3' field='25.2' controller='ctl_2028'/>
+  </r_node>
+  <r_node name='rnd_88833' n_type='Exit' transition='Leg' label='Hudson Rd' lon='-92.98892' lat='44.94855' lanes='1' shift='5'>
+    <detector name='5143' label='94/HdsnRdWX' category='X' controller='ctl_2028'/>
+  </r_node>
+  <r_node name='rnd_717' label='E of Hudson Rd' lon='-92.99238' lat='44.94874' lanes='3' shift='5'/>
+  <r_node name='rnd_88831' n_type='Entrance' transition='Leg' label='Hudson Rd' lon='-92.99639' lat='44.94932' lanes='1' shift='5'>
+    <detector name='5144' label='94/HdsnRdWM2' category='M' lane='2' controller='ctl_2029'/>
+  </r_node>
+  <r_node name='rnd_88829' station_id='S1065' label='Hudson Rd' lon='-92.99909' lat='44.94971' lanes='3' shift='5'>
+    <detector name='5145' label='94/HdsnRdW1' lane='1' field='23.0' controller='ctl_2029'/>
+    <detector name='5146' label='94/HdsnRdW2' lane='2' field='26.5' controller='ctl_2029'/>
+    <detector name='5148' label='94/HdsnRdW3' lane='3' field='24.3' controller='ctl_2029'/>
+  </r_node>
+  <r_node name='rnd_88827' n_type='Entrance' transition='Leg' label='Hudson Rd' lon='-93.00079' lat='44.94995' lanes='1' shift='5'>
+    <detector name='5147' label='94/HdsnRdWM1' category='M' lane='1' controller='ctl_2029'/>
+  </r_node>
+  <r_node name='rnd_88825' station_id='S1066' label='McKnight Rd' lon='-93.00641' lat='44.95058' lanes='3' shift='5'>
+    <detector name='5052' label='94/McKngtW1' lane='1' field='26.0' controller='ctl_2030'/>
+    <detector name='5053' label='94/McKngtW2' lane='2' field='27.3' controller='ctl_2030'/>
+    <detector name='5054' label='94/McKngtW3' lane='3' field='21.0' controller='ctl_2030'/>
+  </r_node>
+  <r_node name='rnd_88823' n_type='Entrance' transition='Leg' label='McKnight Rd' lon='-93.00895' lat='44.95088' lanes='1' shift='5'>
+    <detector name='4926' label='94/McKngtWG' category='G'/>
+    <detector name='5149' label='94/McKngtWM' category='M' controller='ctl_2030'/>
+    <meter name='M94W28' storage='1'/>
+  </r_node>
+  <r_node name='rnd_718' label='Ruth St' lon='-93.0151' lat='44.95158' lanes='3' shift='5'/>
+  <r_node name='rnd_88821' station_id='S1067' label='Ruth St' lon='-93.01782' lat='44.95173' lanes='3' shift='5'>
+    <detector name='5150' label='94/RuthW1' lane='1' field='55.0' controller='ctl_60782'/>
+    <detector name='5151' label='94/RuthW2' lane='2' field='57.0' controller='ctl_60782'/>
+    <detector name='5152' label='94/RuthW3' lane='3' field='59.0' controller='ctl_60782'/>
+  </r_node>
+  <r_node name='rnd_88819' n_type='Entrance' transition='Leg' label='Ruth St' lon='-93.01945' lat='44.95165' lanes='1' shift='5'>
+    <detector name='4927' label='94/RuthWG' category='G'/>
+    <detector name='5154' label='94/RuthWM' category='M' controller='ctl_60782'/>
+    <meter name='M94W29' storage='1'/>
+  </r_node>
+  <r_node name='rnd_88817' n_type='Exit' transition='Leg' label='White Bear Ave' lon='-93.02278' lat='44.95142' lanes='1' shift='5'>
+    <detector name='5155' label='94/WhitBrWX' category='X' controller='ctl_60783'/>
+  </r_node>
+  <r_node name='rnd_88815' station_id='S1068' label='White Bear Ave' lon='-93.02552' lat='44.95144' lanes='3' shift='5'>
+    <detector name='5156' label='94/WhitBrW1' lane='1' controller='ctl_60783'/>
+    <detector name='5157' label='94/WhitBrW2' lane='2' field='26.5' controller='ctl_60783'/>
+    <detector name='5158' label='94/WhitBrW3' lane='3' field='28.0' controller='ctl_60783'/>
+  </r_node>
+  <r_node name='rnd_88813' n_type='Entrance' transition='Leg' label='White Bear Ave' lon='-93.02745' lat='44.95151' lanes='1' shift='5'>
+    <detector name='4928' label='94/WhitBrWG' category='G'/>
+    <detector name='5159' label='94/WhitBrWP' category='P' controller='ctl_60783'/>
+    <meter name='M94W30' storage='1'/>
+  </r_node>
+  <r_node name='rnd_88811' n_type='Exit' transition='Leg' label='T.H.61' lon='-93.0354' lat='44.95245' lanes='1' shift='5'>
+    <detector name='5160' label='94/TH61WX' category='X' controller='ctl_60784'/>
+  </r_node>
+  <r_node name='rnd_88809' station_id='S1069' label='T.H.61' lon='-93.03929' lat='44.95278' lanes='3' shift='5'>
+    <detector name='5161' label='94/TH61W1' lane='1' field='24.5' controller='ctl_60784'/>
+    <detector name='5162' label='94/TH61W2' lane='2' field='24.4' controller='ctl_60784'/>
+    <detector name='5163' label='94/TH61W3' lane='3' field='21.5' controller='ctl_60784'/>
+  </r_node>
+  <r_node name='rnd_719' label='T.H.61' lon='-93.04184' lat='44.95284' lanes='3' shift='5'/>
+  <r_node name='rnd_88807' n_type='Entrance' transition='Leg' label='T.H.61 NB' lon='-93.047' lat='44.95245' lanes='2' shift='7'>
+    <detector name='5164' label='94/NBTH61WM1' category='M' lane='1' controller='ctl_60784'/>
+    <detector name='5165' label='94/NBTH61WM2' category='M' lane='2' controller='ctl_60784'/>
+  </r_node>
+  <r_node name='rnd_88805' station_id='S1070' label='Johnson Pkwy' lon='-93.05166' lat='44.95201' lanes='5' shift='7'>
+    <detector name='5171' label='94/JnsnPkWA1' category='A' lane='1' field='21.0' controller='ctl_60785'/>
+    <detector name='5172' label='94/JnsnPkWA2' category='A' lane='2' controller='ctl_60785'/>
+    <detector name='5173' label='94/JnsnPkW3' lane='3' field='26.0' controller='ctl_60785'/>
+    <detector name='5174' label='94/JnsnPkW4' lane='4' field='25.5' controller='ctl_60785'/>
+    <detector name='5175' label='94/JnsnPkW5' lane='5' field='24.0' controller='ctl_60785'/>
+  </r_node>
+  <r_node name='rnd_720' label='E of Mounds Blvd' lon='-93.05781' lat='44.95188' lanes='5' shift='7'/>
+  <r_node name='rnd_87205' n_type='Exit' transition='Leg' label='Mounds Blvd' lon='-93.06737' lat='44.95208' lanes='2' shift='5'>
+    <detector name='3241' label='94/MoundsWX1' category='X' lane='1' controller='ctl_60415'/>
+    <detector name='3242' label='94/MoundsWX2' category='X' lane='2' controller='ctl_60415'/>
+  </r_node>
+  <r_node name='rnd_87207' station_id='S792' label='Mounds Blvd' lon='-93.06805' lat='44.95211' lanes='3' shift='5'>
+    <detector name='3238' label='94/MoundsW1' lane='1' field='22.4' controller='ctl_60415'/>
+    <detector name='3239' label='94/MoundsW2' lane='2' field='21.6' controller='ctl_60415'/>
+    <detector name='3240' label='94/MoundsW3' lane='3' field='20.5' controller='ctl_60415'/>
+  </r_node>
+  <r_node name='rnd_676' label='Mounds Blvd' lon='-93.06932' lat='44.95226' lanes='3' shift='5'/>
+  <r_node name='rnd_91430' label='Mounds Blvd' lon='-93.07068' lat='44.9527' lanes='3' shift='5'/>
+  <r_node name='rnd_91428' label='Kellogg Blvd' lon='-93.07384' lat='44.95507' lanes='3' shift='5'/>
+  <r_node name='rnd_87209' n_type='Exit' transition='Leg' label='I-94 CD WB' lon='-93.07543' lat='44.95532' lanes='1' attach_side='left' shift='2' forks='rnd_91051'/>
+  <r_node name='rnd_87213' station_id='S791' label='Kellogg Blvd' lon='-93.07585' lat='44.9553' lanes='3' shift='5'>
+    <detector name='3234' label='94/KellogW1' lane='1' field='26.5' controller='ctl_60416'/>
+    <detector name='3235' label='94/KellogW2' lane='2' field='25.0' controller='ctl_60416'/>
+    <detector name='3236' label='94/KellogW3' lane='3' field='22.6' controller='ctl_60416'/>
+  </r_node>
+  <r_node name='rnd_87211' n_type='Entrance' transition='Leg' label='Mounds Blvd' lon='-93.07788' lat='44.95477' lanes='1' shift='5'>
+    <detector name='3244' label='94/MoundsWP' category='P' controller='ctl_60416'/>
+    <detector name='4865' label='94/MoundsWG' category='G'/>
+    <detector name='2578' label='94/MoundsWQ1' category='Q' lane='1' controller='ctl_60416'/>
+    <detector name='2589' label='94/MoundsWQ2' category='Q' lane='2' controller='ctl_60416'/>
+    <meter name='M94W35' lon='-93.07653' lat='44.95557' storage='920'/>
+  </r_node>
+  <r_node name='rnd_87215' station_id='S790' label='Kittson St' lon='-93.08043' lat='44.95377' lanes='3' shift='5'>
+    <detector name='3231' label='94/KittsnW1' lane='1' field='26.0' controller='ctl_60417'/>
+    <detector name='3232' label='94/KittsnW2' lane='2' field='24.0' controller='ctl_60417'/>
+    <detector name='3233' label='94/KittsnW3' lane='3' field='21.0' controller='ctl_60417'/>
+  </r_node>
+  <r_node name='rnd_87217' n_type='Entrance' transition='Loop' label='7th St' lon='-93.08169' lat='44.95333' lanes='1' shift='6'>
+    <detector name='3230' label='94/7StWM' category='M' field='21.0' controller='ctl_60417'/>
+  </r_node>
+  <r_node name='rnd_91040' n_type='Entrance' transition='Loop' label='T.H.52 NB' lon='-93.08177' lat='44.9533' lanes='1' shift='6'>
+    <detector name='3229' label='94/NB52WM' category='M' controller='ctl_60417'/>
+  </r_node>
+  <r_node name='rnd_675' label='T.H.52' lon='-93.08427' lat='44.95252' lanes='4' shift='6'/>
+  <r_node name='rnd_91042' label='7th St' lon='-93.0858' lat='44.95236' lanes='4' shift='6'/>
+  <r_node name='rnd_721' label='7th St' lon='-93.08714' lat='44.95261' lanes='4' shift='6'/>
+  <r_node name='rnd_674' label='7th St' lon='-93.08819' lat='44.95311' lanes='4' shift='6'/>
+  <r_node name='rnd_87219' n_type='Exit' transition='Leg' label='I-35E CD NB' lon='-93.08925' lat='44.95389' lanes='1' shift='5' forks='rnd_91007'/>
+  <r_node name='rnd_87221' n_type='Exit' transition='Leg' label='Jackson St' lon='-93.09018' lat='44.95434' lanes='1' shift='5'>
+    <detector name='1896' label='94/JacksnWX' category='X' controller='ctl_1860'/>
+  </r_node>
+  <r_node name='rnd_87223' station_id='S97' label='I-35E' lon='-93.09098' lat='44.9545' lanes='3' shift='5'>
+    <detector name='1897' label='94/35EW1' lane='1' field='29.6' controller='ctl_1860'/>
+    <detector name='1898' label='94/35EW2' lane='2' field='29.5' controller='ctl_1860'/>
+    <detector name='1899' label='94/35EW3' lane='3' field='25.2' controller='ctl_1860'/>
+  </r_node>
+  <r_node name='rnd_280' label='I-35E' lon='-93.09261' lat='44.9544' lanes='3' shift='5'/>
+  <r_node name='rnd_87225' n_type='Entrance' transition='Leg' label='I-35E SB' lon='-93.09506' lat='44.95316' lanes='2' attach_side='left'/>
+  <r_node name='rnd_90827' n_type='Entrance' transition='Leg' label='I-94 CD WB' lon='-93.09596' lat='44.95273' lanes='1' shift='5'/>
+  <r_node name='rnd_673' label='Wabasha St' lon='-93.09862' lat='44.95147' lanes='5' shift='5'/>
+  <r_node name='rnd_87227' n_type='Exit' transition='Leg' label='I-35E SB' lon='-93.10044' lat='44.95076' lanes='2' attach_side='left' shift='2'/>
+  <r_node name='rnd_672' label='John Ireland Blvd' lon='-93.10157' lat='44.95059' lanes='3' shift='5'/>
+  <r_node name='rnd_87229' station_id='S500' label='John Ireland Blvd' lon='-93.10329' lat='44.95057' lanes='3' shift='5'>
+    <detector name='2490' label='94/JohnIrW1' lane='1' field='30.0' controller='ctl_1811'/>
+    <detector name='2491' label='94/JohnIrW2' lane='2' field='30.0' controller='ctl_1811'/>
+    <detector name='2492' label='94/JohnIrW3' lane='3' field='26.0' controller='ctl_1811'/>
+  </r_node>
+  <r_node name='rnd_87233' n_type='Entrance' transition='Leg' label='Wabasha St' lon='-93.10489' lat='44.95074' lanes='1' attach_side='left' shift='2'>
+    <detector name='1890' label='94/WabashWP' category='P' field='9.0' controller='ctl_1811'/>
+    <detector name='3534' label='94/WabashWQ' category='Q' field='24.0' controller='ctl_1811'/>
+    <detector name='4867' label='94/WabashWG' category='G'/>
+    <meter name='M94W41' lon='-93.10342' lat='44.95051' storage='1390'/>
+  </r_node>
+  <r_node name='rnd_87231' n_type='Exit' transition='Leg' label='Marion St' lon='-93.10608' lat='44.95089' lanes='1' shift='5'>
+    <detector name='3227' label='94/MarionWX' category='X' controller='ctl_1809'/>
+  </r_node>
+  <r_node name='rnd_87235' station_id='S546' label='Marion St' lon='-93.11033' lat='44.95093' lanes='3' shift='5'>
+    <detector name='2653' label='94/MarionW1' lane='1' field='26.3' controller='ctl_1810'/>
+    <detector name='2654' label='94/MarionW2' lane='2' field='30.0' controller='ctl_1810'/>
+    <detector name='2655' label='94/MarionW3' lane='3' field='27.0' controller='ctl_1810'/>
+  </r_node>
+  <r_node name='rnd_87237' n_type='Entrance' transition='Leg' label='5th St' lon='-93.11214' lat='44.95101' lanes='1' shift='6'>
+    <detector name='3228' label='94/5StWM' category='M' controller='ctl_1810'/>
+  </r_node>
+  <r_node name='rnd_87239' n_type='Entrance' transition='Leg' label='Marion St' lon='-93.11352' lat='44.9511' lanes='1' shift='6'>
+    <detector name='2593' label='94/MarionWQ' category='Q' field='18.0' controller='ctl_1810'/>
+    <detector name='2656' label='94/MarionWP' category='P' controller='ctl_1810'/>
+    <detector name='2657' label='94/MarionWB' category='B' controller='ctl_1810'/>
+    <detector name='4868' label='94/MarionWG' category='G'/>
+    <meter name='M94W43' lon='-93.11181' lat='44.95128' storage='350'/>
+  </r_node>
+  <r_node name='rnd_87243' n_type='Exit' transition='Leg' label='Dale St' lon='-93.12312' lat='44.95184' lanes='1' shift='6'>
+    <detector name='3226' label='94/DaleWX' category='X' controller='ctl_1807'/>
+  </r_node>
+  <r_node name='rnd_87245' station_id='S789' label='Dale St' lon='-93.1267' lat='44.95187' lanes='4' shift='6'>
+    <detector name='6987' label='94/DaleWO' category='O' controller='ctl_1807'/>
+    <detector name='3222' label='94/DaleW1' lane='1' field='26.7' controller='ctl_1808'/>
+    <detector name='3223' label='94/DaleW2' lane='2' field='29.8' controller='ctl_1808'/>
+    <detector name='3224' label='94/DaleW3' lane='3' field='32.7' controller='ctl_1808'/>
+    <detector name='3225' label='94/DaleW4' lane='4' field='29.4' controller='ctl_1808'/>
+  </r_node>
+  <r_node name='rnd_87247' n_type='Entrance' transition='Leg' label='Dale St' lon='-93.13395' lat='44.95185' lanes='1' shift='6'>
+    <detector name='2594' label='94/DaleWQ' category='Q' controller='ctl_1808'/>
+    <detector name='2658' label='94/DaleWP' category='P' controller='ctl_1808'/>
+    <detector name='4869' label='94/DaleWG' category='G'/>
+    <meter name='M94W44' lon='-93.13102' lat='44.95205' storage='1304'/>
+  </r_node>
+  <r_node name='rnd_87249' station_id='S788' label='Victoria St' lon='-93.13689' lat='44.95183' lanes='4' shift='6'>
+    <detector name='6985' label='94/VictorWO' category='O' controller='ctl_2026'/>
+    <detector name='3218' label='94/VictorW1' lane='1' field='31.0' controller='ctl_2026'/>
+    <detector name='3219' label='94/VictorW2' lane='2' field='28.0' controller='ctl_2026'/>
+    <detector name='3220' label='94/VictorW3' lane='3' field='31.4' controller='ctl_2026'/>
+    <detector name='3221' label='94/VictorW4' lane='4' field='26.0' controller='ctl_2026'/>
+  </r_node>
+  <r_node name='rnd_87251' n_type='Exit' transition='Leg' label='Lexington Ave' lon='-93.14197' lat='44.95181' lanes='1' shift='6'>
+    <detector name='3217' label='94/LexngtWX' category='X' controller='ctl_1805'/>
+  </r_node>
+  <r_node name='rnd_87253' station_id='S548' label='Lexington Ave' lon='-93.14888' lat='44.95177' lanes='4' shift='6'>
+    <detector name='6983' label='94/LexngtWO' category='O' controller='ctl_1806'/>
+    <detector name='2663' label='94/LexngtW1' lane='1' field='29.5' controller='ctl_1806'/>
+    <detector name='2664' label='94/LexngtW2' lane='2' field='30.3' controller='ctl_1806'/>
+    <detector name='2665' label='94/LexngtW3' lane='3' field='33.0' controller='ctl_1806'/>
+    <detector name='2666' label='94/LexngtW4' lane='4' field='26.3' controller='ctl_1806'/>
+  </r_node>
+  <r_node name='rnd_87255' n_type='Entrance' transition='Leg' label='Lexington Ave' lon='-93.15035' lat='44.95179' lanes='1' shift='6'>
+    <detector name='2595' label='94/LexngtWQ' category='Q' controller='ctl_1806'/>
+    <detector name='2667' label='94/LexngtWP' category='P' controller='ctl_1806'/>
+    <detector name='4870' label='94/LexngtWG' category='G'/>
+    <meter name='M94W45' lon='-93.14893' lat='44.95201' storage='466'/>
+  </r_node>
+  <r_node name='rnd_87257' n_type='Exit' transition='Leg' label='Hamline Ave' lon='-93.15318' lat='44.95186' lanes='1' shift='6'>
+    <detector name='3216' label='94/HamlinWX' category='X' controller='ctl_2024'/>
+  </r_node>
+  <r_node name='rnd_87259' station_id='S787' label='Hamline Ave' lon='-93.1564' lat='44.95183' lanes='4' shift='6'>
+    <detector name='3212' label='94/HamlinWA1' category='A' lane='1' field='28.0' controller='ctl_2024'/>
+    <detector name='3213' label='94/HamlinW2' lane='2' field='30.8' controller='ctl_2024'/>
+    <detector name='3214' label='94/HamlinW3' lane='3' field='30.0' controller='ctl_2024'/>
+    <detector name='3215' label='94/HamlinW4' lane='4' field='27.0' controller='ctl_2024'/>
+  </r_node>
+  <r_node name='rnd_87261' n_type='Exit' transition='Leg' label='Snelling Ave' lon='-93.16205' lat='44.95178' lanes='1' shift='5'>
+    <detector name='3211' label='94/SnelngWX' category='X' controller='ctl_1803'/>
+  </r_node>
+  <r_node name='rnd_87263' station_id='S549' label='Snelling Ave' lon='-93.16994' lat='44.95183' lanes='3' shift='5'>
+    <detector name='6980' label='94/SnelngWO' category='O' controller='ctl_1804'/>
+    <detector name='2668' label='94/SnelngW1' lane='1' field='55.0' controller='ctl_1804'/>
+    <detector name='2669' label='94/SnelngW2' lane='2' field='54.0' controller='ctl_1804'/>
+    <detector name='2670' label='94/SnelngW3' lane='3' controller='ctl_1804'/>
+  </r_node>
+  <r_node name='rnd_87265' n_type='Entrance' transition='Leg' label='Snelling Ave' lon='-93.17088' lat='44.95184' lanes='1' shift='6'>
+    <detector name='2500' label='94/SnelngWB' category='B' controller='ctl_1804'/>
+    <detector name='2596' label='94/SnelngWQ' category='Q' controller='ctl_1804'/>
+    <detector name='2671' label='94/SnelngWP' category='P' controller='ctl_1804'/>
+    <detector name='4871' label='94/SnelngWG' category='G'/>
+    <meter name='M94W46' lon='-93.16981' lat='44.95199' storage='552'/>
+  </r_node>
+  <r_node name='rnd_671' label='W of Snelling Ave' lon='-93.17796' lat='44.95198' lanes='4' shift='6'/>
+  <r_node name='rnd_87269' station_id='S786' label='Prior Ave' lon='-93.18185' lat='44.95283' lanes='4' shift='6'>
+    <detector name='6979' label='94/PriorWO' category='O' controller='ctl_2023'/>
+    <detector name='3207' label='94/PriorWA1' category='A' lane='1' field='24.0' controller='ctl_2023'/>
+    <detector name='3208' label='94/PriorW2' lane='2' field='32.0' controller='ctl_2023'/>
+    <detector name='3209' label='94/PriorW3' lane='3' field='25.5' controller='ctl_2023'/>
+    <detector name='3210' label='94/PriorW4' lane='4' field='23.5' controller='ctl_2023'/>
+  </r_node>
+  <r_node name='rnd_87271' n_type='Exit' transition='Leg' label='Vandalia St' lon='-93.18916' lat='44.9552' lanes='1' shift='6'>
+    <detector name='3206' label='94/VandalWX' category='X' controller='ctl_1801'/>
+  </r_node>
+  <r_node name='rnd_87273' station_id='S550' label='Vandalia St' lon='-93.19464' lat='44.95712' lanes='4' shift='6'>
+    <detector name='6976' label='94/VandalWO' category='O' controller='ctl_1802'/>
+    <detector name='2672' label='94/VandalWA1' category='A' lane='1' field='24.0' controller='ctl_1802'/>
+    <detector name='2673' label='94/VandalW2' lane='2' field='28.0' controller='ctl_1802'/>
+    <detector name='2674' label='94/VandalW3' lane='3' field='26.0' controller='ctl_1802'/>
+    <detector name='2675' label='94/VandalW4' lane='4' field='21.0' controller='ctl_1802'/>
+  </r_node>
+  <r_node name='rnd_87275' n_type='Entrance' transition='Leg' label='Vandalia St' lon='-93.19611' lat='44.95765' lanes='1' shift='6'>
+    <detector name='2623' label='94/VandalWM-ABND' abandoned='t' category='M'/>
+    <detector name='2699' label='94/VandalWP' category='P' controller='ctl_1802'/>
+    <detector name='2700' label='94/VandalWB' category='B' controller='ctl_1802'/>
+    <detector name='4872' label='94/VandalWG' category='G'/>
+    <detector name='7061' label='94/VandalW'/>
+    <detector name='7062' label='94/VandalW'/>
+    <detector name='7063' label='94/VandalW' controller='ctl_1802'/>
+    <detector name='7064' label='94/VandalW' controller='ctl_1802'/>
+    <detector name='3527' label='94/VandalWQ1' category='Q' lane='1' controller='ctl_1802'/>
+    <detector name='3528' label='94/VandalWQ2' category='Q' lane='2' controller='ctl_1802'/>
+    <meter name='M94W47' lon='-93.19514' lat='44.9575' storage='818'/>
+  </r_node>
+  <r_node name='rnd_670' label='E of T.H.280' lon='-93.19795' lat='44.95842' lanes='4' shift='6'/>
+  <r_node name='rnd_87279' n_type='Exit' transition='Leg' label='T.H.280 NB' lon='-93.20091' lat='44.96' lanes='1' shift='5' forks='rnd_94155'>
+    <detector name='3203' label='94/NB280WX' category='X' controller='ctl_1800'/>
+  </r_node>
+  <r_node name='rnd_669' label='T.H.280' lon='-93.20294' lat='44.96041' lanes='3' shift='5'/>
+  <r_node name='rnd_87281' station_id='S551' label='T.H.280' lon='-93.20487' lat='44.96027' lanes='3' shift='5'>
+    <detector name='2676' label='94/280W1' lane='1' field='28.5' controller='ctl_1800'/>
+    <detector name='2677' label='94/280W2' lane='2' field='30.5' controller='ctl_1800'/>
+    <detector name='2678' label='94/280W3' lane='3' field='28.7' controller='ctl_1800'/>
+    <detector name='7036' label='94/280W4' lane='4'/>
+  </r_node>
+  <r_node name='rnd_668' label='T.H.280' lon='-93.20716' lat='44.96009' lanes='3' shift='5'/>
+  <r_node name='rnd_87283' n_type='Entrance' transition='Leg' label='T.H.280 SB' lon='-93.20913' lat='44.9603' lanes='1' attach_side='left' shift='1'>
+    <detector name='2597' label='94/SB280WQ' category='Q' controller='ctl_1800'/>
+    <detector name='2598' label='94/SB280WB-ABND' abandoned='t' category='B'/>
+    <detector name='2679' label='94/SB280WP' category='P' controller='ctl_1800'/>
+    <detector name='4873' label='94/SB280WG' category='G'/>
+    <meter name='M94W48' lon='-93.20809' lat='44.95995' storage='1732'/>
+  </r_node>
+  <r_node name='rnd_87285' station_id='S785' label='Seymour Ave' lon='-93.21264' lat='44.96221' lanes='4' shift='5'>
+    <detector name='3200' label='94/SeymorW1' lane='1' field='23.7' controller='ctl_2022'/>
+    <detector name='3201' label='94/SeymorW2' lane='2' field='20.7' controller='ctl_2022'/>
+    <detector name='3202' label='94/SeymorW3' lane='3' field='28.0' controller='ctl_2022'/>
+    <detector name='6563' label='94/SeymorW4' lane='4' controller='ctl_2022'/>
+  </r_node>
+  <r_node name='rnd_91426' label='E of Huron St' lon='-93.21678' lat='44.96535' lanes='4' shift='5'/>
+  <r_node name='rnd_667' label='Huron St' lon='-93.21916' lat='44.96679' lanes='4' shift='5'/>
+  <r_node name='rnd_87287' n_type='Exit' transition='Leg' label='Huron St' lon='-93.22064' lat='44.96723' lanes='1' shift='5'>
+    <detector name='3143' label='94/HuronWX' category='X' controller='ctl_1798'/>
+  </r_node>
+  <r_node name='rnd_87289' station_id='S552' label='Huron St' lon='-93.22225' lat='44.96737' lanes='4' shift='5'>
+    <detector name='2681' label='94/HuronW1' lane='1' field='32.0' controller='ctl_1799'/>
+    <detector name='2682' label='94/HuronW2' lane='2' field='29.0' controller='ctl_1799'/>
+    <detector name='2683' label='94/HuronW3' lane='3' field='32.0' controller='ctl_1799'/>
+    <detector name='6564' label='94/HuronW4' lane='4' field='31.0' controller='ctl_1799'/>
+  </r_node>
+  <r_node name='rnd_87291' n_type='Entrance' transition='Leg' label='Huron St' lon='-93.22436' lat='44.96703' lanes='1' shift='5'>
+    <detector name='2680' label='94/HuronWP' category='P' controller='ctl_1798'/>
+    <detector name='3144' label='94/HuronWB' category='B' controller='ctl_1798'/>
+    <detector name='3526' label='94/HuronWQ' category='Q' controller='ctl_1798'/>
+    <detector name='4874' label='94/HuronWG' category='G'/>
+    <meter name='M94W50' lon='-93.22332' lat='44.96765' storage='786'/>
+  </r_node>
+  <r_node name='rnd_87295' station_id='S555' label='Riverside Ave' lon='-93.22865' lat='44.96504' lanes='4' shift='5'>
+    <detector name='3139' label='94/RivrsdWA1-ABND' abandoned='t' category='A' lane='1' field='18.33' controller='ctl_1797'/>
+    <detector name='3140' label='94/RivrsdWA2' category='A' lane='2' field='15.0' controller='ctl_1797'/>
+    <detector name='3141' label='94/RivrsdW3' lane='3' field='19.3' controller='ctl_1797'/>
+    <detector name='3142' label='94/RivrsdW4' lane='4' field='21.3' controller='ctl_1797'/>
+    <detector name='6565' label='94/RivrsdW5' lane='5' field='24.5' controller='ctl_1797'/>
+  </r_node>
+  <r_node name='rnd_87297' n_type='Exit' transition='Leg' label='Riverside Ave' lon='-93.23013' lat='44.96458' lanes='1' shift='4'>
+    <detector name='3138' label='94/RivrsdWX' category='X' controller='ctl_1797'/>
+  </r_node>
+  <r_node name='rnd_666' label='W of Riverside Ave' lon='-93.23241' lat='44.96437' lanes='3' shift='4'/>
+  <r_node name='rnd_87299' station_id='S553' label='25th Ave' lon='-93.23804' lat='44.96436' lanes='3' shift='4'>
+    <detector name='2684' label='94/25AvW1-ABND' abandoned='t' lane='1' field='24.0' controller='ctl_1796'/>
+    <detector name='2685' label='94/25AvW2' lane='2' field='28.5' controller='ctl_1796'/>
+    <detector name='2686' label='94/25AvW3' lane='3' field='25.5' controller='ctl_1796'/>
+    <detector name='6566' label='94/25AvW4' lane='4' field='25.0' controller='ctl_1796'/>
+  </r_node>
+  <r_node name='rnd_87301' n_type='Entrance' transition='Leg' label='25th Ave' lon='-93.23846' lat='44.96436' lanes='1' shift='5'>
+    <detector name='2591' label='94/25AvWQ' category='Q' controller='ctl_1796'/>
+    <detector name='2687' label='94/25AvWP' category='P' controller='ctl_1796'/>
+    <detector name='4875' label='94/25AvWG' category='G'/>
+    <meter name='M94W51' lon='-93.238' lat='44.96449' storage='756'/>
+  </r_node>
+  <r_node name='rnd_664' label='W of 25th Ave' lon='-93.23992' lat='44.96436' lanes='4' shift='5'/>
+  <r_node name='rnd_665' label='W of 25th Ave' lon='-93.24252' lat='44.96451' lanes='4' shift='5'/>
+  <r_node name='rnd_87303' n_type='Exit' transition='Leg' label='Cedar Ave' lon='-93.24537' lat='44.96512' lanes='1' shift='5'>
+    <detector name='3129' label='94/CedarWX' category='X' field='8.0' controller='ctl_1795'/>
+  </r_node>
+  <r_node name='rnd_87305' station_id='S561' label='Cedar Ave' lon='-93.24617' lat='44.9654' lanes='4' shift='5'>
+    <detector name='3130' label='94/CedarW1' lane='1' field='26.3' controller='ctl_1795'/>
+    <detector name='3131' label='94/CedarW2' lane='2' field='26.0' controller='ctl_1795'/>
+    <detector name='3132' label='94/CedarW3' lane='3' field='25.5' controller='ctl_1795'/>
+    <detector name='6567' label='94/CedarW4' lane='4' field='25.4' controller='ctl_1795'/>
+  </r_node>
+  <r_node name='rnd_87307' n_type='Exit' transition='Leg' label='5th St' lon='-93.24793' lat='44.96601' lanes='1' shift='5'>
+    <detector name='2688' label='94/5StWX' category='X' controller='ctl_1817'/>
+  </r_node>
+  <r_node name='rnd_663' label='Hiawatha Ave' lon='-93.2509' lat='44.96635' lanes='4' shift='5'/>
+  <r_node name='rnd_87309' station_id='S559' label='Hiawatha Ave' lon='-93.25418' lat='44.96608' lanes='4' shift='5'>
+    <detector name='2692' label='94/HiawthW1' lane='1' field='18.5' controller='ctl_1816'/>
+    <detector name='2693' label='94/HiawthW2' lane='2' field='23.2' controller='ctl_1816'/>
+    <detector name='2694' label='94/HiawthW3' lane='3' field='24.5' controller='ctl_1816'/>
+    <detector name='6568' label='94/HiawthW4' lane='4' field='24.0' controller='ctl_1816'/>
+  </r_node>
+  <r_node name='rnd_87313' n_type='Exit' transition='Leg' label='I-35W SB' lon='-93.25696' lat='44.96618' lanes='1' attach_side='left' shift='2' forks='rnd_87929'/>
+  <r_node name='rnd_87311' n_type='Entrance' transition='Leg' label='Hiawatha Ave' lon='-93.25863' lat='44.96612' lanes='1' shift='6'>
+    <detector name='2592' label='94/HiawthWQ' category='Q' controller='ctl_1816'/>
+    <detector name='2691' label='94/HiawthWP' category='P' controller='ctl_1816'/>
+    <detector name='4876' label='94/HiawthWG' category='G'/>
+    <meter name='M94W52' lon='-93.25622' lat='44.96652' storage='1392'/>
+  </r_node>
+  <r_node name='rnd_88547' n_type='Entrance' transition='Leg' label='I-35W CD SB' lon='-93.2597' lat='44.96611' lanes='1' shift='6'>
+    <detector name='2690' label='94/SB35WCDWM' category='M' controller='ctl_1816'/>
+  </r_node>
+  <r_node name='rnd_87317' station_id='S560' label='Park Ave' lon='-93.26425' lat='44.96605' lanes='4' shift='6'>
+    <detector name='2695' label='94/ParkAvWA1' category='A' lane='1' field='19.0' controller='ctl_1815'/>
+    <detector name='2696' label='94/ParkAvW2' lane='2' field='20.0' controller='ctl_1815'/>
+    <detector name='2697' label='94/ParkAvW3' lane='3' field='20.8' controller='ctl_1815'/>
+    <detector name='2698' label='94/ParkAvW4' lane='4' field='19.0' controller='ctl_1815'/>
+  </r_node>
+  <r_node name='rnd_87315' n_type='Exit' transition='Leg' label='11th St' lon='-93.26532' lat='44.96605' lanes='1' shift='5'>
+    <detector name='175' label='94/11StWX' category='X' controller='ctl_43465'/>
+  </r_node>
+  <r_node name='rnd_722' label='T.H.65' lon='-93.26861' lat='44.96603' lanes='3' shift='5'/>
+  <r_node name='rnd_1252' label='T.H.65' lon='-93.26983' lat='44.96613' lanes='3' shift='5'/>
+  <r_node name='rnd_87319' station_id='S76' label='T.H.65' lon='-93.27099' lat='44.96637' lanes='3' shift='5'>
+    <detector name='356' label='94/TH65W1' lane='1' field='26.6' controller='ctl_43465'/>
+    <detector name='357' label='94/TH65W2' lane='2' field='23.8' controller='ctl_43465'/>
+    <detector name='358' label='94/TH65W3' lane='3' field='29.0' controller='ctl_43465'/>
+  </r_node>
+  <r_node name='rnd_723' label='W of T.H.65' lon='-93.27261' lat='44.9667' lanes='3' shift='5'/>
+  <r_node name='rnd_87321' n_type='Entrance' transition='Leg' label='T.H.65 NB' lon='-93.27431' lat='44.96683' lanes='1' shift='6'>
+    <detector name='570' label='94/NBTH65WM' category='M' controller='ctl_43465'/>
+    <detector name='4877' label='94/NBTH65WG' category='G'/>
+  </r_node>
+  <r_node name='rnd_87323' n_type='Entrance' transition='Leg' label='4th Ave' lon='-93.27503' lat='44.96683' lanes='1' shift='6'>
+    <detector name='569' label='94/4AveWP' category='P' controller='ctl_43465'/>
+    <detector name='2599' label='94/4AveWQ' category='Q' controller='ctl_43465'/>
+    <detector name='4878' label='94/4AveWG' category='G'/>
+    <meter name='M94W57' lon='-93.2713' lat='44.96697' storage='936'/>
+  </r_node>
+  <r_node name='rnd_95698' label='1st Ave' lon='-93.27543' lat='44.9668' lanes='4' shift='6'>
+    <detector name='361' label='94/1AvWA-ABND' abandoned='t' category='A'/>
+    <detector name='362' label='94/1AvW1-ABND' abandoned='t' lane='1' field='24.0'/>
+    <detector name='363' label='94/1AvW2-ABND' abandoned='t' lane='2' field='24.0'/>
+    <detector name='364' label='94/1AvW3-ABND' abandoned='t' lane='3' field='24.0'/>
+  </r_node>
+  <r_node name='rnd_1250' label='1st Ave' lon='-93.27678' lat='44.96662' lanes='4' shift='6'/>
+  <r_node name='rnd_87325' station_id='S86' label='LaSalle Ave' lon='-93.27861' lat='44.96615' lanes='4' shift='6'>
+    <detector name='365' label='94/LaSallWA1' category='A' lane='1' controller='ctl_43454'/>
+    <detector name='366' label='94/LaSallW2' lane='2' field='28.4' controller='ctl_43454'/>
+    <detector name='367' label='94/LaSallW3' lane='3' field='26.0' controller='ctl_43454'/>
+    <detector name='368' label='94/LaSallW4' lane='4' field='25.0' controller='ctl_43454'/>
+  </r_node>
+  <r_node name='rnd_95367' label='Groveland Ave' lon='-93.28046' lat='44.96564' lanes='4' shift='6'>
+    <detector name='369' label='94/GrvlndWA1-ABND' abandoned='t' category='A' lane='1'/>
+    <detector name='370' label='94/GrvlndW2-ABND' abandoned='t' lane='2' field='24.0'/>
+    <detector name='371' label='94/GrvlndW3-ABND' abandoned='t' lane='3' field='24.0'/>
+    <detector name='372' label='94/GrvlndW4-ABND' abandoned='t' lane='4' field='24.0'/>
+  </r_node>
+  <r_node name='rnd_87327' n_type='Exit' transition='Leg' label='Hennepin &amp; Lyndale' lon='-93.28207' lat='44.96522' lanes='2' shift='5'>
+    <detector name='373' label='94/HenLynWX1' category='X' lane='1' field='9.2' controller='ctl_43453'/>
+    <detector name='374' label='94/HenLynWX2' category='X' lane='2' field='8.0' controller='ctl_43453'/>
+  </r_node>
+  <r_node name='rnd_1246' label='W of Groveland Ave' lon='-93.28379' lat='44.96476' lanes='3' shift='5'/>
+  <r_node name='rnd_1249' label='W of Groveland Ave' lon='-93.28485' lat='44.96458' lanes='3' shift='5'/>
+  <r_node name='rnd_95701' label='Lyndale Ave' lon='-93.28585' lat='44.96458' lanes='3' shift='5'>
+    <detector name='375' label='94/LyndleW1-ABND' abandoned='t' lane='1' field='24.0'/>
+    <detector name='376' label='94/LyndleW2-ABND' abandoned='t' lane='2' field='24.0'/>
+    <detector name='377' label='94/LyndleW3-ABND' abandoned='t' lane='3' field='24.0'/>
+  </r_node>
+  <r_node name='rnd_87329' station_id='S89' label='S of Lowry Hill Tunnel' lon='-93.28671' lat='44.96478' lanes='3' shift='5'>
+    <detector name='378' label='94/SLowrHTW1' lane='1' field='31.0' controller='ctl_43452'/>
+    <detector name='379' label='94/SLowrHTW2' lane='2' field='30.2' controller='ctl_43452'/>
+    <detector name='380' label='94/SLowrHTW3' lane='3' field='29.0' controller='ctl_43452'/>
+  </r_node>
+  <r_node name='rnd_996' label='S of Lowry Hill Tunnel' lon='-93.28741' lat='44.96518' lanes='3' shift='5'/>
+  <r_node name='rnd_95699' label='S End of Tunnel' lon='-93.28775' lat='44.96563' lanes='3' shift='5'>
+    <detector name='381' label='94/SeTunlW1-ABND' abandoned='t' lane='1' field='24.0'/>
+    <detector name='382' label='94/SeTunlW2-ABND' abandoned='t' lane='2' field='24.0'/>
+    <detector name='383' label='94/SeTunlW3-ABND' abandoned='t' lane='3' field='24.0'/>
+  </r_node>
+  <r_node name='rnd_1247' label='Lowry Hill Tunnel' lon='-93.28798' lat='44.96679' lanes='3' shift='5'/>
+  <r_node name='rnd_87331' station_id='S91' label='North Tunnel' lon='-93.28777' lat='44.96813' lanes='3' shift='5'>
+    <detector name='390' label='94/NTunlW1-ABND' abandoned='t' lane='1' field='30.0'/>
+    <detector name='391' label='94/NTunlW2-ABND' abandoned='t' lane='2' field='28.0'/>
+    <detector name='392' label='94/NTunlW3-ABND' abandoned='t' lane='3' field='26.4'/>
+  </r_node>
+  <r_node name='rnd_87333' station_id='S93' label='N of Lowry Hill Tunnel' lon='-93.28731' lat='44.97059' lanes='3' shift='5'>
+    <detector name='399' label='94/NLowrHTW1' lane='1' field='25.6' controller='ctl_43451'/>
+    <detector name='400' label='94/NLowrHTW2' lane='2' field='23.0' controller='ctl_43451'/>
+    <detector name='401' label='94/NLowrHTW3' lane='3' field='21.5' controller='ctl_43451'/>
+  </r_node>
+  <r_node name='rnd_87335' n_type='Exit' transition='Leg' label='I-394 CD WB' lon='-93.28731' lat='44.97275' lanes='2' shift='5' forks='rnd_95220'>
+    <detector name='612' label='94/WB394CDWX1' category='X' lane='1' controller='ctl_43450'/>
+    <detector name='613' label='94/WB394CDWX2' category='X' lane='2' controller='ctl_1681'/>
+  </r_node>
+  <r_node name='rnd_87337' station_id='S122' label='I-394' lon='-93.28729' lat='44.97678' lanes='3' shift='5'>
+    <detector name='617' label='94/394W1' lane='1' field='28.0' controller='ctl_1681'/>
+    <detector name='618' label='94/394W2' lane='2' field='20.7' controller='ctl_1681'/>
+    <detector name='619' label='94/394W3' lane='3' field='20.0' controller='ctl_1681'/>
+  </r_node>
+  <r_node name='rnd_90389' n_type='Exit' transition='Leg' label='Olson Hwy' lon='-93.28729' lat='44.97719' lanes='1' shift='5'>
+    <detector name='620' label='94/OlsonWX' category='X' controller='ctl_1681'/>
+  </r_node>
+  <r_node name='rnd_95804' n_type='Entrance' label='Lyndale Ave' lon='-93.28726' lat='44.97914' lanes='1' shift='6'>
+    <detector name='5006' label='94/LyndleWM' category='M'/>
+    <detector name='5323' label='94/LyndleWM' category='M' controller='ctl_1681'/>
+  </r_node>
+  <r_node name='rnd_87339' n_type='Entrance' transition='Leg' label='I-394 EB' lon='-93.28723' lat='44.97987' lanes='1' shift='7'>
+    <detector name='1071' label='94/EB394WM' category='M' controller='ctl_1681'/>
+  </r_node>
+  <r_node name='rnd_87341' station_id='S123' label='Olson Hwy' lon='-93.28758' lat='44.98409' lanes='5' shift='7' s_limit='60'>
+    <detector name='621' label='94/OlsonWA1' category='A' lane='1' field='17.0' controller='ctl_61905'/>
+    <detector name='622' label='94/OlsonW2' lane='2' field='18.7' controller='ctl_61905'/>
+    <detector name='623' label='94/OlsonW3' lane='3' field='19.1' controller='ctl_61905'/>
+    <detector name='624' label='94/OlsonW4' lane='4' field='21.5' controller='ctl_61905'/>
+    <detector name='625' label='94/OlsonW5' lane='5' field='19.8' controller='ctl_61905'/>
+  </r_node>
+  <r_node name='rnd_679' label='7th St' lon='-93.28835' lat='44.98779' lanes='5' shift='7' s_limit='60'/>
+  <r_node name='rnd_87343' station_id='S124' label='7th St' lon='-93.28821' lat='44.98856' lanes='5' shift='7' s_limit='60'>
+    <detector name='626' label='94/7StWA1' category='A' lane='1' controller='ctl_61904'/>
+    <detector name='627' label='94/7StW2' lane='2' field='18.7' controller='ctl_61904'/>
+    <detector name='628' label='94/7StW3' lane='3' field='20.5' controller='ctl_61904'/>
+    <detector name='629' label='94/7StW4' lane='4' field='21.3' controller='ctl_61904'/>
+    <detector name='630' label='94/7StW5' lane='5' field='19.8' controller='ctl_61904'/>
+  </r_node>
+  <r_node name='rnd_677' label='7th St' lon='-93.28711' lat='44.99072' lanes='5' shift='7' s_limit='60'/>
+  <r_node name='rnd_87345' station_id='S259' label='Plymouth Ave' lon='-93.28435' lat='44.99285' lanes='5' shift='7' s_limit='60'>
+    <detector name='26' label='94/PlymAvWA1' category='A' lane='1' controller='ctl_61903'/>
+    <detector name='27' label='94/PlymAvW2' lane='2' field='21.0' controller='ctl_61903'/>
+    <detector name='28' label='94/PlymAvW3' lane='3' field='20.0' controller='ctl_61903'/>
+    <detector name='29' label='94/PlymAvW4' lane='4' field='21.8' controller='ctl_61903'/>
+    <detector name='30' label='94/PlymAvW5' lane='5' field='21.3' controller='ctl_61903'/>
+  </r_node>
+  <r_node name='rnd_87347' n_type='Exit' transition='Leg' label='17th Ave' lon='-93.28342' lat='44.99401' lanes='1' shift='6'>
+    <detector name='5325' label='94/17AvWX' category='X' controller='ctl_61903'/>
+  </r_node>
+  <r_node name='rnd_678' label='S of Broadway Ave' lon='-93.28284' lat='44.99567' lanes='4' shift='6' s_limit='60'/>
+  <r_node name='rnd_87349' station_id='S125' label='Broadway Ave' lon='-93.28266' lat='44.99888' lanes='4' shift='6' s_limit='60'>
+    <detector name='631' label='94/BrdwAvW1' lane='1' field='20.0' controller='ctl_1603'/>
+    <detector name='632' label='94/BrdwAvW2' lane='2' field='20.5' controller='ctl_1603'/>
+    <detector name='633' label='94/BrdwAvW3' lane='3' field='22.5' controller='ctl_1603'/>
+    <detector name='634' label='94/BrdwAvW4' lane='4' field='21.2' controller='ctl_1603'/>
+  </r_node>
+  <r_node name='rnd_87351' n_type='Entrance' transition='CD' label='I-94 CD WB' lon='-93.28261' lat='45.00091' lanes='2' shift='7'>
+    <detector name='635' label='94/WB94CDWM1' category='M' lane='1' field='20.0' controller='ctl_1603'/>
+    <detector name='636' label='94/WB94CDWM2' category='M' lane='2' controller='ctl_1603'/>
+  </r_node>
+  <r_node name='rnd_87353' station_id='S258' label='26th Ave' lon='-93.28268' lat='45.00429' lanes='5' shift='7' s_limit='60'>
+    <detector name='43' label='94/26AvWA1' category='A' lane='1' controller='ctl_1606'/>
+    <detector name='44' label='94/26AvW2' lane='2' field='44.23' controller='ctl_1606'/>
+    <detector name='45' label='94/26AvW3' lane='3' field='21.0' controller='ctl_1606'/>
+    <detector name='46' label='94/26AvW4' lane='4' field='23.4' controller='ctl_1606'/>
+    <detector name='47' label='94/26AvW5' lane='5' field='21.0' controller='ctl_1606'/>
+  </r_node>
+  <r_node name='rnd_87355' n_type='Entrance' transition='Leg' label='Broadway Ave' lon='-93.2827' lat='45.00563' lanes='1' shift='7'>
+    <detector name='48' label='94/BrdwAvWP' category='P' controller='ctl_1606'/>
+    <detector name='4879' label='94/BrdwAvWG' category='G'/>
+    <meter name='M94W61' storage='1'/>
+  </r_node>
+  <r_node name='rnd_87357' station_id='S256' label='Lowry Ave' lon='-93.28266' lat='45.0095' lanes='5' shift='7' s_limit='60'>
+    <detector name='54' label='94/LowryWA1' category='A' lane='1' field='19.5' controller='ctl_1576'/>
+    <detector name='55' label='94/LowryW2' lane='2' field='20.8' controller='ctl_1576'/>
+    <detector name='56' label='94/LowryW3' lane='3' field='22.1' controller='ctl_1576'/>
+    <detector name='57' label='94/LowryW4' lane='4' controller='ctl_1576'/>
+    <detector name='58' label='94/LowryW5' lane='5' field='20.5' controller='ctl_1576'/>
+  </r_node>
+  <r_node name='rnd_87359' station_id='S254' label='35th Ave' lon='-93.28275' lat='45.01835' lanes='5' shift='7' s_limit='60'>
+    <detector name='65' label='94/35AvWA1' category='A' lane='1' field='21.0' controller='ctl_1646'/>
+    <detector name='66' label='94/35AvW2' lane='2' field='21.0' controller='ctl_1646'/>
+    <detector name='67' label='94/35AvW3' lane='3' field='21.0' controller='ctl_1646'/>
+    <detector name='68' label='94/35AvW4' lane='4' field='24.0' controller='ctl_1646'/>
+    <detector name='69' label='94/35AvW5' lane='5' controller='ctl_1646'/>
+  </r_node>
+  <r_node name='rnd_87361' n_type='Exit' transition='Leg' label='Dowling Ave' lon='-93.2829' lat='45.01984' lanes='1' shift='6'>
+    <detector name='71' label='94/DowlngWX' category='X' controller='ctl_1604'/>
+  </r_node>
+  <r_node name='rnd_680' label='Dowling Ave' lon='-93.28321' lat='45.02136' lanes='4' shift='6' s_limit='60'/>
+  <r_node name='rnd_87363' station_id='S252' label='Dowling Ave' lon='-93.28437' lat='45.02415' lanes='4' shift='6' s_limit='60'>
+    <detector name='73' label='94/DowlngW1' lane='1' field='47.41' controller='ctl_1604'/>
+    <detector name='74' label='94/DowlngW2' lane='2' field='20.2' controller='ctl_1604'/>
+    <detector name='75' label='94/DowlngW3' lane='3' field='23.6' controller='ctl_1604'/>
+    <detector name='76' label='94/DowlngW4' lane='4' field='23.2' controller='ctl_1604'/>
+  </r_node>
+  <r_node name='rnd_87365' n_type='Entrance' transition='Leg' label='Dowling Ave' lon='-93.28538' lat='45.02607' lanes='1' shift='6'>
+    <detector name='77' label='94/DowlngWP' category='P' controller='ctl_1604'/>
+    <detector name='4880' label='94/DowlngWG' category='G'/>
+    <meter name='M94W62' storage='1'/>
+  </r_node>
+  <r_node name='rnd_87367' station_id='S251' label='41st Ave' lon='-93.28692' lat='45.02967' lanes='4' shift='6' s_limit='60'>
+    <detector name='78' label='94/41AvW1' lane='1' field='24.7' controller='ctl_1649'/>
+    <detector name='79' label='94/41AvW2' lane='2' field='25.3' controller='ctl_1649'/>
+    <detector name='80' label='94/41AvW3' lane='3' field='28.0' controller='ctl_1649'/>
+    <detector name='81' label='94/41AvW4' lane='4' field='23.3' controller='ctl_1649'/>
+  </r_node>
+  <r_node name='rnd_681' label='41st Ave' lon='-93.28722' lat='45.03213' lanes='4' shift='6' s_limit='60'/>
+  <r_node name='rnd_87369' station_id='S249' label='42nd Ave' lon='-93.28659' lat='45.0344' lanes='4' shift='6' s_limit='60'>
+    <detector name='90' label='94/42AvW1' lane='1' field='26.6' controller='ctl_1599'/>
+    <detector name='91' label='94/42AvW2' lane='2' field='25.0' controller='ctl_1599'/>
+    <detector name='92' label='94/42AvW3' lane='3' field='27.3' controller='ctl_1599'/>
+    <detector name='93' label='94/42AvW4' lane='4' field='24.2' controller='ctl_1599'/>
+  </r_node>
+  <r_node name='rnd_87373' station_id='S247' label='47th Ave' lon='-93.28493' lat='45.03961' lanes='4' shift='6' s_limit='60'>
+    <detector name='605' label='94/47AvW1' lane='1' field='21.0' controller='ctl_1605'/>
+    <detector name='606' label='94/47AvW2' lane='2' field='20.5' controller='ctl_1605'/>
+    <detector name='607' label='94/47AvW3' lane='3' controller='ctl_1605'/>
+    <detector name='608' label='94/47AvW4' lane='4' field='20.5' controller='ctl_1605'/>
+  </r_node>
+  <r_node name='rnd_87371' n_type='Exit' transition='Leg' label='49th Ave' lon='-93.28489' lat='45.03982' lanes='1' shift='6'>
+    <detector name='610' label='94/49AvWX' category='X' controller='ctl_1605'/>
+  </r_node>
+  <r_node name='rnd_87375' station_id='S126' label='49th Ave' lon='-93.28448' lat='45.04424' lanes='4' shift='6' s_limit='60'>
+    <detector name='637' label='94/49AvW1' lane='1' field='23.0' controller='ctl_1794'/>
+    <detector name='638' label='94/49AvW2' lane='2' field='23.0' controller='ctl_1794'/>
+    <detector name='639' label='94/49AvW3' lane='3' field='24.2' controller='ctl_1794'/>
+    <detector name='640' label='94/49AvW4' lane='4' field='23.0' controller='ctl_1794'/>
+  </r_node>
+  <r_node name='rnd_682' label='53rd Ave' lon='-93.28453' lat='45.04903' lanes='4' shift='6' s_limit='60'/>
+  <r_node name='rnd_87377' station_id='S245' label='53rd Ave' lon='-93.28511' lat='45.05142' lanes='4' shift='6' s_limit='60'>
+    <detector name='451' label='94/53AvW1' lane='1' field='22.4' controller='ctl_1608'/>
+    <detector name='452' label='94/53AvW2' lane='2' field='22.7' controller='ctl_1608'/>
+    <detector name='453' label='94/53AvW3' lane='3' field='26.0' controller='ctl_1608'/>
+    <detector name='454' label='94/53AvW4' lane='4' field='22.7' controller='ctl_1608'/>
+  </r_node>
+  <r_node name='rnd_87379' n_type='Entrance' transition='Leg' label='53rd Ave' lon='-93.28611' lat='45.05407' lanes='1' shift='6'>
+    <detector name='455' label='94/53AvWP' category='P' controller='ctl_1608'/>
+    <detector name='4881' label='94/53AvWG' category='G'/>
+    <meter name='M94W63' storage='1'/>
+  </r_node>
+  <r_node name='rnd_683' label='57th Ave' lon='-93.2866' lat='45.05511' lanes='4' shift='6' s_limit='60'/>
+  <r_node name='rnd_87381' station_id='S243' label='57th Ave' lon='-93.28702' lat='45.05814' lanes='4' shift='6' s_limit='60'>
+    <detector name='472' label='94/57AvW1' lane='1' field='23.0' controller='ctl_1609'/>
+    <detector name='473' label='94/57AvW2' lane='2' field='18.5' controller='ctl_1609'/>
+    <detector name='474' label='94/57AvW3' lane='3' field='23.5' controller='ctl_1609'/>
+    <detector name='475' label='94/57AvW4' lane='4' field='20.3' controller='ctl_1609'/>
+  </r_node>
+  <r_node name='rnd_87383' station_id='S241' label='63rd Ave' lon='-93.28572' lat='45.06443' lanes='4' shift='6' s_limit='60'>
+    <detector name='481' label='94/63AvWA1' category='A' lane='1' field='25.7' controller='ctl_1856'/>
+    <detector name='482' label='94/63AvWA2' category='A' lane='2' field='23.6' controller='ctl_1856'/>
+    <detector name='483' label='94/63AvW3' lane='3' field='27.0' controller='ctl_1856'/>
+    <detector name='484' label='94/63AvW4' lane='4' field='24.2' controller='ctl_1856'/>
+  </r_node>
+  <r_node name='rnd_95212' n_type='Exit' transition='Leg' label='I-694 EB' lon='-93.28562' lat='45.06481' lanes='1' shift='6' s_limit='60' forks='rnd_87077'/>
+  <r_node name='rnd_87385' n_type='Exit' label='T.H.252 NB' lon='-93.2856' lat='45.06494' lanes='2' shift='4' forks='rnd_95224'/>
+  <r_node name='rnd_91159' label='T.H.252' lon='-93.28565' lat='45.06584' lanes='2' shift='4' s_limit='60'/>
+  <r_node name='rnd_685' label='T.H.252' lon='-93.28613' lat='45.06694' lanes='2' shift='4' s_limit='60'/>
+  <r_node name='rnd_87387' station_id='S159' label='T.H.252' lon='-93.28752' lat='45.06846' lanes='2' shift='4' s_limit='60'>
+    <detector name='387' label='94/252W1' lane='1' field='20.2' controller='ctl_1610'/>
+    <detector name='388' label='94/252W2' lane='2' field='20.5' controller='ctl_1610'/>
+  </r_node>
+  <r_node name='rnd_684' label='W of T.H.252' lon='-93.28862' lat='45.06931' lanes='2' shift='4' s_limit='60'/>
+  <r_node name='rnd_91157' label='W of T.H.252' lon='-93.28992' lat='45.06979' lanes='2' shift='4' s_limit='60'/>
+  <r_node name='rnd_87389' station_id='S236' label='Dupont Ave' lon='-93.29427' lat='45.06975' lanes='2' shift='4' s_limit='60'>
+    <detector name='641' label='94/DupontW1' lane='1' field='20.5' controller='ctl_1658'/>
+    <detector name='642' label='94/DupontW2' lane='2' field='19.5' controller='ctl_1658'/>
+  </r_node>
+  <r_node name='rnd_87391' n_type='Entrance' transition='Leg' label='I-694 WB' lon='-93.29614' lat='45.06972' lanes='2' shift='6' s_limit='60'/>
+  <r_node name='rnd_724' label='Humboldt Ave' lon='-93.29975' lat='45.06973' lanes='4' shift='6' s_limit='60'/>
+  <r_node name='rnd_87393' n_type='Entrance' transition='Leg' label='T.H.252 SB' lon='-93.30108' lat='45.06987' lanes='1' shift='6' s_limit='60'>
+    <detector name='648' label='94/SB252WM' category='M' controller='ctl_1658'/>
+  </r_node>
+  <r_node name='rnd_87395' station_id='S128' label='Shingle Creek Pkwy' lon='-93.30483' lat='45.07051' lanes='4' shift='6' s_limit='60'>
+    <detector name='649' label='94/ShinglW1' lane='1' field='28.0' controller='ctl_1662'/>
+    <detector name='650' label='94/ShinglW2' lane='2' field='22.6' controller='ctl_1662'/>
+    <detector name='651' label='94/ShinglW3' lane='3' field='32.0' controller='ctl_1662'/>
+    <detector name='652' label='94/ShinglW4' lane='4' field='25.0' controller='ctl_1662'/>
+  </r_node>
+  <r_node name='rnd_89005' n_type='Exit' transition='Loop' label='Shingle Creek Pkwy' lon='-93.30672' lat='45.07102' lanes='1' shift='5' s_limit='60'>
+    <detector name='740' label='94/ShinglWX' category='X' controller='ctl_1660'/>
+  </r_node>
+  <r_node name='rnd_87397' n_type='Entrance' transition='Leg' label='Shingle Creek Pkwy' lon='-93.31305' lat='45.07275' lanes='1' shift='6' s_limit='60'>
+    <detector name='739' label='94/ShinglWP' category='P' controller='ctl_1660'/>
+    <detector name='3410' label='94/ShinglWQ' category='Q' controller='ctl_1660'/>
+    <detector name='4882' label='94/ShinglWG' category='G'/>
+    <meter name='M94W66' lon='-93.30989' lat='45.07259' storage='700'/>
+  </r_node>
+  <r_node name='rnd_87399' station_id='S234' label='Xerxes Ave' lon='-93.31918' lat='45.07444' lanes='4' shift='6' s_limit='60'>
+    <detector name='987' label='94/XerxesWA1' category='A' lane='1' field='23.0' controller='ctl_1659'/>
+    <detector name='988' label='94/XerxesW2' lane='2' field='31.4' controller='ctl_1659'/>
+    <detector name='989' label='94/XerxesW3' lane='3' field='28.4' controller='ctl_1659'/>
+    <detector name='990' label='94/XerxesW4' lane='4' field='22.5' controller='ctl_1659'/>
+  </r_node>
+  <r_node name='rnd_725' label='E of Brooklyn Blvd' lon='-93.32501' lat='45.07568' lanes='4' shift='6' s_limit='60'/>
+  <r_node name='rnd_87401' n_type='Exit' transition='Leg' label='Brooklyn Blvd' lon='-93.32904' lat='45.07594' lanes='1' shift='5' s_limit='60'>
+    <detector name='656' label='94/BrklynWX' category='X' controller='ctl_1657'/>
+  </r_node>
+  <r_node name='rnd_87403' station_id='S129' label='Brooklyn Blvd' lon='-93.33164' lat='45.07596' lanes='3' shift='5' s_limit='60'>
+    <detector name='653' label='94/BrklynW1' lane='1' field='36.0' controller='ctl_1657'/>
+    <detector name='654' label='94/BrklynW2' lane='2' field='32.4' controller='ctl_1657'/>
+    <detector name='655' label='94/BrklynW3' lane='3' field='27.0' controller='ctl_1657'/>
+  </r_node>
+  <r_node name='rnd_87405' n_type='Entrance' transition='Leg' label='Brooklyn Blvd' lon='-93.3365' lat='45.07599' lanes='1' shift='5' s_limit='60'>
+    <detector name='982' label='94/BrklynWP' category='P' controller='ctl_1657'/>
+    <detector name='3411' label='94/BrklynWQ' category='Q' controller='ctl_1657'/>
+    <detector name='4883' label='94/BrklynWG' category='G'/>
+    <meter name='M94W67' lon='-93.33557' lat='45.07617' storage='486'/>
+  </r_node>
+  <r_node name='rnd_87407' station_id='S232' label='Perry Ave' lon='-93.34319' lat='45.07606' lanes='3' shift='5' s_limit='60'>
+    <detector name='978' label='94/PerryW1' lane='1' field='34.5' controller='ctl_1656'/>
+    <detector name='979' label='94/PerryW2' lane='2' field='33.0' controller='ctl_1656'/>
+    <detector name='980' label='94/PerryW3' lane='3' field='27.0' controller='ctl_1656'/>
+  </r_node>
+  <r_node name='rnd_89007' station_id='S230' label='Zane Ave' lon='-93.3567' lat='45.07638' lanes='3' shift='5' s_limit='60'>
+    <detector name='973' label='94/ZaneW1' lane='1' field='30.0' controller='ctl_1655'/>
+    <detector name='974' label='94/ZaneW2' lane='2' field='31.0' controller='ctl_1655'/>
+    <detector name='2580' label='94/ZaneW3' lane='3' field='25.5' controller='ctl_1655'/>
+  </r_node>
+  <r_node name='rnd_87409' n_type='Exit' transition='Leg' label='Co Rd 81' lon='-93.36891' lat='45.07797' lanes='1' shift='5'>
+    <detector name='969' label='94/CR81WX' category='X' controller='ctl_1653'/>
+  </r_node>
+  <r_node name='rnd_87411' n_type='Entrance' transition='Loop' label='Co Rd 81' lon='-93.37283' lat='45.07817' lanes='1' shift='5'>
+    <detector name='968' label='94/CR81WP' category='P' controller='ctl_1653'/>
+    <detector name='2859' label='94/CR81WQ' category='Q' controller='ctl_1653'/>
+    <detector name='4884' label='94/CR81WG' category='G'/>
+    <meter name='M94W68' lon='-93.37225' lat='45.07898' storage='298'/>
+  </r_node>
+  <r_node name='rnd_87413' station_id='S226' label='Winnetka Ave' lon='-93.37883' lat='45.07837' lanes='3' shift='5' s_limit='60'>
+    <detector name='961' label='94/WintkaW1' lane='1' field='29.0' controller='ctl_1676'/>
+    <detector name='962' label='94/WintkaW2' lane='2' field='32.5' controller='ctl_1676'/>
+    <detector name='1462' label='94/WintkaW3' lane='3' field='24.7' controller='ctl_1676'/>
+  </r_node>
+  <r_node name='rnd_87415' n_type='Exit' transition='Leg' label='Boone Ave' lon='-93.38796' lat='45.07887' lanes='1' shift='5'>
+    <detector name='957' label='94/BooneWX' category='X' controller='ctl_1675'/>
+  </r_node>
+  <r_node name='rnd_87417' station_id='S224' label='Boone Ave' lon='-93.3911' lat='45.07965' lanes='3' shift='5' s_limit='60'>
+    <detector name='953' label='94/BooneW1' lane='1' field='36.0' controller='ctl_1675'/>
+    <detector name='954' label='94/BooneW2' lane='2' field='36.0' controller='ctl_1675'/>
+    <detector name='2586' label='94/BooneW3' lane='3' field='29.5' controller='ctl_1675'/>
+  </r_node>
+  <r_node name='rnd_87419' n_type='Entrance' transition='Loop' label='Boone Ave' lon='-93.39255' lat='45.08012' lanes='1' shift='6'>
+    <detector name='956' label='94/BooneWP' category='P' controller='ctl_1675'/>
+    <detector name='2588' label='94/BooneWQ' category='Q' controller='ctl_1675'/>
+    <detector name='4885' label='94/BooneWG' category='G'/>
+    <meter name='M94W69' lon='-93.391' lat='45.08021' storage='610'/>
+  </r_node>
+  <r_node name='rnd_87421' n_type='Exit' transition='Leg' label='U.S.169 NB' lon='-93.39837' lat='45.082' lanes='1' shift='5' forks='rnd_85069'/>
+  <r_node name='rnd_87423' n_type='Entrance' transition='Loop' label='U.S.169 NB' lon='-93.40139' lat='45.08296' lanes='1' shift='6'>
+    <detector name='948' label='94/NB169WP' category='P' controller='ctl_80389'/>
+    <detector name='1982' label='94/NB169WQ' category='Q' controller='ctl_80389'/>
+    <detector name='4886' label='94/NB169WG' category='G'/>
+    <meter name='M94W70' lon='-93.40054' lat='45.08342' storage='680' max_wait='120'/>
+  </r_node>
+  <r_node name='rnd_89009' n_type='Exit' transition='Loop' label='U.S.169 SB' lon='-93.40298' lat='45.08348' lanes='1' shift='6' forks='rnd_85095'>
+    <detector name='944' label='94/SB169WX-ABND' abandoned='t' category='X'/>
+  </r_node>
+  <r_node name='rnd_87425' station_id='S220' label='U.S.169' lon='-93.40443' lat='45.08395' lanes='4' shift='6' s_limit='60'>
+    <detector name='2583' label='94/169WA1' category='A' lane='1' controller='ctl_80387'/>
+    <detector name='940' label='94/169W2' lane='2' field='31.0' controller='ctl_80387'/>
+    <detector name='941' label='94/169W3' lane='3' field='34.6' controller='ctl_80387'/>
+    <detector name='2584' label='94/169W4' lane='4' field='28.5' controller='ctl_80387'/>
+  </r_node>
+  <r_node name='rnd_87427' n_type='Entrance' transition='Leg' label='U.S.169 SB' lon='-93.40626' lat='45.08454' lanes='1' shift='6'>
+    <detector name='943' label='94/SB169WP' category='P' controller='ctl_80387'/>
+    <detector name='1999' label='94/SB169WQ' category='Q' controller='ctl_80387'/>
+    <detector name='4887' label='94/SB169WG' category='G'/>
+    <meter name='M94W71' lon='-93.4054' lat='45.08451' storage='608' max_wait='120'/>
+  </r_node>
+  <r_node name='rnd_87429' station_id='S218' label='Ximinies Ln' lon='-93.41508' lat='45.08667' lanes='4' shift='6' s_limit='60'>
+    <detector name='936' label='94/XiminsWA1' category='A' lane='1' field='24.0' controller='ctl_80385'/>
+    <detector name='937' label='94/XiminsW2' lane='2' field='32.0' controller='ctl_80385'/>
+    <detector name='5000' label='94/XiminsW3' lane='3' field='18.5' controller='ctl_80385'/>
+    <detector name='5001' label='94/XiminsW4' lane='4' field='27.0' controller='ctl_80385'/>
+  </r_node>
+  <r_node name='rnd_89011' n_type='Exit' transition='Leg' label='Hemlock Ln' lon='-93.42411' lat='45.08868' lanes='1' shift='5'>
+    <detector name='932' label='94/HemlckWX' category='X' controller='ctl_80345'/>
+  </r_node>
+  <r_node name='rnd_89013' station_id='S216' label='Hemlock Ln' lon='-93.42909' lat='45.08942' lanes='3' shift='5' s_limit='60'>
+    <detector name='927' label='94/HemlckW1' lane='1' field='37.5' controller='ctl_80345'/>
+    <detector name='928' label='94/HemlckW2' lane='2' field='37.0' controller='ctl_80345'/>
+    <detector name='929' label='94/HemlckWA3' category='A' lane='3' field='21.37' controller='ctl_80345'/>
+  </r_node>
+  <r_node name='rnd_89015' n_type='Entrance' transition='Loop' label='Hemlock Ln' lon='-93.43135' lat='45.08973' lanes='1' shift='6'>
+    <detector name='931' label='94/HemlckWP' category='P' controller='ctl_80345'/>
+    <detector name='2852' label='94/HemlckWQ' category='Q' controller='ctl_80345'/>
+    <detector name='4888' label='94/HemlckWG' category='G'/>
+    <meter name='M94W73' lon='-93.4286' lat='45.08996' storage='1160'/>
+  </r_node>
+  <r_node name='rnd_726' label='E of I-494' lon='-93.43827' lat='45.0907' lanes='4' shift='6' s_limit='60'/>
+  <r_node name='rnd_89017' n_type='Exit' transition='Leg' label='I-94 CD WB' lon='-93.44202' lat='45.09171' lanes='2' attach_side='left' shift='4' forks='rnd_91066'/>
+  <r_node name='rnd_87431' station_id='S213' label='I-494' lon='-93.44482' lat='45.09284' lanes='2' shift='6' s_limit='60'>
+    <detector name='921' label='94/494W1' lane='1' field='28.6' controller='ctl_64157'/>
+    <detector name='922' label='94/494W2' lane='2' field='27.4' controller='ctl_64157'/>
+  </r_node>
+  <r_node name='rnd_87433' n_type='Entrance' transition='Leg' label='I-494 WB' lon='-93.44821' lat='45.09507' lanes='2' attach_side='left' shift='3'/>
+  <r_node name='rnd_87435' station_id='S208' label='80th Ave' lon='-93.45441' lat='45.10009' lanes='3' shift='6' s_limit='60'>
+    <detector name='910' label='94/80AvW1' lane='1' field='31.0' controller='ctl_64158'/>
+    <detector name='911' label='94/80AvW2' lane='2' field='32.8' controller='ctl_64158'/>
+    <detector name='912' label='94/80AvW3' lane='3' field='28.0' controller='ctl_64158'/>
+  </r_node>
+  <r_node name='rnd_87437' n_type='Exit' transition='Leg' label='Weaver Lake Rd' lon='-93.45711' lat='45.10231' lanes='1' shift='6'>
+    <detector name='5331' label='94/WeaverWX' category='X' controller='ctl_64159'/>
+  </r_node>
+  <r_node name='rnd_87439' station_id='S206' label='Weaver Lake Rd' lon='-93.45958' lat='45.10434' lanes='3' shift='6' s_limit='60'>
+    <detector name='903' label='94/WeaverW1' lane='1' field='26.9' controller='ctl_64159'/>
+    <detector name='904' label='94/WeaverW2' lane='2' field='32.4' controller='ctl_64159'/>
+    <detector name='905' label='94/WeaverW3' lane='3' field='28.0' controller='ctl_64159'/>
+  </r_node>
+  <r_node name='rnd_727' label='Weaver Lake Rd' lon='-93.46068' lat='45.10524' lanes='3' shift='6' s_limit='60'/>
+  <r_node name='rnd_87441' n_type='Entrance' transition='Leg' label='Weaver Lake Rd' lon='-93.46397' lat='45.10708' lanes='1' shift='6'>
+    <detector name='5333' label='94/WeaverWM' category='M' controller='ctl_64159'/>
+  </r_node>
+  <r_node name='rnd_89309' station_id='S1105' label='Elm Creek' lon='-93.47688' lat='45.11559' lanes='3' shift='6' s_limit='70'>
+    <detector name='5334' label='94/ElmCrkW1' lane='1' field='28.5' controller='ctl_64174'/>
+    <detector name='5335' label='94/ElmCrkW2' lane='2' field='36.2' controller='ctl_64174'/>
+    <detector name='5336' label='94/ElmCrkW3' lane='3' field='28.0' controller='ctl_64174'/>
+  </r_node>
+  <r_node name='rnd_89311' n_type='Exit' transition='Leg' label='95th Ave' lon='-93.48335' lat='45.12397' lanes='1' shift='6'>
+    <detector name='5337' label='94/95AvWX' category='X' controller='ctl_64175'/>
+  </r_node>
+  <r_node name='rnd_89313' station_id='S1106' label='95th Ave' lon='-93.48437' lat='45.12575' lanes='3' shift='6' s_limit='70'>
+    <detector name='5338' label='94/95AvW1' lane='1' field='33.4' controller='ctl_64175'/>
+    <detector name='5339' label='94/95AvW2' lane='2' field='33.2' controller='ctl_64175'/>
+    <detector name='5340' label='94/95AvW3' lane='3' field='28.0' controller='ctl_64175'/>
+  </r_node>
+  <r_node name='rnd_89315' n_type='Entrance' transition='Loop' label='95th Ave' lon='-93.48685' lat='45.12949' lanes='1' shift='6'>
+    <detector name='5342' label='94/95AvWM' category='M' controller='ctl_64175'/>
+  </r_node>
+  <r_node name='rnd_89317' station_id='S1107' label='101st Ave' lon='-93.49416' lat='45.13795' lanes='3' shift='6' s_limit='70'>
+    <detector name='5343' label='94/101AvW1' lane='1' field='31.5' controller='ctl_64176'/>
+    <detector name='5344' label='94/101AvW2' lane='2' field='33.0' controller='ctl_64176'/>
+    <detector name='5345' label='94/101AvW3' lane='3' field='27.0' controller='ctl_64176'/>
+  </r_node>
+  <r_node name='rnd_89319' station_id='S1108' label='W of 101st Ave' lon='-93.50154' lat='45.14986' lanes='3' shift='6' s_limit='70'>
+    <detector name='5346' label='94/W101AvW1' lane='1' field='34.4' controller='ctl_64177'/>
+    <detector name='5347' label='94/W101AvW2' lane='2' field='33.4' controller='ctl_64177'/>
+    <detector name='5348' label='94/W101AvW3' lane='3' field='28.0' controller='ctl_64177'/>
+  </r_node>
+  <r_node name='rnd_89321' station_id='S1109' label='Brockton Ln' lon='-93.51775' lat='45.16129' lanes='3' shift='6' s_limit='70'>
+    <detector name='5349' label='94/BrcktnW1' lane='1' field='28.0' controller='ctl_64178'/>
+    <detector name='5350' label='94/BrcktnW2' lane='2' field='28.5' controller='ctl_64178'/>
+    <detector name='5351' label='94/BrcktnW3' lane='3' field='26.0' controller='ctl_64178'/>
+  </r_node>
+  <r_node name='rnd_74' label='Brockton Ln' lon='-93.525' lat='45.16632' lanes='3' shift='6' s_limit='70'/>
+  <r_node name='rnd_728' label='W of Brockton Ln' lon='-93.52654' lat='45.1689' lanes='3' shift='6' s_limit='70'/>
+  <r_node name='rnd_89323' station_id='S1110' label='W Jct Co Rd 81' lon='-93.52682' lat='45.1737' lanes='3' shift='6' s_limit='70'>
+    <detector name='5352' label='94/WjCR81W1' lane='1' field='31.4' controller='ctl_64179'/>
+    <detector name='5353' label='94/WjCR81W2' lane='2' field='12.7' controller='ctl_64179'/>
+    <detector name='5354' label='94/WjCR81W3' lane='3' field='29.0' controller='ctl_64179'/>
+  </r_node>
+  <r_node name='rnd_27' label='W Jct Co Rd 81' lon='-93.52818' lat='45.17654' lanes='3' shift='6' s_limit='70'/>
+  <r_node name='rnd_89325' station_id='S1111' label='E of T.H.101' lon='-93.53789' lat='45.18456' lanes='3' shift='6' s_limit='70'>
+    <detector name='5355' label='94/E101WA1' category='A' lane='1' field='28.0' controller='ctl_64180'/>
+    <detector name='5356' label='94/E101W2' lane='2' field='37.5' controller='ctl_64180'/>
+    <detector name='5357' label='94/E101W3' lane='3' field='30.5' controller='ctl_64180'/>
+  </r_node>
+  <r_node name='rnd_89327' n_type='Exit' transition='Leg' label='T.H.101' lon='-93.54854' lat='45.19328' lanes='2' shift='5'>
+    <detector name='5358' label='94/101WX1' category='X' lane='1' controller='ctl_64181'/>
+    <detector name='5359' label='94/101WX2' category='X' lane='2' controller='ctl_64181'/>
+  </r_node>
+  <r_node name='rnd_89329' station_id='S1112' label='T.H.101' lon='-93.55356' lat='45.19547' lanes='2' shift='5' s_limit='70'>
+    <detector name='5361' label='94/101W1' lane='1' field='40.0' controller='ctl_64181'/>
+    <detector name='5362' label='94/101W2' lane='2' field='31.4' controller='ctl_64181'/>
+  </r_node>
+  <r_node name='rnd_89331' n_type='Entrance' transition='Leg' label='T.H.101' lon='-93.55598' lat='45.19652' lanes='1' shift='5'>
+    <detector name='5360' label='94/101WM' category='M' controller='ctl_64181'/>
+  </r_node>
+  <r_node name='rnd_59' label='W of T.H.101' lon='-93.5702' lat='45.20263' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_60' label='141st Ave N' lon='-93.58358' lat='45.21071' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89611' n_type='Exit' transition='Leg' label='T.H.241' lon='-93.5945' lat='45.21734' lanes='1' shift='5'/>
+  <r_node name='rnd_89725' station_id='S1213' label='T.H.241' lon='-93.59645' lat='45.21853' lanes='2' shift='5' s_limit='70'>
+    <detector name='4350' label='94/TH241W1' lane='1' controller='ctl_93193'/>
+    <detector name='4351' label='94/TH241W2' lane='2' controller='ctl_93193'/>
+  </r_node>
+  <r_node name='rnd_89615' n_type='Entrance' transition='Leg' label='T.H.241' lon='-93.59729' lat='45.21905' lanes='1' shift='5'/>
+  <r_node name='rnd_89971' station_id='S1220' label='W of T.H.241' lon='-93.61138' lat='45.22655' lanes='2' shift='5' s_limit='70'>
+    <detector name='6318' label='94/WTH241W1' lane='1' controller='ctl_92201'/>
+    <detector name='6319' label='94/WTH241W2' lane='2' controller='ctl_92201'/>
+  </r_node>
+  <r_node name='rnd_62' lon='-93.63662' lat='45.23161' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_61' lon='-93.6514' lat='45.23942' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89621' station_id='S1210' label='Co Rd 19' lon='-93.66358' lat='45.24148' lanes='2' shift='5' s_limit='70'>
+    <detector name='5842' label='94/CR19W1' lane='1' controller='ctl_67023'/>
+    <detector name='5843' label='94/CR19W2' lane='2' controller='ctl_67023'/>
+  </r_node>
+  <r_node name='rnd_89973' station_id='S1222' label='MnRoad' lon='-93.6851' lat='45.24937' lanes='2' shift='5' s_limit='70'>
+    <detector name='6314' label='94/MnRoadW1' lane='1' controller='ctl_92195'/>
+    <detector name='6315' label='94/MnRoadW2' lane='2' controller='ctl_92195'/>
+  </r_node>
+  <r_node name='rnd_89967' station_id='S1224' lon='-93.69745' lat='45.25436' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_70' lon='-93.72245' lat='45.26801' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_63' lon='-93.74314' lat='45.27917' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_81' lon='-93.7503' lat='45.28346' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89969' station_id='S1226' lon='-93.7555' lat='45.28818' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_80' lon='-93.75963' lat='45.28962' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_71' lon='-93.76726' lat='45.28985' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_79' lon='-93.78495' lat='45.29569' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89617' station_id='S1131' label='T.H.25' lon='-93.79857' lat='45.29847' lanes='2' shift='5' s_limit='70'>
+    <detector name='5834' label='94/TH25W1' lane='1' controller='ctl_67022'/>
+    <detector name='5835' label='94/TH25W2' lane='2' controller='ctl_67022'/>
+  </r_node>
+  <r_node name='rnd_72' lon='-93.8133' lat='45.30179' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89975' station_id='S1228' lon='-93.82607' lat='45.31176' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_73' lon='-93.83849' lat='45.31887' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_66' lon='-93.85337' lat='45.32942' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_82' lon='-93.87531' lat='45.33884' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_67' lon='-93.89944' lat='45.34969' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_75' lon='-93.92354' lat='45.3544' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_86' lon='-93.93562' lat='45.35745' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_76' lon='-93.96208' lat='45.36639' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_83' lon='-93.968' lat='45.36764' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_118' lon='-93.97375' lat='45.36791' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89981' station_id='S1232' label='Co Rd 8' lon='-93.9802' lat='45.36855' lanes='2' shift='5' s_limit='70'>
+    <detector name='6310' label='94/CR8W1' lane='1' controller='ctl_92197'/>
+    <detector name='6311' label='94/CR8W2' lane='2' controller='ctl_92197'/>
+  </r_node>
+  <r_node name='rnd_65' lon='-94.00487' lat='45.38064' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89977' station_id='S1234' label='E of T.H.24' lon='-94.01312' lat='45.38824' lanes='2' shift='5' s_limit='70'>
+    <detector name='6306' label='94/ETH24W1' lane='1' controller='ctl_92199'/>
+    <detector name='6307' label='94/ETH24W2' lane='2' controller='ctl_92199'/>
+  </r_node>
+  <r_node name='rnd_64' lon='-94.03752' lat='45.40162' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89619' station_id='S1132' label='T.H.24' lon='-94.05779' lat='45.41223' lanes='2' shift='5' s_limit='70'>
+    <detector name='5836' label='94/TH24W1' lane='1' controller='ctl_67021'/>
+    <detector name='5837' label='94/TH24W2' lane='2' controller='ctl_67021'/>
+  </r_node>
+  <r_node name='rnd_68' lon='-94.07807' lat='45.41975' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_69' lon='-94.08528' lat='45.42503' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89983' station_id='S1236' label='W of T.H.24' lon='-94.10984' lat='45.43739' lanes='2' shift='5' s_limit='70'>
+    <detector name='6302' label='94/WTH24W1' lane='1' controller='ctl_92191'/>
+    <detector name='6303' label='94/WTH24W2' lane='2' controller='ctl_92191'/>
+  </r_node>
+  <r_node name='rnd_87' lon='-94.12108' lat='45.45127' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_85' lon='-94.132' lat='45.46701' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_77' lon='-94.14272' lat='45.48152' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89985' station_id='S1238' lon='-94.15272' lat='45.49342' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_84' lon='-94.15945' lat='45.49615' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_88' lon='-94.18821' lat='45.49814' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_78' lon='-94.2129' lat='45.49874' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_89987' station_id='S1240' label='T.H.15' lon='-94.23916' lat='45.49833' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_126' lon='-94.26107' lat='45.49909' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_124' lon='-94.27558' lat='45.50832' lanes='2' shift='5' s_limit='70'/>
+  <r_node name='rnd_125' lon='-94.28984' lat='45.5194' lanes='2' shift='5' s_limit='70'/>
 </corridor>
 </tms_config>

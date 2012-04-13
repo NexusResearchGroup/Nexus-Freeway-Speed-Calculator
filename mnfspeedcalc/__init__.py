@@ -4,6 +4,7 @@ from trafficreader import TrafficReader
 from os import path
 from collections import deque
 from numpy import *
+from pprint import pprint
 import cProfile
 import pstats
 import impute
@@ -360,6 +361,7 @@ if __name__ == "__main__":
 		test_config.load_speeds_for_year(2010, test_traffic_dir)
 		test_config.spatial_impute()
 		test_config.weekly_impute()
+		#pprint(test_config.average_weekday_speeds(start_time=time(hour=10), end_time=time(hour=12)), width=1)
 		#test_config.print_speeds()
 
 	#prof = cProfile.run('testing()', 'test_profile')
