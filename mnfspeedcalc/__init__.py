@@ -15,7 +15,8 @@ def avg_list(input):
 
 def timeslot_from_time(input_time):
 	'''
-	Determines the 5-minute slot index of the given time of day, where 00:00:00 is index 0, 00:05:00 is index 1, and 23:55:00 is index 287
+	Determines the 5-minute slot index of the given time of day, where 00:00:00
+	is index 0, 00:05:00 is index 1, and 23:55:00 is index 287
 	'''
 	hour = input_time.hour
 	minute = (input_time.minute // 5)
@@ -23,7 +24,8 @@ def timeslot_from_time(input_time):
 
 def index_of_first_monday_in_year(year):
 	'''
-	Determines the index of the first Monday in the given year, where January 1 is index 0.
+	Determines the index of the first Monday in the given year, where January 1
+	is index 0.
 	'''
 	test_date = date(year, 1, 1)
 	one_day = timedelta(days=1)
@@ -101,7 +103,8 @@ class TMS_Config:
 
 	def average_weekday_speeds(self, start_time=None, end_time=None):
 		'''
-		Returns a dictionary mapping station ids to the average weekday speed for that station during the specified time interval
+		Returns a dictionary mapping station ids to the average weekday speed
+		for that station during the specified time interval
 		'''
 		average_speeds = {}
 		for corridor in self.corridor_list:
@@ -166,7 +169,8 @@ class Corridor:
 		n_days = (last_day - current_day).days
 
 		# create 3D array to hold speeds
-		# dimensions: station (in spatial order), date, timeslot (288 5-min slots)
+		# dimensions: station (in spatial order), date, timeslot
+		# (288 5-min slots)
 		self.speeds = empty((len(self.station_list), n_days, 288), dtype=object)
 
 		for i in range(len(self.station_list)):
@@ -202,7 +206,8 @@ class Corridor:
 			return
 
 		# dimension 1 is day
-		# using the first 7 days as starting points, impute over station and time slot for every seventh day
+		# using the first 7 days as starting points, impute over station and
+		# time slot for every seventh day
 		speeds = self.speeds
 		for start_day in range(7):
 			# dimension 0 is station
@@ -249,7 +254,9 @@ class Corridor:
 
 	def average_weekday_speed_for_station(self, station_index, start_time=None, end_time=None):
 		'''
-		For the specified station in this corridor, returns a single speed that represents the average of all valid speeds on weekdays between start_time and end_time.
+		For the specified station in this corridor, returns a single speed that
+		represents the average of all valid speeds on weekdays between
+		start_time and end_time.
 		'''
 		# convert times to timeslot indices
 		start_time_index = timeslot_from_time(start_time)
@@ -263,7 +270,8 @@ class Corridor:
 		speeds = self.speeds
 		for offset in range(5):
 			day_index = first_monday + offset
-			# slice out the speeds for all stations, current day of week, specified time period
+			# slice out the speeds for all stations, current day of week,
+			# specified time period
 			s = speeds[station_index, day_index::7, start_time_index:end_time_index].flatten()
 			selected_speeds.extend(list(s))
 
@@ -353,16 +361,19 @@ class Station:
 
 					# average 1min speeds across detectors
 					day_speeds = impute.average_multilist([detector.load_speeds(tr) for detector in self.detector_list])
-					# "short duration temporal linear regression" = impute gaps up to 3 slots long use adjacent values
+					# "short duration temporal linear regression" = impute gaps
+					# up to 3 slots long use adjacent values
 					day_speeds = impute.impute_range(day_speeds, impute_length=3, input_length=3)
 					# average 1min speeds to 5min speeds
 					day_speeds = impute.average_list(day_speeds, 5)
 					# "short duration temporal linear regression" again
 					day_speeds = impute.impute_range(day_speeds, impute_length=3, input_length=3)
-					# remove any single missing values by averaging adjacent values
+					# remove any single missing values by averaging adjacent
+					# values
 					day_speeds = impute.impute1(day_speeds)
 				except IOError:
-					# If there is no file for the given day, add a list of invalid speeds
+					# If there is no file for the given day, add a list of
+					# invalid speeds
 					day_speeds = [None] * 288
 
 			self.speeds[day,:] = day_speeds
@@ -371,7 +382,8 @@ class Station:
 		return self.speeds
 
 	def load_speeds(self, traffic_reader):
-		# if there are no detectors for this station, give it a speed list of all invalid speeds
+		# if there are no detectors for this station, give it a speed list of
+		# all invalid speeds
 		if self.detector_list == []:
 			self.speeds = [None] * 288
 		# otherwise, load the speeds from the detectors
