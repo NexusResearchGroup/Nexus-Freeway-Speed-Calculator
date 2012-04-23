@@ -60,6 +60,25 @@ def load_stations(metro_config_file):
 
 	return station_dict
 
+def spatial_impute(corridors, stations, speedarray):
+	'''
+	Given a list of corridors, a list of stations, and the speed array, performs
+	spatial imputation of speeds along the stations in a corridor.
+
+	The speed array is updated in place; nothing is returned
+	'''
+
+	pass
+
+def weekly_impute(speedarray):
+	'''
+	Given the speed array, performs week-to-week imputation of speeds for
+	individual stations. The speed array is updated in place; nothing is
+	returned.
+	'''
+
+	pass
+
 def load_5m_station_speeds_year(stations, year, directory):
 	'''
 	Returns a numpy.array of 1-minute speeds for the stations.
