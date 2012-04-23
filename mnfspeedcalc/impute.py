@@ -45,20 +45,20 @@ def gap_list(inputarray):
 	if in_gap:
 		yield gap_start, gap_end
 
-def impute1(inputlist, gap_value=None):
+def impute1(inputarray, gap_value=None):
 	'''
 	Fills in single missing values by averaging adjacent values
 	'''
-	outputlist = inputlist
+	outputarray = inputarray.copy()
 
-	for i in range(1, len(inputlist) - 1):
-		if inputlist[i] == gap_value:
-			prev = inputlist[i-1]
-			next = inputlist[i+1]
-			if prev != gap_value and next != gap_value:
-				outputlist[i] = (prev + next) / 2
+	for i in range(1, len(inputarray) - 1):
+		if isnan(inputarray[i]):
+			prev = inputarray[i-1]
+			next = inputarray[i+1]
+			if ~isnan(prev) and ~isnan(next):
+				outputarray[i] = (prev + next) / 2
 
-	return outputlist
+	return outputarray
 
 def impute_range(inputarray, impute_length, input_length):
 	'''
