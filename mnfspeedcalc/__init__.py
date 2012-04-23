@@ -99,9 +99,9 @@ def load_5m_station_speeds_year(stations, year, directory):
 		date_index += 1
 	pass
 
-def load_5m_station_speeds_day(stations, date, directory):
+def load_5m_station_speeds_day(stations, date, directory, targetarray):
 	'''
-	Returns a numpy.array of 1-minute speeds for the stations for a single day.
+	Fills targetarray with 1-minute speeds for the stations for a single day.
 
 	The dimensions of the arrray are (s, m), where:
 		s = the index of the station
@@ -110,13 +110,36 @@ def load_5m_station_speeds_day(stations, date, directory):
 	or numpy.NaN if there is no valid speed.
 	'''
 
-	tr = TrafficReader(path.join(directory, traffic_filename_from_date(date)))
-	speedarray = numpy.empty( (len(stations), 288) )
+	# make sure that targetarray has the right dimensions
+	if targetarray.shape != (len(stations), 288):
+		raise ValueError("Target array has wrong dimensions to hold station speeds")
+
+	try:
+		tr = TrafficReader(path.join(directory, traffic_filename_from_date(date)))
+	except IOError:
+		# if there is no file for the given day, return a list of invalid speeds
+		targetarray[:,:] = nan
+		return
 
 	for sid in stations:
-		onemin_speeds = impute.average_multilist(
-			[tr.onemin_speeds_for_detector(d) for d in stations[sid].detector_name_list])
-		speedarray[stations[sid].index,:] = impute.f
+		targetarray[sid,:] = \
+			impute.impute1(
+				impute.impute_range(
+					impute.average_list(
+						impute.impute_range(
+							impute.average_multilist(
+								[tr.onemin_speeds_for_detector(d) for d in stations[sid].detector_name_list]
+							),
+							impute_length = 3,
+							input_length = 3
+						),
+						block_size = 5,
+						max_invalid = 1
+					),
+					impute_length = 3,
+					inpute_length = 3
+				)
+			)
 
 def avg_list(input):
 	return sum(input) / len(input)
