@@ -157,19 +157,16 @@ def impute_range(inputarray, impute_length, input_length):
 
 def linear_regression(y, min_valid=1):
 	'''
-	Returns a function that can generate new values based on parameters estimated using linear regression on the input values
+	Returns a function that can generate new values based on parameters
+	estimated using linear regression on the input values
 	'''
-	x = range(len(y))
+	x = arange(len(y))
 
 	# first, remove any invalid (None) data in y as well as the corresponding x
 	# values
-	while True:
-		try:
-			i = y.index(None)
-			del y[i]
-			del x[i]
-		except ValueError:
-			break
+	mask = ~isnan(y)
+	x = x[mask]
+	y = y[mask]
 
 	n = len(y)
 	if n < min_valid:
