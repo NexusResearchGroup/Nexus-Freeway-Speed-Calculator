@@ -16,18 +16,18 @@ def remove_values(inputlist, targetvalue):
 	'''
 	return [x for x in inputlist if x != targetvalue]
 
-def gap_list(inputlist, gap_value=None):
+def gap_list(inputarray):
 	'''
-	Returns a list of indices into inputlist that indicate the first in a
-	sequence of elements with value gap_value
+	Returns a list of indices into inputarray that indicate the first in a
+	sequence of elements with value nan
 	'''
 
 	in_gap = False
 	gap_start = 0
 	gap_end = 0
 
-	for i in range(len(inputlist)):
-		if inputlist[i] == gap_value:
+	for i in range(len(inputarray)):
+		if isnan(inputarray[i]):
 			if not in_gap:
 				in_gap = True
 				gap_start = i
