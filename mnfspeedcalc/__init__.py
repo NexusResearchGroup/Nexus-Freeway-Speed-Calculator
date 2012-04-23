@@ -91,6 +91,12 @@ def load_5m_station_speeds_year(stations, year, directory):
 	or numpy.NaN if there is no valid speed.
 	'''
 
+	speedarray = empty([len(stations), ndays_in_year(year), 288])
+
+	date_index = 0
+	for date in dates_in_year(year):
+		load_5m_station_speeds_day(stations, date, directory, speedarray[:,date_index,:])
+		date_index += 1
 	pass
 
 def load_5m_station_speeds_day(stations, date, directory):
