@@ -1,6 +1,6 @@
 from __future__ import division
 from collections import deque
-from numpy import array
+import numpy
 import itertools as IT
 
 def remove_values(inputlist, targetvalue):
@@ -11,7 +11,8 @@ def remove_values(inputlist, targetvalue):
 
 def gap_list(inputlist, gap_value=None):
 	'''
-	Returns a list of indices into inputlist that indicate the first in a sequence of elements with value gap_value
+	Returns a list of indices into inputlist that indicate the first in a
+	sequence of elements with value gap_value
 	'''
 
 	in_gap = False
@@ -52,10 +53,12 @@ def impute1(inputlist, gap_value=None):
 
 	return outputlist
 
-
 def impute_range(inputlist, impute_length, input_length):
 	'''
-	Fills in gaps up to the specified length using linear regression. impute_length specifies the maximum number of values that can be imputed. input_length specifies how far to the left and right of a gap we should look for input values.
+	Fills in gaps up to the specified length using linear regression.
+	impute_length specifies the maximum number of values that can be imputed.
+	input_length specifies how far to the left and right of a gap we should
+	look for input values.
 	'''
 	outputlist = inputlist
 
@@ -64,7 +67,8 @@ def impute_range(inputlist, impute_length, input_length):
 
 		if gap_length <= impute_length:
 			# case [... o o o x x x o o o ...]
-			# establish left and right bounds for regression, making sure not to run off the beginning or end of the input list
+			# establish left and right bounds for regression, making sure not
+			# to run off the beginning or end of the input list
 			left = gap_start - input_length
 			if left < 0:
 				left = 0
@@ -75,10 +79,12 @@ def impute_range(inputlist, impute_length, input_length):
 			try:
 				regression_function = linear_regression(inputlist[left:right], min_valid=2)
 			except ValueError:
-				# if there aren't enough valid values nearby for regression, skip this gap
+				# if there aren't enough valid values nearby for regression,
+				# skip this gap
 				continue
 
-			# fill in the gap values using the regression function. note that for the purposes of regression, left = 0
+			# fill in the gap values using the regression function. note that
+			# for the purposes of regression, left = 0
 			for i in range(gap_start, gap_end):
 				outputlist[i] = regression_function(i - left)
 
@@ -99,7 +105,8 @@ def impute_range(inputlist, impute_length, input_length):
 				for i in range(gap_start, right):
 					left_list.append(regression_function(i - left))
 			except ValueError:
-				# if there aren't enough valid values nearby for regression, leave invalid values for this side of the gap
+				# if there aren't enough valid values nearby for regression,
+				# leave invalid values for this side of the gap
 				left_list = [None] * impute_length
 
 			# now the right end
@@ -115,7 +122,8 @@ def impute_range(inputlist, impute_length, input_length):
 				for i in range(left, gap_end):
 					right_list.append(regression_function(i - left))
 			except ValueError:
-				# if there aren't enough valid values nearby for regression, leave invalid values for this side of the gap
+				# if there aren't enough valid values nearby for regression,
+				# leave invalid values for this side of the gap
 				right_list = [None] * impute_length
 
 			# put the imputed values into the output
@@ -126,7 +134,8 @@ def impute_range(inputlist, impute_length, input_length):
 			if gap_start + impute_length >= gap_end - impute_length:
 				# find the indices where they overlap
 				overlaps = list(set(range(gap_start, gap_start + impute_length)) & set(range(gap_end - impute_length, gap_end)))
-				# average the overlaping parts of the lists and put them into the output
+				# average the overlaping parts of the lists and put them into
+				# the output
 				for i in overlaps:
 					left_value = left_list[i - gap_start]
 					right_value = right_list[impute_length - (gap_end - i)]
@@ -145,7 +154,8 @@ def linear_regression(y, min_valid=1):
 	'''
 	x = range(len(y))
 
-	# first, remove any invalid (None) data in y as well as the corresponding x values
+	# first, remove any invalid (None) data in y as well as the corresponding x
+	# values
 	while True:
 		try:
 			i = y.index(None)
@@ -187,25 +197,32 @@ def average_list(inputlist, block_size, max_invalid=1):
 
 	return list(outputlist)
 
-def average_multilist(inputlists, max_invalid=1):
+def average_multilist(inputarrays, max_invalid=1):
 	'''
-	Averages the corresponding elements of the input lists. If more than max_invalid of the input elements in each slot are invalid (None), the resulting average is invalid.
+	Averages the corresponding elements of the input arrays. If more than
+	max_invalid of the input elements in each slot are invalid (NAN), the
+	resulting average is invalid.
 	'''
-	inputlist = zip(*inputlists)
-	outputlist = deque()
 
-	for i in range(len(inputlist)):
-		group = inputlist[i]
-		num_invalid = group.count(None)
-		if len(group) <= 2 and num_invalid != 0:
-			outputlist.append(None)
-		elif num_invalid > max_invalid:
-			outputlist.append(None)
-		else:
-			clean_group = remove_values(list(group), None)
-			outputlist.append(sum(clean_group) / len(clean_group))
+	inputstack = vstack(inputarrays)
+	outputarray = array([len(inputarrays[0])])
 
-	return list(outputlist)
+	
+	#inputlist = zip(*inputlists)
+	#outputlist = deque()
+	#
+	#for i in range(len(inputlist)):
+	#	group = inputlist[i]
+	#	num_invalid = group.count(None)
+	#	if len(group) <= 2 and num_invalid != 0:
+	#		outputlist.append(None)
+	#	elif num_invalid > max_invalid:
+	#		outputlist.append(None)
+	#	else:
+	#		clean_group = remove_values(list(group), None)
+	#		outputlist.append(sum(clean_group) / len(clean_group))
+	#
+	#return list(outputlist)
 
 
 if __name__ == "__main__":
@@ -216,7 +233,7 @@ if __name__ == "__main__":
 	for index in gap_list(testlist):
 		print index
 
- 	print "Test impute1"
+	print "Test impute1"
 	print impute1(testlist)
 
 	print "Test linear_regression"

@@ -2,13 +2,96 @@ from __future__ import division
 from datetime import date, timedelta, time
 from trafficreader import TrafficReader
 from os import path
-from collections import deque
-from numpy import *
+from collections import deque, namedtuple
 from pprint import pprint
+import numpy
 import cProfile
 import pstats
 import impute
 import xml.etree.cElementTree as ET
+
+Corridor = namedtuple(typename = 'Corridor',
+					  field_names = ['name', 'station_ids'])
+
+Station_Data = namedtuple(typename = 'Station',
+						  field_names = ['id','speed_limit', 'detector_names', 'index'])
+
+def load_corridors(metro_config_file):
+	'''
+	Returns a list of corridors in the specified metro_config_file.
+
+	Each corridor is represented by a Corridor named tuple. The corridors and
+	stations are listed in the order in which they appear in the file.
+	'''
+
+	root = ET.parse(metro_config_file).getroot()
+
+	corridor_list = []
+	for corridor_node in root.findall('corridor'):
+		corridor_name = corridor_node.get('route') + ' ' + corridor_node.get('dir')
+
+		station_id_list = []
+		for station_node in corridor_node.findall("r_node[@n_type='Station'][@station_id]"):
+			station_id_list.append(station_node.get('station_id'))
+
+		corridor_list.append(Corridor(name = corridor_name,
+									  station_ids = station_id_list))
+
+	return corridor_list
+
+def load_stations(metro_config_file):
+	'''
+	Returns a dictionary mapping station ids to Station_Data namedtuples.
+	'''
+
+	root = ET.parse(metro_config_file).getroot()
+
+	station_dict = {}
+	station_index = 0
+	for station_node in root.findall(".//r_node[@n_type='Station'][@station_id]"):
+
+		detector_name_list = [det.get('name') for det in station_node.findall("detector")]
+
+		station_dict[station_node.get('station_id')] = (Station_Data(id = station_node.get('station_id'),
+																speed_limit = station_node.get('s_limit'),
+																detector_names = detector_name_list,
+																index = station_index))
+		station_index += 1
+
+	return station_dict
+
+def load_5m_station_speeds_year(stations, year, directory):
+	'''
+	Returns a numpy.array of 1-minute speeds for the stations.
+
+	The dimensions of the array are (s, d, m), where:
+		s = the index of the station
+		d = the index of the day in the specified year
+		m = the index of the 5-minute slot in the day
+	Each value is either a float representing the station speed at that minute,
+	or numpy.NaN if there is no valid speed.
+	'''
+
+	pass
+
+def load_5m_station_speeds_day(stations, date, directory):
+	'''
+	Returns a numpy.array of 1-minute speeds for the stations for a single day.
+
+	The dimensions of the arrray are (s, m), where:
+		s = the index of the station
+		m = the index of the 5-minute slot in the day (288)
+	Each value is either a float representing the station speed at that minute,
+	or numpy.NaN if there is no valid speed.
+	'''
+
+	tr = TrafficReader(path.join(directory, traffic_filename_from_date(date)))
+	speedarray = numpy.empty( (len(stations), 288) )
+
+	for sid in stations:
+		onemin_speeds = impute.average_multilist(
+			[tr.onemin_speeds_for_detector(d) for d in stations[sid].detector_name_list])
+		speedarray[stations[sid].index,:] = impute.f
 
 def avg_list(input):
 	return sum(input) / len(input)
@@ -33,6 +116,19 @@ def index_of_first_monday_in_year(year):
 		# monday is weekday 0
 		if (test_date + (one_day * index)).weekday() == 0:
 			return index
+
+def ndays_in_year(year):
+	return (date(year, 12, 31) - date(year, 1, 1)).days
+
+def dates_in_year(year):
+	'''
+	Returns an generator which iterates over all dates in the specified year.
+	'''
+	current_date = date(year, 1, 1)
+	one_day = timedelta(days=1)
+	while current_date.year == year:
+		yield current_date
+		current_date = current_date + one_day
 
 class TMS_Config:
 
@@ -112,7 +208,7 @@ class TMS_Config:
 
 		return average_speeds
 
-class Corridor:
+class old_Corridor:
 
 	def __init__(self, corridor_node=None, verbose=False):
 		self._verbose = verbose
@@ -279,7 +375,7 @@ class Corridor:
 		return avg_list(list(selected_speeds))
 
 
-class Station:
+class old_Station:
 
 	def __init__(self, station_node=None, verbose=False):
 		self._verbose = verbose
@@ -408,7 +504,7 @@ class Station:
 		return date.strftime("%Y%m%d") + ".traffic"
 
 
-class Detector:
+class old_Detector:
 
 	def __init__(self, detector_node=None, speed_limit=0, verbose=False):
 		self._verbose = verbose
@@ -450,20 +546,10 @@ class Detector:
 
 
 if __name__ == "__main__":
-	testfile = "test/metro_config_short.xml"
+	testfile = "test/metro_config.xml"
 	test_traffic_dir = "trafficreader/test"
 
 	def testing():
-		test_config = TMS_Config(testfile, verbose=False)
-		test_config.load_speeds_for_year(2010, test_traffic_dir)
-		test_config.spatial_impute()
-		test_config.weekly_impute()
-		test_config.long_temporal_impute()
-		#pprint(test_config.average_weekday_speeds(start_time=time(hour=10), end_time=time(hour=12)), width=1)
-		#test_config.print_speeds()
-
-	#prof = cProfile.run('testing()', 'test_profile')
-	#p = pstats.Stats('test_profile')
-	#p.sort_stats('cumulative').print_stats(10)
+		print len(load_stations(testfile))
 
 	testing()
