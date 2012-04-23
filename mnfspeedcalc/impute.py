@@ -60,16 +60,16 @@ def impute1(inputlist, gap_value=None):
 
 	return outputlist
 
-def impute_range(inputlist, impute_length, input_length):
+def impute_range(inputarray, impute_length, input_length):
 	'''
 	Fills in gaps up to the specified length using linear regression.
 	impute_length specifies the maximum number of values that can be imputed.
 	input_length specifies how far to the left and right of a gap we should
 	look for input values.
 	'''
-	outputlist = inputlist
+	outputarray = inputarray.copy()
 
-	for gap_start, gap_end in gap_list(inputlist):
+	for gap_start, gap_end in gap_list(inputarray):
 		gap_length = gap_end - gap_start
 
 		if gap_length <= impute_length:
@@ -80,11 +80,11 @@ def impute_range(inputlist, impute_length, input_length):
 			if left < 0:
 				left = 0
 			right = gap_end + input_length
-			if right > len(inputlist):
-				right = len(inputlist)
+			if right > len(inputarray):
+				right = len(inputarray)
 
 			try:
-				regression_function = linear_regression(inputlist[left:right], min_valid=2)
+				regression_function = linear_regression(inputarray[left:right], min_valid=2)
 			except ValueError:
 				# if there aren't enough valid values nearby for regression,
 				# skip this gap
@@ -93,7 +93,7 @@ def impute_range(inputlist, impute_length, input_length):
 			# fill in the gap values using the regression function. note that
 			# for the purposes of regression, left = 0
 			for i in range(gap_start, gap_end):
-				outputlist[i] = regression_function(i - left)
+				outputarray[i] = regression_function(i - left)
 
 		else:
 			# case [... o o o x x x x o o o ...] and
@@ -108,7 +108,7 @@ def impute_range(inputlist, impute_length, input_length):
 			left_list = []
 
 			try:
-				regression_function = linear_regression(inputlist[left:right], min_valid=2)
+				regression_function = linear_regression(inputarray[left:right], min_valid=2)
 				for i in range(gap_start, right):
 					left_list.append(regression_function(i - left))
 			except ValueError:
@@ -119,13 +119,13 @@ def impute_range(inputlist, impute_length, input_length):
 			# now the right end
 			left = gap_end - input_length
 			right = gap_end + input_length
-			if right > len(inputlist):
-				right = len(inputlist)
+			if right > len(inputarray):
+				right = len(inputarray)
 
 			right_list = []
 
 			try:
-				regression_function = linear_regression(inputlist[left:right], min_valid=2)
+				regression_function = linear_regression(inputarray[left:right], min_valid=2)
 				for i in range(left, gap_end):
 					right_list.append(regression_function(i - left))
 			except ValueError:
@@ -134,8 +134,8 @@ def impute_range(inputlist, impute_length, input_length):
 				right_list = [None] * impute_length
 
 			# put the imputed values into the output
-			outputlist[gap_start:gap_start + impute_length] = left_list
-			outputlist[gap_end - impute_length:gap_end] = right_list
+			outputarray[gap_start:gap_start + impute_length] = left_list
+			outputarray[gap_end - impute_length:gap_end] = right_list
 
 			# do imputed ranges overlap?
 			if gap_start + impute_length >= gap_end - impute_length:
@@ -147,13 +147,13 @@ def impute_range(inputlist, impute_length, input_length):
 					left_value = left_list[i - gap_start]
 					right_value = right_list[impute_length - (gap_end - i)]
 					if left_value == None:
-						outputlist[i] = right_value
+						outputarray[i] = right_value
 					elif right_value == None:
-						outputlist[i] = left_value
+						outputarray[i] = left_value
 					else:
-						outputlist[i] = (left_value + right_value) / 2
+						outputarray[i] = (left_value + right_value) / 2
 
-	return outputlist
+	return outputarray
 
 def linear_regression(y, min_valid=1):
 	'''
