@@ -1,7 +1,14 @@
 from __future__ import division
 from collections import deque
-import numpy
-import itertools as IT
+from numpy import *
+
+def count_nonnan(inputarray):
+	'''
+	Given a numpy.array, returns an integer count of the elements which have
+	some value other than NAN
+	'''
+
+	return count_nonzero(~isnan(inputarray))
 
 def remove_values(inputlist, targetvalue):
 	'''
@@ -205,9 +212,18 @@ def average_multilist(inputarrays, max_invalid=1):
 	'''
 
 	inputstack = vstack(inputarrays)
-	outputarray = array([len(inputarrays[0])])
+	outputarray = empty([len(inputarrays[0])])
 
-	
+	for i in range(len(inputarrays[0])):
+		group = inputstack[:, i]
+		num_valid = count_nonnan(group)
+		num_invalid = len(group) - num_valid
+		if num_invalid > max_invalid:
+			outputarray[i] = nan
+		else:
+			outputarray[i] = nansum(group) / num_valid
+
+	return outputarray
 	#inputlist = zip(*inputlists)
 	#outputlist = deque()
 	#
@@ -227,18 +243,8 @@ def average_multilist(inputarrays, max_invalid=1):
 
 if __name__ == "__main__":
 
-	testlist = [0,None, 1,None,None,None, 2,None, 3, 4,None,None,None, 5,None]
+	a = array([50,50,50,nan,50,50,50,50,50,50])
+	b = array([60,nan,60,60,60,60,60,60,60,60])
+	c = array([70,70,nan,nan,70,70,nan,70,70,70])
 
-	print "Test gap_list"
-	for index in gap_list(testlist):
-		print index
-
-	print "Test impute1"
-	print impute1(testlist)
-
-	print "Test linear_regression"
-	f = linear_regression((0,3,4,4,8,10))
-	print f(None)
-
-	print "Test impute_range"
-	print impute_range(testlist,3,3)
+	print average_multilist([a,b,c])
