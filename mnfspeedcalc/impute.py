@@ -223,9 +223,12 @@ def average_multilist(inputarrays, max_invalid=1):
 	return outputarray
 
 if __name__ == "__main__":
+	set_printoptions(precision=2)
 
-	a = array([50,50,50,nan,50,50,50,50,50,50])
-	b = array([60,nan,60,60,60,60,60,60,60,60])
-	c = array([70,70,nan,nan,70,70,nan,70,70,70])
+	a = array([50,50,50,nan,55,50,50,50,50,50])
+	b = array([60,nan,60,60,60,60,nan,60,60,60])
+	c = array([70,70,nan,nan,70,70,nan,65,70,70])
 
-	print average_multilist([a,b,c])
+	speeds = average_multilist([a,b,c])
+	print speeds
+	print impute_range(speeds, 3, 3)
