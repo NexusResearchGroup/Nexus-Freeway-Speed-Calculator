@@ -183,23 +183,30 @@ def linear_regression(y, min_valid=1):
 
 	return f
 
-def average_list(inputlist, block_size, max_invalid=1):
+def average_list(inputarray, block_size, max_invalid=1):
 	'''
-	Averages the input list into blocks of block_size. If more than max_invalid of the input elements in each block are invalid (None), the resulting average block is invalid.
+	Averages the input list into blocks of block_size. If more than max_invalid
+	of the input elements in each block are invalid (NAN), the resulting
+	average block is invalid.
 	'''
 
-	outputlist = deque()
+	# make sure input length is a multiple of block_size
+	if (len(inputarray) % block_size) != 0:
+		raise ValueError("Length of input array must be a multiple of block size")
 
-	for i in range(0, len(inputlist), block_size):
-		block = inputlist[i:i+block_size]
-
-		if block.count(None) > max_invalid:
-			outputlist.append(None)
+	outputarray = empty([int(len(inputarray) / block_size)])
+	j = 0
+	for i in range(0, len(inputarray), block_size):
+		block = inputarray[i:i+block_size]
+		num_valid = count_nonnan(block)
+		num_invalid = block_size - num_valid
+		if num_invalid > max_invalid:
+			outputarray[j] = nan
 		else:
-			block = remove_values(block,None)
-			outputlist.append(sum(block) / len(block))
+			outputarray[j] = nansum(block) / num_valid
+		j += 1
 
-	return list(outputlist)
+	return outputarray
 
 def average_multilist(inputarrays, max_invalid=1):
 	'''
