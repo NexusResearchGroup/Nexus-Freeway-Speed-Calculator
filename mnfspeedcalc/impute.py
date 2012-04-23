@@ -224,22 +224,6 @@ def average_multilist(inputarrays, max_invalid=1):
 			outputarray[i] = nansum(group) / num_valid
 
 	return outputarray
-	#inputlist = zip(*inputlists)
-	#outputlist = deque()
-	#
-	#for i in range(len(inputlist)):
-	#	group = inputlist[i]
-	#	num_invalid = group.count(None)
-	#	if len(group) <= 2 and num_invalid != 0:
-	#		outputlist.append(None)
-	#	elif num_invalid > max_invalid:
-	#		outputlist.append(None)
-	#	else:
-	#		clean_group = remove_values(list(group), None)
-	#		outputlist.append(sum(clean_group) / len(clean_group))
-	#
-	#return list(outputlist)
-
 
 if __name__ == "__main__":
 
