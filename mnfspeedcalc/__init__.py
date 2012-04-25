@@ -84,7 +84,8 @@ def load_5m_station_speeds_year(stations, year, directory):
 	for date in dates_in_year(year):
 		load_5m_station_speeds_day(stations, date, directory, speedarray[:,date_index,:])
 		date_index += 1
-	pass
+
+	return speedarray
 
 def load_5m_station_speeds_day(stations, date, directory, targetarray):
 	'''
