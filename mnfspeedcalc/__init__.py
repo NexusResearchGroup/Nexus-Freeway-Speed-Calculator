@@ -167,7 +167,7 @@ def index_of_first_monday_in_year(year):
 			return index
 
 def ndays_in_year(year):
-	return (date(year, 12, 31) - date(year, 1, 1)).days
+	return (date(year + 1, 1, 1) - date(year, 1, 1)).days
 
 def dates_in_year(year):
 	'''
