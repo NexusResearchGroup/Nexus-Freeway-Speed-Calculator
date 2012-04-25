@@ -64,25 +64,6 @@ def load_stations(metro_config_file):
 
 	return station_dict
 
-def spatial_impute(corridors, stations, speedarray):
-	'''
-	Given a list of corridors, a list of stations, and the speed array, performs
-	spatial imputation of speeds along the stations in a corridor.
-
-	The speed array is updated in place; nothing is returned
-	'''
-
-	pass
-
-def weekly_impute(speedarray):
-	'''
-	Given the speed array, performs week-to-week imputation of speeds for
-	individual stations. The speed array is updated in place; nothing is
-	returned.
-	'''
-
-	pass
-
 def load_5m_station_speeds_year(stations, year, directory):
 	'''
 	Returns a numpy.array of 1-minute speeds for the stations.
@@ -189,6 +170,36 @@ def dates_in_year(year):
 	while current_date.year == year:
 		yield current_date
 		current_date = current_date + one_day
+
+def weekly_impute(speedarray):
+	'''
+	Given the speed array, performs week-to-week imputation of speeds for
+	individual stations. The speed array is updated in place; nothing is
+	returned.
+	'''
+	for start_day in range(7):
+		for station in range(speedarray.shape[0]):
+			for timeslot in range(speedarray.shape[2]):
+				speedarray[station, start_day::7, timeslot] = \
+					impute.impute_range(speedarray[station, start_day::7, timeslot],
+										impute_length=3,
+										input_length=2)
+
+def corridor_impute(corridors, stations, speedarray):
+	'''
+	Given a list of corridors, a list of stations, and the speed array, performs
+	spatial imputation of speeds along the stations in a corridor.
+
+	The speed array is updated in place; nothing is returned
+	'''
+	for corridor in corridors:
+		station_indices = [stations[sid].index for sid in corridor.station_ids]
+		for day in range(speedarray.shape[1]):
+			for timeslot in range(speedarray.shape[2]):
+				speedarray[station_indices, day, timeslot] = \
+					impute.impute_range(speedarray[station_indices, day, timeslot],
+										impute_length=4,
+										input_length=1)
 
 class TMS_Config:
 
