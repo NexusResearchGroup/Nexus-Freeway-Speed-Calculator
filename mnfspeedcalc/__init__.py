@@ -4,7 +4,7 @@ from trafficreader import TrafficReader
 from os import path
 from collections import deque, namedtuple
 from pprint import pprint
-import numpy
+from numpy import *
 import cProfile
 import pstats
 import impute
