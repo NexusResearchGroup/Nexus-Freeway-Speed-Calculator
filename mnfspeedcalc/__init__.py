@@ -24,6 +24,8 @@ def load_corridors(metro_config_file):
 	stations are listed in the order in which they appear in the file.
 	'''
 
+	print "Loading corridors from ", metro_config_file
+
 	root = ET.parse(metro_config_file).getroot()
 
 	corridor_list = []
@@ -43,6 +45,8 @@ def load_stations(metro_config_file):
 	'''
 	Returns a dictionary mapping station ids to Station namedtuples.
 	'''
+
+	print "Loading stations from ", metro_config_file
 
 	root = ET.parse(metro_config_file).getroot()
 
@@ -91,6 +95,8 @@ def load_5m_station_speeds_year(stations, year, directory):
 	or numpy.NaN if there is no valid speed.
 	'''
 
+	print "Loading 5m data for year ", year
+
 	speedarray = empty([len(stations), ndays_in_year(year), 288])
 
 	date_index = 0
@@ -109,6 +115,9 @@ def load_5m_station_speeds_day(stations, date, directory, targetarray):
 	Each value is either a float representing the station speed at that minute,
 	or numpy.NaN if there is no valid speed.
 	'''
+
+	print "Loading 5m data for date ", date
+	print "    from ", path.join(directory, traffic_filename_from_date(date))
 
 	# make sure that targetarray has the right dimensions
 	if targetarray.shape != (len(stations), 288):
@@ -129,6 +138,9 @@ def load_5m_station_speeds_day(stations, date, directory, targetarray):
 						impute.impute_range(
 							impute.average_multilist(
 								[tr.onemin_speeds_for_detector(d) for d in stations[sid].detector_name_list]
+
+		#print "    Loading speeds for station ", sid
+
 							),
 							impute_length = 3,
 							input_length = 3
