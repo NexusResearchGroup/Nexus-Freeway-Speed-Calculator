@@ -169,6 +169,9 @@ def index_of_first_monday_in_year(year):
 def ndays_in_year(year):
 	return (date(year + 1, 1, 1) - date(year, 1, 1)).days
 
+def traffic_filename_from_date(date):
+	return date.strftime("%Y%m%d") + ".traffic"
+
 def dates_in_year(year):
 	'''
 	Returns an generator which iterates over all dates in the specified year.
