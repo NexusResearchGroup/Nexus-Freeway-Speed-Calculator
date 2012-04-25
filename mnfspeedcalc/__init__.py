@@ -212,6 +212,14 @@ def corridor_impute(corridors, stations, speedarray):
 										impute_length=4,
 										input_length=1)
 
+
+
+def average_hourly_weekday_speeds(speedarray, stations, year):
+	results = {}
+	for station in stations:
+		res
+	pass
+
 class TMS_Config:
 
 	def __init__(self, metro_config_file=None, verbose=False):
