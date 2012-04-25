@@ -13,7 +13,7 @@ import xml.etree.cElementTree as ET
 Corridor = namedtuple(typename = 'Corridor',
 					  field_names = ['name', 'station_ids'])
 
-Station_Data = namedtuple(typename = 'Station',
+Station = namedtuple(typename = 'Station',
 						  field_names = ['id','speed_limit', 'detector_names', 'index'])
 
 def load_corridors(metro_config_file):
