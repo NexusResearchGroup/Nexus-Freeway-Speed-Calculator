@@ -636,10 +636,15 @@ class old_Detector:
 
 
 if __name__ == "__main__":
-	testfile = "test/metro_config.xml"
-	test_traffic_dir = "trafficreader/test"
+	test_mcfile = "test/metro_config.xml"
+	test_traffic_dir = "/Users/aowen/Desktop/2010/test"
+	year = 2010
 
 	def testing():
-		print len(load_stations(testfile))
+		stations = load_stations(test_mcfile)
+		corridors = load_corridors(test_mcfile)
+		speedarray = load_5m_station_speeds_year(stations, 2010, test_traffic_dir)
+		print speedarray
+
 
 	testing()
