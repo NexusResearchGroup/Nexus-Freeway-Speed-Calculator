@@ -112,27 +112,34 @@ def load_5m_station_speeds_day(stations, date, directory, targetarray):
 		return
 
 	for sid in stations:
-		targetarray[sid,:] = \
-			impute.impute1(
-				impute.impute_range(
-					impute.average_list(
-						impute.impute_range(
-							impute.average_multilist(
-								[tr.onemin_speeds_for_detector(d) for d in stations[sid].detector_name_list]
 
 		#print "    Loading speeds for station ", sid
 
+		# if there are no detectors associated with this station, it has no
+		# speeds
+		if len(stations[sid].detector_names) == 0:
+			targetarray[stations[sid].index,:] = nan
+		# otherwise, get the speeds for all detectors, combine them, and perform
+		# imputation
+		else:
+			targetarray[stations[sid].index,:] = \
+				impute.impute1(
+					impute.impute_range(
+						impute.average_list(
+							impute.impute_range(
+								impute.average_multilist(
+									[tr.onemin_speeds_for_detector(d) for d in stations[sid].detector_names]
+								),
+								impute_length = 3,
+								input_length = 3
 							),
-							impute_length = 3,
-							input_length = 3
+							block_size = 5,
+							max_invalid = 1
 						),
-						block_size = 5,
-						max_invalid = 1
-					),
-					impute_length = 3,
-					inpute_length = 3
+						impute_length = 3,
+						input_length = 3
+					)
 				)
-			)
 
 def avg_list(input):
 	return sum(input) / len(input)
