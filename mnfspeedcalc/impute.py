@@ -110,11 +110,16 @@ def impute_range(inputarray, impute_length, input_length):
 			try:
 				regression_function = linear_regression(inputarray[left:right], min_valid=2)
 				for i in range(gap_start, right):
-					left_list.append(regression_function(i - left))
+					# don't impute negative speeds, or speeds > 80
+					imputed_value = regression_function(i - left)
+					if 0 < imputed_value < 80:
+						left_list.append(imputed_value)
+					else:
+						left_list.append(nan)
 			except ValueError:
 				# if there aren't enough valid values nearby for regression,
 				# leave invalid values for this side of the gap
-				left_list = [None] * impute_length
+				left_list = [nan] * impute_length
 
 			# now the right end
 			left = gap_end - input_length
@@ -127,11 +132,16 @@ def impute_range(inputarray, impute_length, input_length):
 			try:
 				regression_function = linear_regression(inputarray[left:right], min_valid=2)
 				for i in range(left, gap_end):
-					right_list.append(regression_function(i - left))
+					# don't impute negative speeds, or speeds > 80
+					imputed_value = regression_function(i - left)
+					if 0 < imputed_value < 80:
+						right_list.append(imputed_value)
+					else:
+						right_list.append(nan)
 			except ValueError:
 				# if there aren't enough valid values nearby for regression,
 				# leave invalid values for this side of the gap
-				right_list = [None] * impute_length
+				right_list = [nan] * impute_length
 
 			# put the imputed values into the output
 			outputarray[gap_start:gap_start + impute_length] = left_list
@@ -146,10 +156,12 @@ def impute_range(inputarray, impute_length, input_length):
 				for i in overlaps:
 					left_value = left_list[i - gap_start]
 					right_value = right_list[impute_length - (gap_end - i)]
-					if left_value == None:
+					if isnan(left_value):
 						outputarray[i] = right_value
-					elif right_value == None:
+					elif isnan(right_value):
 						outputarray[i] = left_value
+					elif isnan(right_value) and isnan(left_value):
+						outputarray[i] = nan
 					else:
 						outputarray[i] = (left_value + right_value) / 2
 
@@ -223,6 +235,8 @@ def average_multilist(inputarrays, max_invalid=1):
 		num_valid = count_nonnan(group)
 		num_invalid = len(group) - num_valid
 		if num_invalid > max_invalid:
+			outputarray[i] = nan
+		elif num_valid == 0:
 			outputarray[i] = nan
 		else:
 			outputarray[i] = nansum(group) / num_valid

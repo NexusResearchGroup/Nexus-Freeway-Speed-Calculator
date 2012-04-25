@@ -41,7 +41,7 @@ def load_corridors(metro_config_file):
 
 def load_stations(metro_config_file):
 	'''
-	Returns a dictionary mapping station ids to Station_Data namedtuples.
+	Returns a dictionary mapping station ids to Station namedtuples.
 	'''
 
 	root = ET.parse(metro_config_file).getroot()
@@ -52,7 +52,7 @@ def load_stations(metro_config_file):
 
 		detector_name_list = [det.get('name') for det in station_node.findall("detector")]
 
-		station_dict[station_node.get('station_id')] = (Station_Data(id = station_node.get('station_id'),
+		station_dict[station_node.get('station_id')] = (Station(id = station_node.get('station_id'),
 																speed_limit = station_node.get('s_limit'),
 																detector_names = detector_name_list,
 																index = station_index))
