@@ -145,6 +145,25 @@ def load_5m_station_speeds_day(stations, date, directory, targetarray):
 def avg_list(input):
 	return sum(input) / len(input)
 
+def count_nonnan(inputarray):
+	'''
+	Given a numpy.array, returns an integer count of the number of elements
+	which are anything other than NAN.
+	'''
+
+	return count_nonzero(~isnan(inputarray))
+
+def nanavg(inputarray):
+	'''
+	Given a numpy.array, returns the average value of all elements, ignoring
+	elements whose value is NAN.
+	'''
+	num_nonnan = count_nonnan(inputarray)
+	if num_nonnan == 0:
+		return nan
+	else:
+		return nansum(inputarray) / num_nonnan
+
 def timeslot_from_time(input_time):
 	'''
 	Determines the 5-minute slot index of the given time of day, where 00:00:00
