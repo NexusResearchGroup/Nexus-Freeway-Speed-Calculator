@@ -676,6 +676,14 @@ class old_Detector:
 			print "loaded speeds: ", str(speeds)
 		return speeds
 
+	weekdays = weekday_indices_in_year(2010)
+	hours = range(0, 288, 12) # 12 timeslots per hour
+	for station_id in stations:
+		sidx = stations[station_id].index
+		hourly_speed_list = [nanavg(speedarray[sidx, weekdays, h:(h+12)])
+							 for h in hours]
+		results[station_id] = hourly_speed_list
+	return results
 
 if __name__ == "__main__":
 	test_mcfile = "test/metro_config.xml"
