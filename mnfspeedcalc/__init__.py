@@ -193,7 +193,7 @@ def traffic_filename_from_date(date):
 
 def dates_in_year(year):
 	'''
-	Returns an generator which iterates over all dates in the specified year.
+	Returns a generator which iterates over all dates in the specified year.
 	'''
 	current_date = date(year, 1, 1)
 	one_day = timedelta(days=1)
