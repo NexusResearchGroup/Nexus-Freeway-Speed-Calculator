@@ -188,6 +188,19 @@ def index_of_first_monday_in_year(year):
 def ndays_in_year(year):
 	return (date(year + 1, 1, 1) - date(year, 1, 1)).days
 
+def weekday_indices_in_year(year):
+	'''
+	Returns a list of the indices of all the weekdays (M-F) in the given year,
+	where index 0 is January 1
+	'''
+	first_monday = index_of_first_monday_in_year(year)
+	ndays = ndays_in_year(210)
+	weekdays = []
+	for base_weekday in range(first_monday, first_monday + 5):
+		weekdays.extend(range(base_weekday, ndays, 7))
+	weekdays.sort()
+	return weekdays
+
 def traffic_filename_from_date(date):
 	return date.strftime("%Y%m%d") + ".traffic"
 
