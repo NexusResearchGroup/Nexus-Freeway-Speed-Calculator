@@ -231,7 +231,17 @@ def corridor_impute(corridors, stations, speedarray):
 										impute_length=4,
 										input_length=1)
 
+def long_temporal_impute(stations, speedarray):
+	'''
+	Given the speed array, performs "long" temporal impution of gaps up to
+	6 timeslots long. The speed array is updated in place; nothing is returned.
+	'''
 
+	for station in range(speedarray.shape[0]):
+		for day in range(speedarray.shape[1]):
+			speedarray[station, day, :] = impute.impute_range(speedarray[station, day, :],
+															  impute_length=6,
+															  input_length=6)
 
 def average_hourly_weekday_speeds(speedarray, stations, year):
 	results = {}
