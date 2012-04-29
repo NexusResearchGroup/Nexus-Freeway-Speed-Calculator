@@ -214,6 +214,17 @@ def dates_in_year(year):
 		yield current_date
 		current_date = current_date + one_day
 
+def weekdays_in_year(year):
+	'''
+	Returns a generator which iterates over all weekdays in the specified year.
+	'''
+	current_date = date(year, 1,1)
+	one_day = timedelta(days=1)
+	while current_date.year == year:
+		if current_date.weekday() in range(5):
+			yield current_date
+		current_date = current_date + one_day
+
 def weekly_impute(speedarray):
 	'''
 	Given the speed array, performs week-to-week imputation of speeds for
