@@ -278,6 +278,24 @@ def average_hourly_weekday_speeds(speedarray, stations, year):
 		results[station_id] = hourly_speed_list
 	return results
 
+def average_am_weekday_speeds(speedarray, stations, year):
+	return average_weekday_speeds_in_time_range(speedarray, stations, year, 90, 102)
+
+def average_pm_weekday_speeds(speedarray, stations, year):
+	return average_weekday_speeds_in_time_range(speedarray, stations, year, 198, 210)	
+
+def average_op_weekday_speeds(speedarray, stations, year):
+	return average_weekday_speeds_in_time_range(speedarray, stations, year, 120, 168)
+	
+def average_weekday_speeds_in_time_range(speedarray, stations, year, start_timeslot, end_timeslot):
+	results = {}
+	weekdays = weekday_indices_in_year(2010)
+	for station_id in stations:
+		stidx = stations[station_id].index
+		speed = nanavg(speedarray[sidx, weekdays, start_timeslot:(end_timeslot+1)])
+		results[station_id] = speed
+	return results
+
 if __name__ == "__main__":
 	test_mcfile = "test/metro_config.xml"
 	test_traffic_dir = "/Users/aowen/Desktop/2010/test"
