@@ -291,7 +291,7 @@ def average_weekday_speeds_in_time_range(speedarray, stations, year, start_times
 	results = {}
 	weekdays = weekday_indices_in_year(2010)
 	for station_id in stations:
-		stidx = stations[station_id].index
+		sidx = stations[station_id].index
 		speed = nanavg(speedarray[sidx, weekdays, start_timeslot:(end_timeslot+1)])
 		results[station_id] = speed
 	return results
