@@ -103,7 +103,7 @@ def impute_range(inputarray, impute_length, input_length):
 			left = gap_start - input_length
 			if left < 0:
 				left = 0
-			right = gap_start + input_length
+			right = gap_start + impute_length
 
 			left_list = []
 
@@ -122,7 +122,7 @@ def impute_range(inputarray, impute_length, input_length):
 				left_list = [nan] * impute_length
 
 			# now the right end
-			left = gap_end - input_length
+			left = gap_end - impute_length
 			right = gap_end + input_length
 			if right > len(inputarray):
 				right = len(inputarray)
