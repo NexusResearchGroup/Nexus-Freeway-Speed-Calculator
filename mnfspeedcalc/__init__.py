@@ -11,7 +11,9 @@ import impute
 import xml.etree.cElementTree as ET
 
 def avg_list(inputlist):
-    return sum(inputlist) / len(inputlist)
+	if len(inputlist) == 0:
+		return nan
+	return sum(inputlist) / len(inputlist)
 
 def timeslot_from_time(input_time):
     '''
@@ -55,13 +57,6 @@ class TMS_Config:
             print str(self) + " loading from file: " + metro_config_file
         tree = ET.parse(metro_config_file)
         self._node = tree.getroot()
-
-        # get the date from the config file
-        # disabled due to platform variations
-        #time_string = self._node.get("time_stamp")
-        #self._timestamp = datetime.strptime(time_string, "%a %b %d %H:%M:%S %Z %Y")
-        #if self._verbose:
-        #	print str(self) + " set timestamp = " + str(self._timestamp)
 
         # find all the defined corridors in the config file
         self.corridor_list = []
