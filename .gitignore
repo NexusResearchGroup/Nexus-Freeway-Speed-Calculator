@@ -21,6 +21,4 @@ dist
 *.tmp*
 .DS_Store
 *~
-mnfspeedcalc/trafficreader
-
 mnfspeedcalc/test_profile
