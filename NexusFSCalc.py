@@ -39,7 +39,7 @@ results = (calculator.average_weekday_speeds(start_time, end_time))
 
 # Write speeds to output file
 w = csv.writer(output_file)
-w.writerow(['sid', 'speed'])
+w.writerow(['sid', 'detspeed'])
 for p in results.items():
 	id = s_num(p[0])
 	speed = p[1]
